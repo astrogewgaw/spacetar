@@ -1,0 +1,16 @@
+dist
+build
+.egg
+.nox
+.vscode
+.coverage
+__pycache__
+.mypy_cache
+.pytest_cache
+.ipynb_checkpoints
+
+*.py[cod]
+*.o
+*.so
+*.egg
+*.egg-info

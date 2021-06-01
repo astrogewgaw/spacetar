@@ -1,0 +1,24 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath("../../spacetar"))
+
+project = "spacetar"
+copyright = "2021, Ujjwal Panda"
+author = "Ujjwal Panda"
+
+extensions = extensions = [
+    "nbsphinx",
+    "myst_parser",
+    "sphinx_sitemap",
+    "sphinx.ext.todo",
+    "sphinx_copybutton",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+    "sphinx.ext.autosectionlabel",
+]
+
+html_theme = "sphinx_rtd_theme"
+html_baseurl = "https://spacetar.readthedocs.io"
