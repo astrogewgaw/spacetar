@@ -4,8 +4,8 @@ import click
 from pathlib import Path
 from requests import get
 from textwrap import dedent
+from itertools import zip_longest
 from bs4 import Tag, BeautifulSoup  # type: ignore
-from itertools import chain, zip_longest
 from sqlalchemy.orm import Session, relationship, declarative_base  # type: ignore
 
 from sqlalchemy import (  # type: ignore
@@ -373,6 +373,7 @@ def scrap() -> List[Dict]:
             str(_.next_sibling),
         )
         for _ in x("br")
+        if (_.next_sibling != Tag(name="br")) and (_.next_sibling != "\n")
     ]
 
     references = lambda x: [
@@ -517,7 +518,7 @@ def search(
             return the_zeroth(session.execute(query).all())
 
         riddler: Dict[int, Callable] = {
-            0: lambda q, formula: q.where(Molecule.formula == formula),
+            0: lambda q, formula: q.where(Molecule.formula.like(f"%{formula}%")),
             1: lambda q, year_range: q.where(Molecule.year == year_range[0])
             if year_range[0] == year_range[1]
             else (
@@ -534,7 +535,9 @@ def search(
             2: lambda q, tentative: q.where(Molecule.tentative == tentative),
             3: lambda q, source: q.where(Molecule.sources.any(Source.name == source)),
             4: lambda q, author: q.where(
-                Molecule.references.any(Reference.authors.any(Author.name == author))
+                Molecule.references.any(
+                    Reference.authors.any(Author.name.like(f"%{author}%"))
+                )
             ),
             5: lambda q, extragalactic: q.where(
                 Molecule.extragalactic.any(Extragalactic.name == extragalactic)
@@ -582,12 +585,19 @@ def richie_rich(results: List, pager: bool = True) -> None:
         "Extragalactic Detection",
     ]
 
-    marked = lambda x: Markdown("\n".join([f"* {_}" for _ in x]))
+    numlist = lambda x: "\n".join([f"{i + 1}. {_}" for i, _ in enumerate(x)])
+
+    em_color = {
+        "Radio": "cyan",
+        "IR": "magenta",
+        "UV/Vis": "yellow",
+    }
 
     table = Table(
         *header,
-        title=f"Query results | Number of results: {rsize}",
+        show_lines=True,
         title_justify="center",
+        title=f"Query results | Number of results: {rsize}",
     )
 
     for result in results:
@@ -595,18 +605,33 @@ def richie_rich(results: List, pager: bool = True) -> None:
             result.formula,
             str(result.year),
             f"{'Yes' if result.tentative else 'No'}",
-            marked(
+            numlist(
                 [
-                    f"Discovered in {_.name if _.name else 'N/A'} in the {_.emband} band."
+                    dedent(
+                        f"""
+                        {_.name if _.name else 'N/A'}
+                        ([italic {em_color.get(_.emband, '')}]{_.emband if _.emband else 'N/A'}[/])
+                        """
+                    ).replace("\n", " ")
                     for _ in result.sources
                 ]
             ),
-            marked([_.name for _ in result.references]),
-            marked([_.name for _ in result.extragalactic]),
+            numlist(
+                [
+                    dedent(
+                        f"""
+                        {_.name}
+                        ([italic]{', '.join([__.name if __.name else 'N/A' for __ in _.authors])}[/])
+                        """
+                    ).replace("\n", " ")
+                    for _ in result.references
+                ]
+            ),
+            numlist([_.name for _ in result.extragalactic]),
         )
 
     if pager:
-        with console.pager():
+        with console.pager(styles=True):
             console.print(table)
     else:
         console.print(table)
