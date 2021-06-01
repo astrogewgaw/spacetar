@@ -1,41 +1,3 @@
-"""
-If you want to find out *anything* about space molecules, you just have to type:
-
-```bash
-spacetar
-```
-
-Running the cli without any arguments will show you the entire database of known
-space molecules, right there in your terminal! Since there are *a lot* of known
-space molecules (more than 200 of them!), [**spacetar**][spacetar] uses a *pager*
-to display the entire table. This is a program in your operating system that is
-used for displaying things that are too long for the screen, like the `man` pages
-in most Unix systems. Since most pagers are not capable of displaying colors or
-hyperlinks, [**spacetar**][spacetar] resorts to plain old black and white output,
-though there is some good old markdown-based formatting in there (thanks to
-[**rich**][rich]).
-
-If you want to have more fun, you can ask [**spacetar**][spacetar] questions!
-For example, which space molecules were discovered before 1990? Just type:
-
-```bash
-spacetar --before 1990
-```
-
-What if you want to know which space molecules were discovered in the Taurus
-Molecular Cloud - 1 (a.k.a. TMC-1)? Just ask [**spacetar**][spacetar]:
-
-```bash
-spacetar --source "TMC-1"
-```
-
-For getting the most out of spacetar, check out the [**documentation**][docs].
-
-[rich]: https://rich.readthedocs.io
-[docs]: https://spacetar.readthedocs.io
-[spacetar]: https://github.com/astrogewgaw/spacetar
-"""
-
 import re
 import click
 
@@ -326,6 +288,11 @@ thomas = create_engine(f"sqlite:///{squealer}", future=True)
 
 
 class Nope(Exception):
+
+    """
+    Nope. Something is terribly wrong.
+    """
+
     pass
 
 
@@ -675,7 +642,9 @@ def cli(
     version: bool,
 ):
 
-    """"""
+    """
+    The spacetar CLI tool.
+    """
 
     from sys import exit
     from rich.panel import Panel
@@ -687,7 +656,11 @@ def cli(
     if help:
         console.print(
             Panel(
-                Markdown(__doc__),
+                Markdown(
+                    (here / "USAGE.md")
+                    .read_text(encoding="utf-8")
+                    .replace("# Usage\n", "")
+                ),
                 padding=1,
                 expand=True,
                 title_align="left",

@@ -4,37 +4,24 @@
 [![Gitmoji][gitmoji-badge]][gitmoji]
 [![Code style: black][black-badge]][black]
 [![Documentation Status][docs-badge]][docs]
+[![Documentation Coverage Status][interrogate-badge]][interrogate]
 
 ## Space molecules in your terminal!
 
-If you want to find out *anything* about space molecules, you just have to type:
-
-```bash
-spacetar
-```
-
-Running the cli without any arguments will show you the entire database of known space molecules, right there in your terminal! Since there are *a lot* of known space molecules (more than 200 of them!), [**spacetar**][spacetar] uses a *pager* to display the entire table. This is a program in your operating system that is used for displaying things that are too long for the screen, like the `man` pages in most Unix systems. Since most pagers are not capable of displaying colors or hyperlinks, [**spacetar**][spacetar] resorts to plain old black and white output, though there is some good old markdown-based formatting in there (thanks to [**rich**][rich]).
-
-If you want to have more fun, you can ask [**spacetar**][spacetar] questions! For example, which space molecules were discovered before 1990? Just type:
-
-```bash
-spacetar --before 1990
-```
-
-What if you want to know which space molecules were discovered in the Taurus Molecular Cloud - 1 (a.k.a. TMC-1)? Just ask [**spacetar**][spacetar]:
-
-```bash
-spacetar --source "TMC-1"
-```
-
-For getting the most out of spacetar, check out the [**documentation**][docs].
+[**spacetar**][spacetar] is a command line interface that allows you to search the database of *known* space molecules across all sorts of parameters. The data is scraped from the well-maintained space molecule bibliography over at [**www.astrochymist.org**][astrochymist], created by David Woon. [**spacetar**][spacetar] scraps the HTML source code, gets all the data, and then stores it as an SQLite database. It then uses the brilliant ORM interface provided by [**SQLAlchemy**][SQLAlchemy] to search this database across all the parameters provided by you, the user. I also use the amazing [**rich**][rich] library to display the search results on the terminal. This project is still in its infancy, so I am sure it has its fair share of bugs :bug:. If you find one, open an [**issue**][issues]. If you have an idea, or a feature you would like to request, you can either open an [**issue**][issues], or start a [**discussion**][discussions]. Do let me know if you end up having some fun with this :grin: !
 
 [gitmoji]: https://gitmoji.dev
 [rich]: https://rich.readthedocs.io
 [black]: https://github.com/psf/black
 [docs]: https://spacetar.readthedocs.io
+[SQLAlchemy]: https://www.sqlalchemy.org/
+[interrogate-badge]: ./interrogate_badge.svg
 [spacetar]: https://github.com/astrogewgaw/spacetar
+[issues]: https://github.com/astrogewgaw/spacetar/issues
+[interrogate]: https://interrogate.readthedocs.io/en/latest
+[astrochymist]: http://astrochymist.org/astrochymist_ism.html
 [license]: https://img.shields.io/badge/License-MIT-green.svg
+[discussions]: https://github.com/astrogewgaw/spacetar/discussions
 [black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
 [docs-badge]: https://readthedocs.org/projects/spacetar/badge/?version=latest
 [gitmoji-badge]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square

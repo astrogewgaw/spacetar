@@ -1,4 +1,25 @@
 [build-system]
 requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.0"]
 
+[tool.interrogate]
+verbose = 2
+color = true
+quiet = false
+fail-under = 95
+generate-badge = "."
+badge-format = "svg"
+whitelist-regex = []
+ignore-module = true
+ignore-magic = false
+ignore-setters = false
+ignore-private = false
+ignore-init-method = true
+ignore-init-module = false
+ignore-semiprivate = false
+ignore-nested-classes = true
+ignore-nested-functions = true
+ignore-property-decorators = false
+exclude = ["setup.py", "docs", "build"]
+ignore-regex = ["__str__", "__repr__", "__rich__"]
+
 [tool.setuptools_scm]

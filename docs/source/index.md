@@ -1,10 +1,11 @@
 # Documentation for *spacetar*
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 :caption: "Table of Contents:"
 
-help.ipynb
+INSTALLATION.md
+USAGE.md
 reference.md
 ```
 
