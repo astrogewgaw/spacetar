@@ -5,7 +5,6 @@ from json import load
 from pathlib import Path
 from requests import get
 from textwrap import dedent
-from itertools import zip_longest
 from bs4 import Tag, BeautifulSoup  # type: ignore
 from sqlalchemy.orm import Session, relationship, declarative_base  # type: ignore
 
@@ -154,6 +153,19 @@ ref2auth = Table(
 )
 
 
+multiline = lambda x: "\n".join(
+    [
+        f"{str(i + 1)}. {_.name}" if _ else "N/A"
+        for (
+            i,
+            _,
+        ) in enumerate(x)
+    ]
+)
+
+comma_join = lambda x: ", ".join([_.name if _ else "N/A" for _ in x])
+
+
 class Molecule(Base):  # type: ignore
 
     """
@@ -222,11 +234,11 @@ class Molecule(Base):  # type: ignore
             formula={self.formula!r}
             year={self.year!r}
             tentative={'Yes' if self.tentative else 'No'!r}
-            sources={', '.join([source.name for source in self.sources])}
-            embands={', '.join([emband.name for emband in self.embands])}
-            telescopes={', '.join([telescope.name for telescope in self.telescopes])}
-            references={self.references!r}
-            extragalactic={self.extragalactic!r}
+            sources={comma_join(self.sources)}
+            embands={comma_join(self.embands)}
+            telescopes={comma_join(self.telescopes)}
+            references={multiline(self.references)}
+            extragalactic={self.extragalactic[0].name!r}
             """
         )
 
@@ -234,7 +246,66 @@ class Molecule(Base):  # type: ignore
         return str(self)
 
     def __rich__(self) -> Any:
-        pass
+
+        from rich.panel import Panel
+        from rich.table import Table
+
+        grid = Table.grid()
+        grid.add_column(justify="left")
+        grid.add_column(justify="right")
+
+        grid.add_row("Chemical Formula", f"{self.formula}")
+        grid.add_row("Discovery Year", f"{self.year!r}")
+        grid.add_row(
+            "Tentative? (:green_circle:/:red_circle:)",
+            f"{':green_circle:' if self.tentative else ':red_circle:'}",
+        )
+        grid.add_row("Sources", comma_join(self.sources))
+        grid.add_row(
+            "EM Bbands",
+            (
+                lambda x: ", ".join(
+                    [
+                        "[{color}]{name}".format(
+                            color={
+                                "Radio": "cyan",
+                                "IR": "magenta",
+                                "UV/Vis": "yellow",
+                            }.get(_.name),
+                            name=_.name,
+                        )
+                        if _
+                        else "N/A"
+                        for _ in x
+                    ]
+                )
+            )(self.embands),
+        )
+        grid.add_row("Telescopes", comma_join(self.telescopes))
+        grid.add_row(
+            "References",
+            (
+                lambda x: "\n".join(
+                    [
+                        f"{str(i + 1)}. [italic][link={_.link}]{_.name}[/][/]"
+                        if _
+                        else "N/A"
+                        for (
+                            i,
+                            _,
+                        ) in enumerate(x)
+                    ]
+                )
+            )(self.references),
+        )
+        grid.add_row("Extragalactic", f"{self.extragalactic[0].name!r}")
+
+        return Panel(
+            grid,
+            expand=False,
+            title="Molecule",
+            title_align="center",
+        )
 
 
 class Source(Base):  # type: ignore
@@ -344,7 +415,7 @@ class Telescope(Base):  # type: ignore
             name={self.name!r}
             shortname={self.shortname!r}
             kind={self.kind!r}
-            embands={', '.join([emband.name for emband in self.embands])}
+            embands={comma_join(self.embands)}
             latitude={self.latitude!r}
             longitude={self.longitude!r}
             diameter={self.diameter!r}
@@ -864,6 +935,7 @@ def richie_rich(results: List, pager: bool = True) -> None:
 
     from rich.table import Table
     from rich.console import Console
+    from rich.markdown import Markdown
 
     console = Console()
 
@@ -881,12 +953,6 @@ def richie_rich(results: List, pager: bool = True) -> None:
 
     numlist = lambda x: "\n".join([f"{i + 1}. {_}" for i, _ in enumerate(x)])
 
-    em_color = {
-        "Radio": "cyan",
-        "IR": "magenta",
-        "UV/Vis": "yellow",
-    }
-
     table = Table(
         *header,
         show_lines=True,
@@ -894,47 +960,77 @@ def richie_rich(results: List, pager: bool = True) -> None:
         title=f"Query results | Number of results: {rsize}",
     )
 
-    for result in results:
-        table.add_row(
-            result.formula,
-            str(result.year),
-            f"{'Yes' if result.tentative else 'No'}",
-            numlist(
-                [
-                    dedent(
-                        f"""
-                        {_.name if _.name else 'N/A'}
-                        ([italic {em_color.get(__.name, '')}]{__.name if __.name else 'N/A'}[/])
-                        """
-                    ).replace("\n", " ")
-                    for _, __ in zip(result.sources, result.embands)
-                ]
-            ),
-            numlist(
-                [
-                    f"{_.shortname if _.shortname else 'N/A'} ([italic]{_.name if _.name else 'N/A'}[/])"
-                    for _ in result.telescopes
-                ]
-            ),
-            numlist(
-                [
-                    dedent(
-                        f"""
-                        {_.name}
-                        ([italic]{', '.join([__.name if __.name else 'N/A' for __ in _.authors])}[/])
-                        """
-                    ).replace("\n", " ")
-                    for _ in result.references
-                ]
-            ),
-            numlist([_.name for _ in result.extragalactic]),
-        )
+    if len(results) != 0:
+        if len(results) > 1:
+            for result in results:
+                table.add_row(
+                    result.formula,
+                    str(result.year),
+                    f"{'Yes' if result.tentative else 'No'}",
+                    numlist(
+                        [
+                            dedent(
+                                """
+                                {src_name}
+                                ([italic {color}]{emband_name}[/])
+                                """
+                            )
+                            .format(
+                                src_name=(_.name if _.name else "N/A"),
+                                color={
+                                    "Radio": "cyan",
+                                    "IR": "magenta",
+                                    "UV/Vis": "yellow",
+                                }.get(__.name, ""),
+                                emband_name=(__.name if __.name else "N/A"),
+                            )
+                            .replace("\n", " ")
+                            for _, __ in zip(result.sources, result.embands)
+                        ]
+                    ),
+                    numlist(
+                        [
+                            f"{_.shortname if _.shortname else 'N/A'} ([italic]{_.name if _.name else 'N/A'}[/])"
+                            for _ in result.telescopes
+                        ]
+                    ),
+                    numlist(
+                        [
+                            dedent(
+                                f"""
+                                {_.name}
+                                ([italic]{', '.join([__.name if __.name else 'N/A' for __ in _.authors])}[/])
+                                """
+                            ).replace("\n", " ")
+                            for _ in result.references
+                        ]
+                    ),
+                    numlist([_.name for _ in result.extragalactic]),
+                )
 
-    if pager:
-        with console.pager(styles=True):
-            console.print(table)
+            if pager:
+                with console.pager(styles=True):
+                    console.print(table)
+            else:
+                console.print(table)
+        else:
+            console.print(results[0])
     else:
-        console.print(table)
+        console.print(
+            Markdown(
+                dedent(
+                    """
+                No results to display.
+                Maybe add the  `--like` option and try again?
+                """
+                )
+                .strip()
+                .replace(
+                    "\n",
+                    " ",
+                )
+            )
+        )
 
 
 @click.command()
