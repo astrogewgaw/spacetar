@@ -57,6 +57,21 @@ mol2src = Table(
     ),
 )
 
+mol2emband = Table(
+    "mol2emband",
+    Base.metadata,
+    Column(
+        "mol_id",
+        Integer,
+        ForeignKey("molecules.id"),
+    ),
+    Column(
+        "emband_id",
+        Integer,
+        ForeignKey("embands.id"),
+    ),
+)
+
 mol2ref = Table(
     "mol2ref",
     Base.metadata,
@@ -133,6 +148,13 @@ class Molecule(Base):  # type: ignore
         lazy="selectin",
     )
 
+    embands = relationship(
+        "EMBand",
+        secondary=mol2emband,
+        backref="molecules",
+        lazy="selectin",
+    )
+
     references = relationship(
         "Reference",
         secondary=mol2ref,
@@ -190,10 +212,9 @@ class Source(Base):  # type: ignore
 
     id = Column(Integer, primary_key=True)
     name = Column(ShortStr)
-    emband = Column(ShortStr)
 
     def __str__(self) -> str:
-        return f"Source: name={self.name!r}, emband={self.emband!r}"
+        return f"Source: name={self.name!r}"
 
     def __repr__(self) -> str:
         return str(self)
@@ -223,6 +244,28 @@ class Extragalactic(Base):  # type: ignore
 
     def __str__(self) -> str:
         return f"Extragalactic: name={self.name!r}, cdms={self.cdms!r}"
+
+    def __repr__(self) -> str:
+        return str(self)
+
+
+class EMBand(Base):  # type: ignore
+
+    """
+    This class represents a particular band of the electromagnetic spectrum in the
+    **spacetar** database.
+
+    Args:
+        name: The name of the EM band.
+    """
+
+    __tablename__ = "embands"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(ShortStr)
+
+    def __str__(self) -> str:
+        return f"EM Band: name={self.name!r}"
 
     def __repr__(self) -> str:
         return str(self)
@@ -349,6 +392,21 @@ def scrap() -> List[Dict]:
 
     url = "http://astrochymist.org/astrochymist_ism.html"
 
+    def rm_nones(x):
+
+        """
+        Remove all `None`s from a list and replace it with copies of
+        last (or first) the not-`None` element. This function goes
+        over the list twice in order to replace the `None`s at both
+        the beginning and the end of the list.
+
+        Args:
+            x: A list.
+        Returns:
+            A list with `None`s removed and replaced with copies
+            of the last (or first) not-`None` element.
+        """
+
     space_rem = lambda x: "".join(x.split())
 
     formula = lambda x: space_rem(
@@ -365,33 +423,48 @@ def scrap() -> List[Dict]:
 
     tentative = lambda _: True if _("font")[0].i is not None else False
 
-    sources = lambda x: [
-        (name, emband)
-        for name, emband in zip_longest(
-            (
-                lambda _: [
-                    _[0].strip()
-                    for _ in [
-                        _
-                        for _ in [
-                            list(_.previous_siblings) for _ in _("hr", width="50%")
-                        ]
-                        if (_ != Tag(name="br")) and (_ != "\n")
-                    ]
+    def detections(tag: Tag) -> List:
+
+        """
+        Get the source name and the EM band for a detection of a space molecule
+        from the data we are scraping from the astrochymist.org site. This little
+        function is taken from a earlier iteration of the same scraping code, and,
+        turns out, it works *much* better than my last attempt.
+        """
+
+        embands: List = []
+
+        subtags = tag("font")
+        for subtag in subtags:
+            try:
+                color = subtag["color"]
+            except:
+                color = None
+            emband = {
+                "cyan": "Radio",
+                "pink": "IR",
+                "yellow": "UV/Vis",
+            }.get(color, None)
+            embands.append(emband)
+
+        names: List = []
+
+        subtags = tag("hr", width="50%")
+        if subtags:
+            for subtag in subtags:
+                elements = subtag.previous_siblings
+                elements = [
+                    element for element in elements if element != Tag(name="br")
                 ]
-            )(x),
-            (
-                lambda _: {
-                    {
-                        "cyan": "Radio",
-                        "pink": "IR",
-                        "yellow": "UV/Vis",
-                    }.get(_.get("color", None), None)
-                    for _ in _("font")
-                }
-            )(x),
-        )
-    ]
+                elements = [element for element in elements if element != "\n"]
+                names.append(elements[0].strip())
+
+        if len(embands) < len(names):
+            embands = embands * len(names)
+        elif len(embands) > len(names):
+            embands = embands[: len(names)]
+
+        return [(name, emband) for name, emband in zip(names, embands)]
 
     auth_regex = re.compile(
         r"""
@@ -437,7 +510,8 @@ def scrap() -> List[Dict]:
             "formula": formula(_[1]),
             "year": year(_[0]),
             "tentative": tentative(_[1]),
-            "sources": sources(_[3]),
+            "sources": [_[0] for _ in detections(_[3])],
+            "embands": [_[1] for _ in detections(_[3])],
             "references": references(_[2]),
             "extragalactic": extragalactic(_[0]),
         }
@@ -445,7 +519,7 @@ def scrap() -> List[Dict]:
             _
             for _ in [
                 _(["th", "td"], recursive=False)
-                for _ in BeautifulSoup(response.content, "lxml",).body("table")[2](
+                for _ in BeautifulSoup(response.content, "lxml").body("table")[2](
                     "tr", recursive=False
                 )[1:]
             ]
@@ -483,40 +557,70 @@ def deep_freeze(molecules: List[Dict]) -> None:
     Base.metadata.create_all(thomas)
 
     with Session(thomas) as session:
+
         for molecule in molecules:
+
             mole = Molecule(
                 formula=molecule["formula"],
                 year=molecule["year"],
                 tentative=molecule["tentative"],
             )
-            for name, emband in molecule["sources"]:
-                if name is not None:
-                    if name.find(",") != -1:
-                        names = re.split(r"\s*[,]\s*", name)
-                        embands = [emband] * len(names)
-                        for name, emband in zip(names, embands):
-                            if name == "etc.":
-                                name = None
-                                emband = None
-                            source = Source(name=name, emband=emband)
-                            mole.sources.append(source)
+
+            for src_name, src_emband in zip(
+                molecule["sources"],
+                molecule["embands"],
+            ):
+                if src_name is not None:
+                    if src_name.find(",") != -1:
+                        src_names = re.split(r"\s*[,]\s*", src_name)
+                        src_embands = [src_emband] * len(src_names)
+                        for src_name, src_emband in zip(src_names, src_embands):
+
+                            # This is a bit of clean up for some of the source names
+                            # in the database that are as good as `None`. Maybe someday
+                            # we can exchange them for the *actual* sources, but for now
+                            # removing them seems to be thr right choice.
+                            if src_name in [
+                                "etc.",
+                                "???",
+                                "many sources",
+                                "Numerous sources",
+                            ]:
+                                src_name = None
+                            elif src_name.find("sources") != -1:
+                                src_name = None
+
+                            # This is just for one of the sources of CH, where David
+                            # has written 'Cas A and 4 dark clouds' bu we want the
+                            # source names to be unique, and, if possible, to be
+                            # queryable from the SIMBAD database, so we clean it up.
+                            src_name = src_name.replace(
+                                "and 4 dark clouds",
+                                "",
+                            )
+
+                            mole.sources.append(Source(name=src_name))
+                            mole.embands.append(EMBand(name=src_emband))
                     else:
-                        source = Source(name=name, emband=emband)
-                        mole.sources.append(source)
+                        mole.sources.append(Source(name=src_name))
+                        mole.embands.append(EMBand(name=src_emband))
                 else:
-                    source = Source(name=name, emband=emband)
-                    mole.sources.append(source)
+                    mole.sources.append(Source(name=src_name))
+                    mole.embands.append(EMBand(name=src_emband))
+
             for name, link, authors in molecule["references"]:
                 reference = Reference(name=name, link=link)
                 for author in authors:
                     auth = Author(name=author[0].strip())
                     reference.authors.append(auth)
                 mole.references.append(reference)
+
             extragalactic = Extragalactic(
                 name=molecule["extragalactic"][0],
                 cdms=molecule["extragalactic"][1],
             )
             mole.extragalactic.append(extragalactic)
+
             session.add(mole)
             session.commit()
 
@@ -527,6 +631,7 @@ def search(
     by_year_range: Optional[Tuple[int, int]] = None,
     by_tentative: Optional[bool] = None,
     by_source: Optional[str] = None,
+    by_emband: Optional[str] = None,
     by_author: Optional[str] = None,
     by_extragalactic: Optional[str] = None,
 ):
@@ -547,8 +652,9 @@ def search(
             (1, by_year_range),
             (2, by_tentative),
             (3, by_source),
-            (4, by_author),
-            (5, by_extragalactic),
+            (4, by_emband),
+            (5, by_author),
+            (6, by_extragalactic),
         ]
 
         query = select(Molecule)
@@ -575,10 +681,11 @@ def search(
             3: lambda q, source: q.where(
                 Molecule.sources.any(Source.name.like(source))
             ),
-            4: lambda q, author: q.where(
+            4: lambda q, emband: q.where(Molecule.embands.any(EMBand.name == emband)),
+            5: lambda q, author: q.where(
                 Molecule.references.any(Reference.authors.any(Author.name.like(author)))
             ),
-            5: lambda q, extragalactic: q.where(
+            6: lambda q, extragalactic: q.where(
                 Molecule.extragalactic.any(Extragalactic.name.like(extragalactic))
             ),
         }
@@ -587,7 +694,8 @@ def search(
             riddle = riddler.get(id, None)
             if riddle:
                 if like and isinstance(parameter, str):
-                    parameter = likable(parameter)
+                    if id != 4:
+                        parameter = likable(parameter)
                 query = riddle(query, parameter)
 
         return the_zeroth(session.execute(query).all())
@@ -611,13 +719,13 @@ def richie_rich(results: List, pager: bool = True) -> None:
 
     from rich.table import Table
     from rich.console import Console
-    from rich.markdown import Markdown
 
     console = Console()
 
     rsize = len(results)
 
     header = [
+        "S. No.",
         "Chemical Formula",
         "Discovery Year",
         "Tentative? (Yes/No)",
@@ -641,8 +749,9 @@ def richie_rich(results: List, pager: bool = True) -> None:
         title=f"Query results | Number of results: {rsize}",
     )
 
-    for result in results:
+    for i, result in enumerate(results):
         table.add_row(
+            str(i + 1),
             result.formula,
             str(result.year),
             f"{'Yes' if result.tentative else 'No'}",
@@ -651,10 +760,10 @@ def richie_rich(results: List, pager: bool = True) -> None:
                     dedent(
                         f"""
                         {_.name if _.name else 'N/A'}
-                        ([italic {em_color.get(_.emband, '')}]{_.emband if _.emband else 'N/A'}[/])
+                        ([italic {em_color.get(__.name, '')}]{__.name if __.name else 'N/A'}[/])
                         """
                     ).replace("\n", " ")
-                    for _ in result.sources
+                    for _, __ in zip(result.sources, result.embands)
                 ]
             ),
             numlist(
@@ -680,13 +789,25 @@ def richie_rich(results: List, pager: bool = True) -> None:
 
 @click.command()
 @click.option("-f", "--formula", type=str)
-@click.option("-iny", "--year", type=int)
-@click.option("-bfy", "--before", type=int)
-@click.option("-afy", "--after", type=int)
-@click.option("-bwy", "--between", nargs=2, type=int)
+@click.option("-in", "--year", type=int)
+@click.option("-bf", "--before", type=int)
+@click.option("-af", "--after", type=int)
+@click.option("-bw", "--between", nargs=2, type=int)
 @click.option("-s", "--source", type=str)
+@click.option(
+    "-em",
+    "--emband",
+    type=click.Choice(
+        [
+            "Radio",
+            "IR",
+            "UV/Vis",
+        ],
+        case_sensitive=False,
+    ),
+)
 @click.option("-a", "--author", type=str)
-@click.option("-e", "--extragalactic", type=str)
+@click.option("-ex", "--extragalactic", type=str)
 @click.option("-t", "--tentative", is_flag=True, default=None)
 @click.option("-l", "--like", is_flag=True, default=False)
 @click.option("-np", "--no-pager", is_flag=True, default=False)
@@ -701,6 +822,7 @@ def cli(
     between: Optional[Tuple[int, int]],
     tentative: Optional[bool],
     source: Optional[str],
+    emband: Optional[str],
     author: Optional[str],
     extragalactic: Optional[str],
     like: bool,
@@ -776,6 +898,7 @@ def cli(
             by_year_range=year_range(),
             by_tentative=tentative,
             by_source=source,
+            by_emband=emband,
             by_author=author,
             by_extragalactic=extragalactic,
         ),
