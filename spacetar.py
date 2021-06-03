@@ -571,37 +571,36 @@ def deep_freeze(molecules: List[Dict]) -> None:
                 molecule["embands"],
             ):
                 if src_name is not None:
+
                     if src_name.find(",") != -1:
                         src_names = re.split(r"\s*[,]\s*", src_name)
                         src_embands = [src_emband] * len(src_names)
-                        for src_name, src_emband in zip(src_names, src_embands):
 
-                            # This is a bit of clean up for some of the source names
-                            # in the database that are as good as `None`. Maybe someday
-                            # we can exchange them for the *actual* sources, but for now
-                            # removing them seems to be thr right choice.
-                            if src_name in [
-                                "etc.",
-                                "???",
-                                "many sources",
-                                "Numerous sources",
-                            ]:
+                        for src_name, src_emband in zip(
+                            src_names,
+                            src_embands,
+                        ):
+
+                            if src_name in ["etc.", "???"]:
                                 src_name = None
                             elif src_name.find("sources") != -1:
                                 src_name = None
 
-                            # This is just for one of the sources of CH, where David
-                            # has written 'Cas A and 4 dark clouds' bu we want the
-                            # source names to be unique, and, if possible, to be
-                            # queryable from the SIMBAD database, so we clean it up.
-                            src_name = src_name.replace(
-                                "and 4 dark clouds",
-                                "",
-                            )
-
                             mole.sources.append(Source(name=src_name))
                             mole.embands.append(EMBand(name=src_emband))
                     else:
+
+                        # This is just for one of the sources of CH, where David
+                        # has written 'Cas A and 4 dark clouds' bu we want the
+                        # source names to be unique, and, if possible, to be
+                        # queryable from the SIMBAD database, so we clean it up.
+                        src_name = src_name.replace("and 4 dark clouds", "").strip()
+
+                        if src_name in ["etc.", "???"]:
+                            src_name = None
+                        elif src_name.find("sources") != -1:
+                            src_name = None
+
                         mole.sources.append(Source(name=src_name))
                         mole.embands.append(EMBand(name=src_emband))
                 else:
@@ -725,7 +724,6 @@ def richie_rich(results: List, pager: bool = True) -> None:
     rsize = len(results)
 
     header = [
-        "S. No.",
         "Chemical Formula",
         "Discovery Year",
         "Tentative? (Yes/No)",
@@ -749,9 +747,8 @@ def richie_rich(results: List, pager: bool = True) -> None:
         title=f"Query results | Number of results: {rsize}",
     )
 
-    for i, result in enumerate(results):
+    for result in results:
         table.add_row(
-            str(i + 1),
             result.formula,
             str(result.year),
             f"{'Yes' if result.tentative else 'No'}",
