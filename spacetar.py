@@ -1,6 +1,7 @@
 import re
 import click
 
+from json import load
 from pathlib import Path
 from requests import get
 from textwrap import dedent
@@ -9,7 +10,9 @@ from bs4 import Tag, BeautifulSoup  # type: ignore
 from sqlalchemy.orm import Session, relationship, declarative_base  # type: ignore
 
 from sqlalchemy import (  # type: ignore
+    or_,
     Table,
+    Float,
     select,
     Column,
     String,
@@ -37,10 +40,13 @@ LongStr = String(500)
 # can be associated with the discovery of multiple space molecules),
 # we use these tables to construct our ORM backend. There are three
 # tables:
-# 1. `mol2src`:     Association table between the `molecules` and `sources` table.
-# 2. `mol2ref`:     Association table between the `molecules` and `references` table.
-# 3. `mol2exgal`:   Association table between the `molecules` and `extragalactic` table.
-# 4. `ref2auth`:    Association table between the `references` and `authors` table.
+# 1. `mol2src`:         Association table between the `molecules` and `sources` table.
+# 2. `mol2scope`:       Association table between the `molecules` and `scopes` table.
+# 3. `mol2emband`:      Association table between the `molecules` and `embands` table.
+# 4. `mol2ref`:         Association table between the `molecules` and `references` table.
+# 5. `mol2exgal`:       Association table between the `molecules` and `extragalactic` table.
+# 6. `emband2scope`:    Association table between the `embands` and `scopes` table.
+# 7. `ref2auth`:        Association table between the `references` and `authors` table.
 
 mol2src = Table(
     "mol2src",
@@ -54,6 +60,21 @@ mol2src = Table(
         "src_id",
         Integer,
         ForeignKey("sources.id"),
+    ),
+)
+
+mol2scope = Table(
+    "mol2scope",
+    Base.metadata,
+    Column(
+        "mol_id",
+        Integer,
+        ForeignKey("molecules.id"),
+    ),
+    Column(
+        "scope_id",
+        Integer,
+        ForeignKey("scopes.id"),
     ),
 )
 
@@ -102,6 +123,21 @@ mol2exgal = Table(
     ),
 )
 
+emband2scope = Table(
+    "emband2scope",
+    Base.metadata,
+    Column(
+        "emband_id",
+        Integer,
+        ForeignKey("embands.id"),
+    ),
+    Column(
+        "scope_id",
+        Integer,
+        ForeignKey("scopes.id"),
+    ),
+)
+
 ref2auth = Table(
     "ref2auth",
     Base.metadata,
@@ -129,6 +165,8 @@ class Molecule(Base):  # type: ignore
         tentative:      A flag that indicates whether the detection is still tentative,
                         or whether it has been confirmed by other observations.
         sources:        The source(s) where the molecule was first observed.
+        embands:        The EM bands in which the molecule was detected.
+        telescopes:     The telescopes that first detected the molecule.
         references:     Bibliographic references to the papers involved in the discovery.
         extragalactic:  The source where the first extragalactic detection of the molecule
                         was made.
@@ -155,6 +193,13 @@ class Molecule(Base):  # type: ignore
         lazy="selectin",
     )
 
+    telescopes = relationship(
+        "Telescope",
+        secondary=mol2scope,
+        backref="molecules",
+        lazy="selectin",
+    )
+
     references = relationship(
         "Reference",
         secondary=mol2ref,
@@ -174,12 +219,14 @@ class Molecule(Base):  # type: ignore
             f"""
             Molecule
             ========
-            formula={self.formula!r},
-            year={self.year!r},
-            tentative={'Yes' if self.tentative else 'No'!r},
-            sources={self.sources!r},
-            references={self.references!r},
-            extragalactic={self.extragalactic!r},
+            formula={self.formula!r}
+            year={self.year!r}
+            tentative={'Yes' if self.tentative else 'No'!r}
+            sources={', '.join([source.name for source in self.sources])}
+            embands={', '.join([emband.name for emband in self.embands])}
+            telescopes={', '.join([telescope.name for telescope in self.telescopes])}
+            references={self.references!r}
+            extragalactic={self.extragalactic!r}
             """
         )
 
@@ -249,6 +296,68 @@ class Extragalactic(Base):  # type: ignore
         return str(self)
 
 
+class Telescope(Base):  # type: ignore
+
+    """
+    This class represents a telescope in the **spacetar** database.
+
+    Args:
+        name:           The name of the telescope.
+        shortname:      The short name of the telescope.
+        kind:           The kind of telescope it is.
+        embands:        The EM bands in which it operates.
+        latitude:       The latitude of the telescope.
+        longitude:      The longitude of the telescope.
+        diameter:       The diameter of the telescope.
+        built:          The year it was built.
+        decommissioned: The year it was decommissioned.
+        notes:          Notes, if any.
+        molecules:      The space molecules associated with this telescope.
+    """
+
+    __tablename__ = "scopes"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(ShortStr)
+    kind = Column(ShortStr)
+    shortname = Column(ShortStr)
+
+    embands = relationship(
+        "EMBand",
+        secondary=emband2scope,
+        backref="telescopes",
+        lazy="selectin",
+    )
+
+    latitude = Column(Float)
+    longitude = Column(Float)
+    diameter = Column(Float)
+    built = Column(Integer)
+    decommissioned = Column(Integer)
+    notes = Column(LongStr)
+
+    def __str__(self) -> str:
+        return dedent(
+            f"""
+            Telescope
+            =========
+            name={self.name!r}
+            shortname={self.shortname!r}
+            kind={self.kind!r}
+            embands={', '.join([emband.name for emband in self.embands])}
+            latitude={self.latitude!r}
+            longitude={self.longitude!r}
+            diameter={self.diameter!r}
+            built={self.built!r}
+            decommissioned={self.decommissioned!r}
+            notes={self.notes!r}
+            """
+        )
+
+    def __repr__(self) -> str:
+        return str(self)
+
+
 class EMBand(Base):  # type: ignore
 
     """
@@ -256,7 +365,9 @@ class EMBand(Base):  # type: ignore
     **spacetar** database.
 
     Args:
-        name: The name of the EM band.
+        name:       The name of the EM band.
+        telescopes: The telescopes working in that EM band.
+        molecules:  The space molecules associated with this EM band.
     """
 
     __tablename__ = "embands"
@@ -354,13 +465,12 @@ def get_version() -> Optional[str]:
 #    parameter is an old and well-tested trick to navigate through
 #    the file system in Python packages meant to be installed.
 # 2. `data` is the data directory, where we will store our databases.
-# 3. `jsonic` is the path to the JSON file which we will scrap.
-# 4. `squealer` is the path to the SQLite database we will make from
-#    the JSON database and store.
+# 3. `scopes` is the path to the JSON file which has data for all the telescopes.
+# 4. `squealer` is the path to the SQLite database we will make and store.
 
 here = Path(__file__).parent.resolve()
 data = here / "data"
-jsonic = here / f"{whoami}.json"
+scopic = here / "scopes.json"
 squealer = here / f"{whoami}.db"
 
 # The `Engine`, named after a particularly famous one *winks*.
@@ -556,6 +666,9 @@ def deep_freeze(molecules: List[Dict]) -> None:
 
     Base.metadata.create_all(thomas)
 
+    with scopic.open("r") as f:
+        scopes = load(f)
+
     with Session(thomas) as session:
 
         for molecule in molecules:
@@ -607,6 +720,29 @@ def deep_freeze(molecules: List[Dict]) -> None:
                     mole.sources.append(Source(name=src_name))
                     mole.embands.append(EMBand(name=src_emband))
 
+            for scope in scopes.values():
+                if molecule["formula"] in scope["mol_list"]:
+                    telescope = Telescope(
+                        name=scope["name"],
+                        shortname=scope["shortname"],
+                        kind=scope["type"],
+                        latitude=scope["latitude"],
+                        longitude=scope["longitude"],
+                        diameter=scope["diameter"],
+                        built=scope["built"],
+                        decommissioned=scope["decommissioned"],
+                        notes=scope["notes"],
+                    )
+                    for wavelength in scope["wavelength"]:
+                        if wavelength in ["cm", "mm", "sub-mm"]:
+                            scope_emband = "Radio"
+                        elif wavelength in ["UV", "Vis"]:
+                            scope_emband = "UV/Vis"
+                        else:
+                            scope_emband = "IR"
+                        telescope.embands.append(EMBand(name=scope_emband))
+                    mole.telescopes.append(telescope)
+
             for name, link, authors in molecule["references"]:
                 reference = Reference(name=name, link=link)
                 for author in authors:
@@ -631,6 +767,7 @@ def search(
     by_tentative: Optional[bool] = None,
     by_source: Optional[str] = None,
     by_emband: Optional[str] = None,
+    by_telescope: Optional[str] = None,
     by_author: Optional[str] = None,
     by_extragalactic: Optional[str] = None,
 ):
@@ -652,8 +789,9 @@ def search(
             (2, by_tentative),
             (3, by_source),
             (4, by_emband),
-            (5, by_author),
-            (6, by_extragalactic),
+            (5, by_telescope),
+            (6, by_author),
+            (7, by_extragalactic),
         ]
 
         query = select(Molecule)
@@ -681,10 +819,18 @@ def search(
                 Molecule.sources.any(Source.name.like(source))
             ),
             4: lambda q, emband: q.where(Molecule.embands.any(EMBand.name == emband)),
-            5: lambda q, author: q.where(
+            5: lambda q, telescope: q.where(
+                Molecule.telescopes.any(
+                    or_(
+                        Telescope.name.like(telescope),
+                        Telescope.shortname.like(telescope),
+                    )
+                )
+            ),
+            6: lambda q, author: q.where(
                 Molecule.references.any(Reference.authors.any(Author.name.like(author)))
             ),
-            6: lambda q, extragalactic: q.where(
+            7: lambda q, extragalactic: q.where(
                 Molecule.extragalactic.any(Extragalactic.name.like(extragalactic))
             ),
         }
@@ -727,9 +873,10 @@ def richie_rich(results: List, pager: bool = True) -> None:
         "Chemical Formula",
         "Discovery Year",
         "Tentative? (Yes/No)",
-        "Astronomical Source",
-        "Discovery References",
-        "Extragalactic Detection",
+        "Source",
+        "Telescope",
+        "References",
+        "Extragalactic",
     ]
 
     numlist = lambda x: "\n".join([f"{i + 1}. {_}" for i, _ in enumerate(x)])
@@ -765,6 +912,12 @@ def richie_rich(results: List, pager: bool = True) -> None:
             ),
             numlist(
                 [
+                    f"{_.shortname if _.shortname else 'N/A'} ([italic]{_.name if _.name else 'N/A'}[/])"
+                    for _ in result.telescopes
+                ]
+            ),
+            numlist(
+                [
                     dedent(
                         f"""
                         {_.name}
@@ -785,14 +938,13 @@ def richie_rich(results: List, pager: bool = True) -> None:
 
 
 @click.command()
-@click.option("-f", "--formula", type=str)
-@click.option("-in", "--year", type=int)
-@click.option("-bf", "--before", type=int)
-@click.option("-af", "--after", type=int)
-@click.option("-bw", "--between", nargs=2, type=int)
-@click.option("-s", "--source", type=str)
+@click.option("--formula", type=str)
+@click.option("--year", type=int)
+@click.option("--before", type=int)
+@click.option("--after", type=int)
+@click.option("--between", nargs=2, type=int)
+@click.option("--source", type=str)
 @click.option(
-    "-em",
     "--emband",
     type=click.Choice(
         [
@@ -803,14 +955,15 @@ def richie_rich(results: List, pager: bool = True) -> None:
         case_sensitive=False,
     ),
 )
-@click.option("-a", "--author", type=str)
-@click.option("-ex", "--extragalactic", type=str)
-@click.option("-t", "--tentative", is_flag=True, default=None)
-@click.option("-l", "--like", is_flag=True, default=False)
-@click.option("-np", "--no-pager", is_flag=True, default=False)
-@click.option("-h", "--help", is_flag=True, default=False)
-@click.option("-u", "--update", is_flag=True, default=False)
-@click.option("-v", "--version", is_flag=True, default=False)
+@click.option("--telescope", type=str)
+@click.option("--author", type=str)
+@click.option("--extragalactic", type=str)
+@click.option("--tentative", is_flag=True, default=None)
+@click.option("--like", is_flag=True, default=False)
+@click.option("--no-pager", is_flag=True, default=False)
+@click.option("--help", is_flag=True, default=False)
+@click.option("--update", is_flag=True, default=False)
+@click.option("--version", is_flag=True, default=False)
 def cli(
     formula: Optional[str],
     year: Optional[int],
@@ -820,6 +973,7 @@ def cli(
     tentative: Optional[bool],
     source: Optional[str],
     emband: Optional[str],
+    telescope: Optional[str],
     author: Optional[str],
     extragalactic: Optional[str],
     like: bool,
@@ -875,7 +1029,7 @@ def cli(
         elif (before is not None) and (after is not None):
             console.print(
                 Markdown(
-                    ":skull: Cannot specify both `-bwy/--before` and `-awy/--after` options at the same time! Exiting..."
+                    ":skull: Cannot specify both `-bw/--before` and `-af/--after` options at the same time! Exiting..."
                 )
             )
             exit(2)
@@ -896,6 +1050,7 @@ def cli(
             by_tentative=tentative,
             by_source=source,
             by_emband=emband,
+            by_telescope=telescope,
             by_author=author,
             by_extragalactic=extragalactic,
         ),
