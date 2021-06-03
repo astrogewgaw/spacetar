@@ -45,29 +45,61 @@ LongStr = String(500)
 mol2src = Table(
     "mol2src",
     Base.metadata,
-    Column("mol_id", Integer, ForeignKey("molecules.id")),
-    Column("src_id", Integer, ForeignKey("sources.id")),
+    Column(
+        "mol_id",
+        Integer,
+        ForeignKey("molecules.id"),
+    ),
+    Column(
+        "src_id",
+        Integer,
+        ForeignKey("sources.id"),
+    ),
 )
 
 mol2ref = Table(
     "mol2ref",
     Base.metadata,
-    Column("mol_id", Integer, ForeignKey("molecules.id")),
-    Column("ref_id", Integer, ForeignKey("references.id")),
+    Column(
+        "mol_id",
+        Integer,
+        ForeignKey("molecules.id"),
+    ),
+    Column(
+        "ref_id",
+        Integer,
+        ForeignKey("references.id"),
+    ),
 )
 
 mol2exgal = Table(
     "mol2exgal",
     Base.metadata,
-    Column("mol_id", Integer, ForeignKey("molecules.id")),
-    Column("exgal_id", Integer, ForeignKey("extragalactic.id")),
+    Column(
+        "mol_id",
+        Integer,
+        ForeignKey("molecules.id"),
+    ),
+    Column(
+        "exgal_id",
+        Integer,
+        ForeignKey("extragalactic.id"),
+    ),
 )
 
 ref2auth = Table(
     "ref2auth",
     Base.metadata,
-    Column("ref_id", Integer, ForeignKey("references.id")),
-    Column("auth_id", Integer, ForeignKey("authors.id")),
+    Column(
+        "ref_id",
+        Integer,
+        ForeignKey("references.id"),
+    ),
+    Column(
+        "auth_id",
+        Integer,
+        ForeignKey("authors.id"),
+    ),
 )
 
 
@@ -93,18 +125,21 @@ class Molecule(Base):  # type: ignore
     formula = Column(ShortStr)
     year = Column(Integer)
     tentative = Column(Boolean)
+
     sources = relationship(
         "Source",
         secondary=mol2src,
         backref="molecules",
         lazy="selectin",
     )
+
     references = relationship(
         "Reference",
         secondary=mol2ref,
         backref="molecules",
         lazy="selectin",
     )
+
     extragalactic = relationship(
         "Extragalactic",
         secondary=mol2exgal,
@@ -210,6 +245,7 @@ class Reference(Base):  # type: ignore
     id = Column(Integer, primary_key=True)
     name = Column(LongStr)
     link = Column(LongStr)
+
     authors = relationship(
         "Author",
         secondary=ref2auth,
@@ -278,6 +314,7 @@ def get_version() -> Optional[str]:
 # 3. `jsonic` is the path to the JSON file which we will scrap.
 # 4. `squealer` is the path to the SQLite database we will make from
 #    the JSON database and store.
+
 here = Path(__file__).parent.resolve()
 data = here / "data"
 jsonic = here / f"{whoami}.json"
@@ -485,6 +522,7 @@ def deep_freeze(molecules: List[Dict]) -> None:
 
 
 def search(
+    like: bool = False,
     by_formula: Optional[str] = None,
     by_year_range: Optional[Tuple[int, int]] = None,
     by_tentative: Optional[bool] = None,
@@ -499,6 +537,7 @@ def search(
     return the results as a list.
     """
 
+    likable = lambda x: f"%{x}%"
     the_zeroth = lambda x: [_[0] for _ in x]
 
     with Session(thomas) as session:
@@ -518,7 +557,7 @@ def search(
             return the_zeroth(session.execute(query).all())
 
         riddler: Dict[int, Callable] = {
-            0: lambda q, formula: q.where(Molecule.formula.like(f"%{formula}%")),
+            0: lambda q, formula: q.where(Molecule.formula.like(formula)),
             1: lambda q, year_range: q.where(Molecule.year == year_range[0])
             if year_range[0] == year_range[1]
             else (
@@ -533,20 +572,22 @@ def search(
                 )
             ),
             2: lambda q, tentative: q.where(Molecule.tentative == tentative),
-            3: lambda q, source: q.where(Molecule.sources.any(Source.name == source)),
+            3: lambda q, source: q.where(
+                Molecule.sources.any(Source.name.like(source))
+            ),
             4: lambda q, author: q.where(
-                Molecule.references.any(
-                    Reference.authors.any(Author.name.like(f"%{author}%"))
-                )
+                Molecule.references.any(Reference.authors.any(Author.name.like(author)))
             ),
             5: lambda q, extragalactic: q.where(
-                Molecule.extragalactic.any(Extragalactic.name == extragalactic)
+                Molecule.extragalactic.any(Extragalactic.name.like(extragalactic))
             ),
         }
 
         for id, parameter in [_ for _ in parameters if _[-1] is not None]:
             riddle = riddler.get(id, None)
             if riddle:
+                if like and isinstance(parameter, str):
+                    parameter = likable(parameter)
                 query = riddle(query, parameter)
 
         return the_zeroth(session.execute(query).all())
@@ -647,6 +688,7 @@ def richie_rich(results: List, pager: bool = True) -> None:
 @click.option("-a", "--author", type=str)
 @click.option("-e", "--extragalactic", type=str)
 @click.option("-t", "--tentative", is_flag=True, default=None)
+@click.option("-l", "--like", is_flag=True, default=False)
 @click.option("-np", "--no-pager", is_flag=True, default=False)
 @click.option("-h", "--help", is_flag=True, default=False)
 @click.option("-u", "--update", is_flag=True, default=False)
@@ -661,6 +703,7 @@ def cli(
     source: Optional[str],
     author: Optional[str],
     extragalactic: Optional[str],
+    like: bool,
     no_pager: bool,
     help: bool,
     update: bool,
@@ -728,6 +771,7 @@ def cli(
 
     richie_rich(
         search(
+            like=like,
             by_formula=formula,
             by_year_range=year_range(),
             by_tentative=tentative,
