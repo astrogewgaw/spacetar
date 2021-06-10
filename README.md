@@ -4,7 +4,7 @@
 [![Gitmoji][gitmoji-badge]][gitmoji]
 [![Code style: black][black-badge]][black]
 [![Documentation Status][docs-badge]][docs]
-[![Documentation coverage][interrogate_badge]][interrogate]
+[![Documentation coverage][interrogate-badge]][interrogate]
 
 ## Space molecules ![test_tube][test_tube] ![alembic][alembic] in your terminal ![computer][computer] !
 
