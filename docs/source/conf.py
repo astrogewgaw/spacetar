@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../../spacetar"))
+sys.path.insert(0, os.path.abspath("../../src/spacetar"))
 
 project = "spacetar"
 copyright = "2021, Ujjwal Panda"
@@ -11,7 +11,6 @@ extensions = extensions = [
     "nbsphinx",
     "myst_parser",
     "sphinx_sitemap",
-    "sphinx.ext.todo",
     "sphinx_copybutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",

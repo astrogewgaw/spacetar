@@ -1,11 +1,13 @@
-# Documentation for *spacetar*
+# The *spacetar* guide
 
 ```{toctree}
-:maxdepth: 2
-:caption: "Table of Contents:"
+:maxdepth: 1
+:caption: "Map:"
 
-INSTALLATION.md
-USAGE.md
+install.md
+py_usage.md
+cli_usage.md
+contributing.md
 reference.md
 ```
 

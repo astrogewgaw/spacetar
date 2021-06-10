@@ -5,6 +5,7 @@ from setuptools import setup, find_packages
 
 
 here = Path(__file__).parent.resolve()
+install_requires = ["attrs", "rich", "typer", "tabulate", "SQLAlchemy"]
 long_description = (here / "README.md").read_text(encoding="utf-8")
 
 
@@ -36,21 +37,17 @@ setup(
         "space molecules",
         "command line tool",
     ),
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
     install_package_data=True,
     python_requires=">=3.5, <4",
-    install_requires=[
-        "rich",
-        "click",
-        "requests",
-        "SQLAlchemy",
-        "beautifulsoup4",
-    ],
-    entry_points={
-        "console_scripts": ["spacetar=spacetar:cli"],
-    },
+    install_requires=install_requires,
+    entry_points={"console_scripts": ["spacetar=spacetar.terminal:app"]},
     project_urls={
+        "Documentation": "https://spacetar.readthedocs.io",
         "Source": "https://github.com/astrogewgaw/spacetar",
         "Bug Reports": "https://github.com/astrogewgaw/spacetar/issues",
+        "Discussions": "https://github.com/astrogewgaw/spacetar/discussions",
     },
     cmd_class={},
     zip_safe=False,

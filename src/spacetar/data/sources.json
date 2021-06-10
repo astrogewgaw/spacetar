@@ -1,0 +1,944 @@
+{
+    "1": {
+        "name": "AFGL 890 LOS",
+        "kind": "LOS Cloud",
+        "ra": "06:10:48.0",
+        "dec": "-06:12:00",
+        "detects": 1,
+        "molecules": [
+            "CO2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL+890"
+    },
+    "2": {
+        "name": "AFGL 961 LOS",
+        "kind": "LOS Cloud",
+        "ra": "06:34:37.741",
+        "dec": "+04:12:44.20",
+        "detects": 1,
+        "molecules": [
+            "CO2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL961"
+    },
+    "3": {
+        "name": "AFGL 989 LOS",
+        "kind": "LOS Cloud",
+        "ra": "06:41:10.06",
+        "dec": "+09:29:35.8",
+        "detects": 1,
+        "molecules": [
+            "CO2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL989"
+    },
+    "4": {
+        "name": "B1-b",
+        "kind": "Dark Cloud",
+        "ra": "03:33:20.8",
+        "dec": "+31:07:34",
+        "detects": 4,
+        "molecules": [
+            "NS+",
+            "HCNO",
+            "CH3O",
+            "NH3D+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%5BHKM99%5D+B1-b"
+    },
+    "5": {
+        "name": "CRL 2688",
+        "kind": "Carbon Star",
+        "ra": "21:02:18.27",
+        "dec": "+36:41:37.0",
+        "detects": 1,
+        "molecules": [
+            "PH3"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+2688"
+    },
+    "6": {
+        "name": "CRL 618",
+        "kind": "Carbon Star",
+        "ra": "04:42:53.62",
+        "dec": "+36:06:53.40",
+        "detects": 3,
+        "molecules": [
+            "HC4H",
+            "HC6H",
+            "C6H6"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+618"
+    },
+    "7": {
+        "name": "Cas A LOS",
+        "kind": "LOS Cloud",
+        "ra": "23:23:24.00",
+        "dec": "+58:48:54.0",
+        "detects": 2,
+        "molecules": [
+            "OH",
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Cas+A"
+    },
+    "8": {
+        "name": "Crab Nebula",
+        "kind": "SNR",
+        "ra": "05:34:31.94",
+        "dec": "+22:00:52.2",
+        "detects": 1,
+        "molecules": [
+            "ArH+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Crab+Nebula"
+    },
+    "9": {
+        "name": "Cygnus OB2 - 12",
+        "kind": "LOS Cloud",
+        "ra": "20:32:40.96",
+        "dec": "+41:04:13.2",
+        "detects": 1,
+        "molecules": [
+            "C2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%4011680932&Name=Schulte%2012"
+    },
+    "10": {
+        "name": "DR 21",
+        "kind": "SFR",
+        "ra": "20:39:01.6",
+        "dec": "+42:19:38",
+        "detects": 4,
+        "molecules": [
+            "CS",
+            "HCN",
+            "N2H+",
+            "H2O+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21"
+    },
+    "11": {
+        "name": "DR 21 LOS",
+        "kind": "LOS Cloud",
+        "ra": "20:39:01.6",
+        "dec": "+42:19:38",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21"
+    },
+    "12": {
+        "name": "DR 21(OH)",
+        "kind": "SFR",
+        "ra": "20:39:01.01",
+        "dec": "+42:22:50.22",
+        "detects": 1,
+        "molecules": [
+            "H2S"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21%28OH%29"
+    },
+    "13": {
+        "name": "G+0.693-0.027",
+        "kind": "Shock",
+        "ra": "17:47:21.86",
+        "dec": "-28:22:43.00",
+        "detects": 1,
+        "molecules": [
+            "HC3HNH"
+        ],
+        "simbad_url": null
+    },
+    "14": {
+        "name": "G327.3-0.6 LOS",
+        "kind": "LOS Cloud",
+        "ra": "15:53:05.0",
+        "dec": "-54:35:24",
+        "detects": 1,
+        "molecules": [
+            "CH2CHCHO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=G327.3-0.6"
+    },
+    "15": {
+        "name": "GL2136 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:27:18.43",
+        "dec": "-25:04:02.84",
+        "detects": 1,
+        "molecules": [
+            "H3+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402520798&Name=GJ%20%202136%20B"
+    },
+    "16": {
+        "name": "Galactic Center",
+        "kind": "SFR",
+        "ra": null,
+        "dec": null,
+        "detects": 1,
+        "molecules": [
+            "NH3"
+        ],
+        "simbad_url": null
+    },
+    "17": {
+        "name": "HD 124314 LOS",
+        "kind": "LOS Cloud",
+        "ra": "14:15:01.61",
+        "dec": "-61:42:24.38",
+        "detects": 1,
+        "molecules": [
+            "N2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+124314"
+    },
+    "18": {
+        "name": "HD 27778 LOS",
+        "kind": "LOS Cloud",
+        "ra": "04:23:59.78",
+        "dec": "24:18:03.53",
+        "detects": 1,
+        "molecules": [
+            "NH"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+27778"
+    },
+    "19": {
+        "name": "Horsehead PDR",
+        "kind": "PDR",
+        "ra": "05:40:53.936",
+        "dec": "-02:28:00",
+        "detects": 2,
+        "molecules": [
+            "S2H",
+            "l-C3H+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%40828287&Name=NAME%20Horsehead%20Nebula"
+    },
+    "20": {
+        "name": "IC 443G",
+        "kind": "SNR",
+        "ra": "06:16:43.4",
+        "dec": "+22:32:24",
+        "detects": 1,
+        "molecules": [
+            "SO+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC+443G"
+    },
+    "21": {
+        "name": "IRAS 16293",
+        "kind": "Protostar",
+        "ra": "16:32:22.56",
+        "dec": "-24:28:31.8",
+        "detects": 3,
+        "molecules": [
+            "HONO",
+            "CH3Cl",
+            "HOCH2CN"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRAS+16293-2422"
+    },
+    "22": {
+        "name": "IRC+10216",
+        "kind": "Carbon Star",
+        "ra": "09:47:57.406",
+        "dec": "+13:16:43.56",
+        "detects": 54,
+        "molecules": [
+            "CS",
+            "SiS",
+            "NaCl",
+            "AlCl",
+            "KCl",
+            "AlF",
+            "SiC",
+            "CP",
+            "SiN",
+            "CN-",
+            "SiC2",
+            "C2S",
+            "C3",
+            "MgNC",
+            "NaCN",
+            "MgCN",
+            "SiCN",
+            "AlNC",
+            "SiNC",
+            "HCP",
+            "CCP",
+            "KCN",
+            "FeCN",
+            "CCN",
+            "SiCSi",
+            "CaNC",
+            "C2H2",
+            "C3N",
+            "l-C3H",
+            "C3S",
+            "HC2N",
+            "SiC3",
+            "C3N-",
+            "PH3",
+            "HMgNC",
+            "C4H",
+            "SiH4",
+            "C5",
+            "SiC4",
+            "C4H-",
+            "C2H4",
+            "C5H",
+            "H2C4",
+            "C5S",
+            "HC4N",
+            "C5N-",
+            "SiH3CN",
+            "C6H-",
+            "C7H",
+            "CH3SiH3",
+            "C8H",
+            "C8H-",
+            "MgC3N",
+            "MgC4H"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRC%2B10216"
+    },
+    "23": {
+        "name": "K3-50",
+        "kind": "HII",
+        "ra": "20:04:45.59",
+        "dec": "33:32:42.0",
+        "detects": 1,
+        "molecules": [
+            "HCO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402904320&Name=NAME%20K%203-50A"
+    },
+    "24": {
+        "name": "L134",
+        "kind": "Dark Cloud",
+        "ra": "15:53:36.3",
+        "dec": "-04:35:26.0",
+        "detects": 1,
+        "molecules": [
+            "HCO+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402622026&Name=LDN%20%20134"
+    },
+    "25": {
+        "name": "L1527",
+        "kind": "Dark Cloud",
+        "ra": "04:39:53.0",
+        "dec": "+25:45:00",
+        "detects": 1,
+        "molecules": [
+            "HCNO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1527"
+    },
+    "26": {
+        "name": "L1544",
+        "kind": "Dark Cloud",
+        "ra": "05:04:16.6",
+        "dec": "+25:10:48",
+        "detects": 1,
+        "molecules": [
+            "HCNO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1544"
+    },
+    "27": {
+        "name": "L183",
+        "kind": "Dark Cloud",
+        "ra": "15:54:12.2",
+        "dec": "-02:49:42",
+        "detects": 1,
+        "molecules": [
+            "HCNO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=L183"
+    },
+    "28": {
+        "name": "L483",
+        "kind": "Dark Cloud",
+        "ra": "18:17:35.0",
+        "dec": "-04:39:48",
+        "detects": 8,
+        "molecules": [
+            "NS+",
+            "HCS",
+            "HSC",
+            "NCO",
+            "HCCO",
+            "CNCN",
+            "H2NCO+",
+            "NCCNH+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L483"
+    },
+    "29": {
+        "name": "LOS Cloud",
+        "kind": "LOS Cloud",
+        "ra": null,
+        "dec": null,
+        "detects": 3,
+        "molecules": [
+            "CH",
+            "CN",
+            "CH+"
+        ],
+        "simbad_url": null
+    },
+    "30": {
+        "name": "Lupus-1A",
+        "kind": "Dark Cloud",
+        "ra": "15:42:52.4",
+        "dec": "-34:07:53.5",
+        "detects": 1,
+        "molecules": [
+            "HCCO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%405549180&Name=NAME%20Lupus-1A"
+    },
+    "31": {
+        "name": "M17 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:20:47",
+        "dec": "-16:10:18",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17"
+    },
+    "32": {
+        "name": "M17SW",
+        "kind": "PDR",
+        "ra": "18:20:23.1",
+        "dec": "-16:11:43",
+        "detects": 1,
+        "molecules": [
+            "CO+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17+SW"
+    },
+    "33": {
+        "name": "M3 LOS",
+        "kind": "LOS Cloud",
+        "ra": "13:42:11.62",
+        "dec": "+28:22:38.2",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M3"
+    },
+    "34": {
+        "name": "NGC 2024",
+        "kind": "PDR",
+        "ra": "05:41:43",
+        "dec": "-01:50:30",
+        "detects": 2,
+        "molecules": [
+            "HCO",
+            "HNO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024"
+    },
+    "35": {
+        "name": "NGC 2024 LOS",
+        "kind": "LOS Cloud",
+        "ra": "05:41:43",
+        "dec": "-01:50:30",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024"
+    },
+    "36": {
+        "name": "NGC 2264",
+        "kind": "YSO",
+        "ra": "06:40:58",
+        "dec": "+09:53:42",
+        "detects": 3,
+        "molecules": [
+            "HNC",
+            "H2S",
+            "N2H+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2264"
+    },
+    "37": {
+        "name": "NGC 6334",
+        "kind": "SFR",
+        "ra": "17:20:53.3",
+        "dec": "-35:46:59",
+        "detects": 4,
+        "molecules": [
+            "N2H+",
+            "H2O+",
+            "H2Cl+",
+            "CH3OCH2OH"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I"
+    },
+    "38": {
+        "name": "NGC 6334 LOS",
+        "kind": "LOS Cloud",
+        "ra": "17:20:53.3",
+        "dec": "-35:46:59",
+        "detects": 2,
+        "molecules": [
+            "H2Cl+",
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I"
+    },
+    "39": {
+        "name": "NGC 7023",
+        "kind": "PDR",
+        "ra": "21:01:36.9",
+        "dec": "+68:09:48",
+        "detects": 2,
+        "molecules": [
+            "C60",
+            "C60+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023"
+    },
+    "40": {
+        "name": "NGC 7027",
+        "kind": "PN",
+        "ra": "21:07:01.8",
+        "dec": "+42:14:10",
+        "detects": 2,
+        "molecules": [
+            "CO+",
+            "HeH+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023"
+    },
+    "41": {
+        "name": "NGC 7538",
+        "kind": "YSO",
+        "ra": "23:13:37.2",
+        "dec": "61:30:00",
+        "detects": 1,
+        "molecules": [
+            "H2S"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538"
+    },
+    "42": {
+        "name": "NGC 7538 LOS",
+        "kind": "LOS Cloud",
+        "ra": "23:13:37.2",
+        "dec": "61:30:00",
+        "detects": 1,
+        "molecules": [
+            "CH4"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538"
+    },
+    "43": {
+        "name": "Orion",
+        "kind": "SFR",
+        "ra": "05:35:14.16",
+        "dec": "-05:22:21.5",
+        "detects": 24,
+        "molecules": [
+            "CO",
+            "CS",
+            "SO",
+            "HCl",
+            "PN",
+            "O2",
+            "H2O",
+            "HCO+",
+            "HCN",
+            "H2S",
+            "C2H",
+            "SO2",
+            "HCS+",
+            "CH2",
+            "H3O+",
+            "c-C3H2",
+            "H2COH+",
+            "NH3D+",
+            "CH3NH2",
+            "CH3NCO",
+            "CH3OCH3",
+            "CH3CH2CN",
+            "CH3CH2SH",
+            "CH3COOCH3"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+KL"
+    },
+    "44": {
+        "name": "Orion Bar",
+        "kind": "PDR",
+        "ra": "05:35:22.30",
+        "dec": "-05:24:33.0",
+        "detects": 1,
+        "molecules": [
+            "CF+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+Bar"
+    },
+    "45": {
+        "name": "rho Oph A",
+        "kind": "SFR",
+        "ra": "16:25:35.14",
+        "dec": "-23:26:49.9",
+        "detects": 6,
+        "molecules": [
+            "O2",
+            "HO2",
+            "HOOH",
+            "O2",
+            "HO2",
+            "HOOH"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Rho+Oph+A"
+    },
+    "46": {
+        "name": "Sgr A",
+        "kind": "Sgr A",
+        "ra": "17:45:40.0",
+        "dec": "-29:00:28.2",
+        "detects": 4,
+        "molecules": [
+            "HCO+",
+            "HCN",
+            "CH3OH",
+            "CH3CN"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A"
+    },
+    "47": {
+        "name": "Sgr A LOS",
+        "kind": "LOS Cloud",
+        "ra": "17:45:40.0",
+        "dec": "-29:00:28.2",
+        "detects": 2,
+        "molecules": [
+            "H2CO",
+            "CH3"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A"
+    },
+    "48": {
+        "name": "Sgr B2",
+        "kind": "SFR",
+        "ra": "17:47:20.4",
+        "dec": "-28:23:07",
+        "detects": 68,
+        "molecules": [
+            "SiO",
+            "NS",
+            "NO",
+            "PN",
+            "SH+",
+            "H2O",
+            "OCS",
+            "H2S",
+            "N2H+",
+            "SO2",
+            "HNO",
+            "HCS+",
+            "HOC+",
+            "C2S",
+            "N2O",
+            "H2O+",
+            "H2Cl+",
+            "HNCO",
+            "HNCS",
+            "HOCO+",
+            "HCNH+",
+            "H3O+",
+            "HOCN",
+            "HSCN",
+            "HC3N",
+            "HCOOH",
+            "CH2NH",
+            "NH2CN",
+            "H2CCO",
+            "c-C3H2",
+            "CH2CN",
+            "H2COH+",
+            "CNCHO",
+            "HNCNH",
+            "H2NCO+",
+            "CH3OH",
+            "CH3CN",
+            "NH2CHO",
+            "CH3SH",
+            "CH3NC",
+            "c-H2C3O",
+            "CH2CNH",
+            "HNCHCN",
+            "CH3CHO",
+            "CH3CCH",
+            "CH3NH2",
+            "CH2CHCN",
+            "HC5N",
+            "c-C2H4O",
+            "CH2CHOH",
+            "CH3NCO",
+            "HCOOCH3",
+            "CH3COOH",
+            "CH2OHCHO",
+            "CH2CHCHO",
+            "NH2CH2CN",
+            "CH3CHNH",
+            "NH2CONH2",
+            "CH3CH2OH",
+            "CH3CH2CN",
+            "CH3CONH2",
+            "(CH3)2CO",
+            "HOCH2CH2OH",
+            "CH3CH2CHO",
+            "CH3CHCH2O",
+            "C2H5OCHO",
+            "n-C3H7CN",
+            "i-C3H7CN"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2"
+    },
+    "49": {
+        "name": "Sgr B2 LOS",
+        "kind": "LOS Cloud",
+        "ra": "17:47:20.4",
+        "dec": "-28:23:07",
+        "detects": 7,
+        "molecules": [
+            "HF",
+            "OH+",
+            "NH2",
+            "H2O+",
+            "H2Cl+",
+            "H2CO",
+            "H2CS"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2"
+    },
+    "50": {
+        "name": "TC 1",
+        "kind": "PN",
+        "ra": "17:45:35.29",
+        "dec": "-46:05:23.7",
+        "detects": 2,
+        "molecules": [
+            "C60",
+            "C70"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=PN%20Tc%201%20"
+    },
+    "51": {
+        "name": "TMC-1",
+        "kind": "Dark Cloud",
+        "ra": "04:41:45.9",
+        "dec": "+25:41:27",
+        "detects": 41,
+        "molecules": [
+            "PN",
+            "NS+",
+            "C2S",
+            "C2O",
+            "C3N",
+            "C3O",
+            "l-C3H",
+            "C3S",
+            "c-C3H",
+            "H2CN",
+            "c-C3H2",
+            "CH2CN",
+            "H2CCC",
+            "HCCNC",
+            "HNCCC",
+            "NCCNH+",
+            "HC2CHO",
+            "HC3NH+",
+            "C5N",
+            "C6H",
+            "C6H-",
+            "HC5O",
+            "CH3C3N",
+            "H2C6",
+            "CH2CCHCN",
+            "HC7N",
+            "CH3C4H",
+            "C8H-",
+            "CH2CHCH3",
+            "HC7O",
+            "CH3C5N",
+            "HC9N",
+            "CH3C6H",
+            "C6H5CN",
+            "C10H7CN",
+            "C10H7CN",
+            "HCCCH2CN",
+            "HC4NC",
+            "HC11N",
+            "C5H5CN",
+            "HC3O+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=TMC-1"
+    },
+    "52": {
+        "name": "VY Ca Maj",
+        "kind": "Oxygen Star",
+        "ra": "07:22:58.3",
+        "dec": "-25:46:03.2",
+        "detects": 6,
+        "molecules": [
+            "PO",
+            "AlO",
+            "TiO",
+            "VO",
+            "AlOH",
+            "TiO2"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=VY+Canis+Majoris"
+    },
+    "53": {
+        "name": "W3",
+        "kind": "LOS Cloud",
+        "ra": "02:27:04.10",
+        "dec": "+61:52:27.1",
+        "detects": 2,
+        "molecules": [
+            "H2S",
+            "HCO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3"
+    },
+    "54": {
+        "name": "W3(OH)",
+        "kind": "SFR",
+        "ra": "02:27:04.1",
+        "dec": "+61:52:52",
+        "detects": 3,
+        "molecules": [
+            "HCO+",
+            "HCN",
+            "H2S"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3+%28OH%29&NbIdent=1"
+    },
+    "55": {
+        "name": "W31 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:10:28.6",
+        "dec": "-19:55:51",
+        "detects": 1,
+        "molecules": [
+            "HCl+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W31"
+    },
+    "56": {
+        "name": "W33 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:14:14.0",
+        "dec": "-17:55:50",
+        "detects": 2,
+        "molecules": [
+            "H3+",
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W33"
+    },
+    "57": {
+        "name": "W43 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:47:32.4",
+        "dec": "-01:56:31",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43"
+    },
+    "58": {
+        "name": "W44 LOS",
+        "kind": "LOS Cloud",
+        "ra": "18:56:10.65",
+        "dec": "+01:13:21.30",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43"
+    },
+    "59": {
+        "name": "W49",
+        "kind": "SFR",
+        "ra": "19:10:19.6",
+        "dec": "+09:07:42",
+        "detects": 2,
+        "molecules": [
+            "H2O",
+            "HCN"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49"
+    },
+    "60": {
+        "name": "W49 LOS",
+        "kind": "LOS Cloud",
+        "ra": "19:10:19.6",
+        "dec": "+09:07:42",
+        "detects": 3,
+        "molecules": [
+            "HCl+",
+            "SH",
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49"
+    },
+    "61": {
+        "name": "W51",
+        "kind": "SFR",
+        "ra": "19:23:50",
+        "dec": "+14:06:0",
+        "detects": 8,
+        "molecules": [
+            "CS",
+            "PN",
+            "HCO+",
+            "HCN",
+            "HNC",
+            "H2S",
+            "HCO",
+            "H2COH+"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51"
+    },
+    "62": {
+        "name": "W51 LOS",
+        "kind": "LOS Cloud",
+        "ra": "19:23:50",
+        "dec": "+14:06:0",
+        "detects": 1,
+        "molecules": [
+            "H2CO"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51"
+    },
+    "63": {
+        "name": "Xi Per LOS",
+        "kind": "LOS Cloud",
+        "ra": "03:58:57.9",
+        "dec": "+35:47:27.74",
+        "detects": 2,
+        "molecules": [
+            "H2",
+            "NH"
+        ],
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Xi+Per"
+    }
+}

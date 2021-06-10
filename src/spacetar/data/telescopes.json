@@ -1,9 +1,9 @@
 {
     "1": {
         "name": "Green Bank Telescope",
-        "shortname": "GBT",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "GBT",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -13,8 +13,8 @@
         "built": 2004,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 24,
-        "mol_list": [
+        "detects": 24,
+        "molecules": [
             "CNCHO",
             "HNCNH",
             "H2NCO+",
@@ -43,11 +43,11 @@
     },
     "2": {
         "name": "IRAM 30-m",
-        "shortname": "IRAM",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "IRAM",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": 37.066161,
         "longitude": -3.392719,
@@ -55,8 +55,8 @@
         "built": 1984,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 60,
-        "mol_list": [
+        "detects": 60,
+        "molecules": [
             "NaCl",
             "AlCl",
             "KCl",
@@ -121,9 +121,9 @@
     },
     "3": {
         "name": "Spizter",
-        "shortname": "Spitzer",
-        "type": "Space",
-        "wavelength": [
+        "nick": "Spitzer",
+        "kind": "Space",
+        "wavelengths": [
             "IR"
         ],
         "latitude": null,
@@ -132,8 +132,8 @@
         "built": 2003,
         "decommissioned": 2020,
         "notes": null,
-        "ndetects": 3,
-        "mol_list": [
+        "detects": 3,
+        "molecules": [
             "C60",
             "C60+",
             "C70"
@@ -141,9 +141,9 @@
     },
     "4": {
         "name": "Hubble Space Telescope",
-        "shortname": "Hubble",
-        "type": "Space",
-        "wavelength": [
+        "nick": "Hubble",
+        "kind": "Space",
+        "wavelengths": [
             "IR",
             "Vis",
             "UV"
@@ -154,18 +154,18 @@
         "built": 1990,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "VO"
         ]
     },
     "5": {
         "name": "Atacama Large Millimeter/sub-millimeter Array",
-        "shortname": "ALMA",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "ALMA",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": -23.0193,
         "longitude": -67.7532,
@@ -173,8 +173,8 @@
         "built": 2011,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 6,
-        "mol_list": [
+        "detects": 6,
+        "molecules": [
             "HONO",
             "CH3Cl",
             "HOCH2CN",
@@ -185,9 +185,9 @@
     },
     "6": {
         "name": "Infrared Space Observatory",
-        "shortname": "ISO",
-        "type": "Space",
-        "wavelength": [
+        "nick": "ISO",
+        "kind": "Space",
+        "wavelengths": [
             "IR"
         ],
         "latitude": null,
@@ -196,8 +196,8 @@
         "built": 1995,
         "decommissioned": 1998,
         "notes": null,
-        "ndetects": 5,
-        "mol_list": [
+        "detects": 5,
+        "molecules": [
             "HF",
             "CH3",
             "HC4H",
@@ -207,9 +207,9 @@
     },
     "7": {
         "name": "NRAO 140-ft",
-        "shortname": "NRAO 140-ft",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "NRAO 140-ft",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": 38.433056,
@@ -218,8 +218,8 @@
         "built": 1965,
         "decommissioned": 2008,
         "notes": "Technically started operations again in 2014, but not for PI science.",
-        "ndetects": 13,
-        "mol_list": [
+        "detects": 13,
+        "molecules": [
             "H2CO",
             "HC3N",
             "HCOOH",
@@ -237,9 +237,9 @@
     },
     "8": {
         "name": "Algonquin 46-m Telescope",
-        "shortname": "Algonquin 46-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Algonquin 46-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -249,8 +249,8 @@
         "built": 1966,
         "decommissioned": 1987,
         "notes": "Technically in operation much longer, but seems to have ceased PI science in 1987.",
-        "ndetects": 3,
-        "mol_list": [
+        "detects": 3,
+        "molecules": [
             "HC5N",
             "HC7N",
             "HC9N"
@@ -258,9 +258,9 @@
     },
     "9": {
         "name": "NRAO/ARO 12-m Telescope",
-        "shortname": "NRAO/ARO 12-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "NRAO/ARO 12-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 31.9533,
@@ -269,8 +269,8 @@
         "built": 1984,
         "decommissioned": null,
         "notes": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities).  The observatory was handed over to the ARO in 2000 and renamed.  In 2013, the antenna was replaced with a 12-m ALMA prototype antenna.",
-        "ndetects": 27,
-        "mol_list": [
+        "detects": 27,
+        "molecules": [
             "PN",
             "SiN",
             "SO+",
@@ -302,9 +302,9 @@
     },
     "10": {
         "name": "NRAO 36-ft Telescope",
-        "shortname": "NRAO 36-ft",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "NRAO 36-ft",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 31.9533,
@@ -313,8 +313,8 @@
         "built": 1967,
         "decommissioned": 1984,
         "notes": "Became the NRAO/ARO 12-m telescope in 1984.",
-        "ndetects": 33,
-        "mol_list": [
+        "detects": 33,
+        "molecules": [
             "CO",
             "SiO",
             "CS",
@@ -352,9 +352,9 @@
     },
     "11": {
         "name": "Nobeyama 45-m Telescope",
-        "shortname": "Nobeyama",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Nobeyama",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -364,8 +364,8 @@
         "built": 1982,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 15,
-        "mol_list": [
+        "detects": 15,
+        "molecules": [
             "C2S",
             "C2O",
             "C3O",
@@ -385,9 +385,9 @@
     },
     "12": {
         "name": "Effelsberg 100-m Telescope",
-        "shortname": "Effelsberg",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Effelsberg",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": 50.5247,
@@ -396,8 +396,8 @@
         "built": 1972,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 4,
-        "mol_list": [
+        "detects": 4,
+        "molecules": [
             "H2CCC",
             "C5N",
             "HCOOCH3",
@@ -406,9 +406,9 @@
     },
     "13": {
         "name": "Haystack 37-m Telescope",
-        "shortname": "Haystack",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Haystack",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -418,8 +418,8 @@
         "built": 1964,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 3,
-        "mol_list": [
+        "detects": 3,
+        "molecules": [
             "c-C2H4O",
             "HC7N",
             "CH3C4H"
@@ -427,9 +427,9 @@
     },
     "14": {
         "name": "Plateu de Bure Interferometer",
-        "shortname": "PdBI",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "PdBI",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 44.63389,
@@ -438,17 +438,17 @@
         "built": 1988,
         "decommissioned": 2016,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "TiO2",
             "NH2CH2CN"
         ]
     },
     "15": {
         "name": "Northern Extended Millimeter Array",
-        "shortname": "NOEMA",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "NOEMA",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 44.63389,
@@ -457,14 +457,14 @@
         "built": 2016,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 0,
-        "mol_list": []
+        "detects": 0,
+        "molecules": []
     },
     "16": {
         "name": "Berkeley-Illinois-Maryland Array",
-        "shortname": "BIMA",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "BIMA",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 40.8178,
@@ -473,16 +473,16 @@
         "built": 1986,
         "decommissioned": 2005,
         "notes": "Became part of CARMA.",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "CH3COOH"
         ]
     },
     "17": {
         "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
-        "shortname": "OVRO",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "OVRO",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 37.2339,
@@ -491,17 +491,17 @@
         "built": 1984,
         "decommissioned": 2005,
         "notes": "Became part of CARMA.",
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "PN",
             "CH3COOH"
         ]
     },
     "18": {
         "name": "Yebes RT40-m Telescope",
-        "shortname": "Yebes",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Yebes",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -511,8 +511,8 @@
         "built": 2007,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 4,
-        "mol_list": [
+        "detects": 4,
+        "molecules": [
             "NCCNH+",
             "MgC3N",
             "MgC4H",
@@ -521,9 +521,9 @@
     },
     "19": {
         "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
-        "shortname": "NRL 85-ft",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "NRL 85-ft",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": 38.3741667,
@@ -532,16 +532,16 @@
         "built": 1965,
         "decommissioned": 1994,
         "notes": "Primarily used for VLBI for much of its later years.",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "CH3OCH3"
         ]
     },
     "20": {
         "name": "Australia Telescope Compact Array",
-        "shortname": "ATCA",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "ATCA",
+        "kind": "Interferometer",
+        "wavelengths": [
             "cm"
         ],
         "latitude": -30.312778,
@@ -550,16 +550,16 @@
         "built": 1988,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "NH2CH2CN"
         ]
     },
     "21": {
         "name": "Parkes 64-m Telescope",
-        "shortname": "Parkes",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Parkes",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": -32.99778,
@@ -568,8 +568,8 @@
         "built": 1961,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 5,
-        "mol_list": [
+        "detects": 5,
+        "molecules": [
             "H2CS",
             "CH2NH",
             "CH3NH2",
@@ -579,11 +579,11 @@
     },
     "22": {
         "name": "ARO 10-m Submillimeter Telescope",
-        "shortname": "SMT",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "SMT",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": 32.701658,
         "longitude": -109.871391,
@@ -591,8 +591,8 @@
         "built": 1993,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 7,
-        "mol_list": [
+        "detects": 7,
+        "molecules": [
             "PO",
             "AlO",
             "AlOH",
@@ -604,11 +604,11 @@
     },
     "23": {
         "name": "Swedish-ESO 15-m Submillimetre Telescope",
-        "shortname": "SEST",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "SEST",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": -29.26,
         "longitude": -70.73,
@@ -616,17 +616,17 @@
         "built": 1987,
         "decommissioned": 2003,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "c-C2H4O",
             "CH2CHCHO"
         ]
     },
     "24": {
         "name": "Goldstone 72-m (DSS-14; \"Mars\")",
-        "shortname": "Goldstone",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Goldstone",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": 35.426667,
@@ -635,16 +635,16 @@
         "built": 1966,
         "decommissioned": null,
         "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "H2C6"
         ]
     },
     "25": {
         "name": "Tokyo Astronomical Observatory Mitaka 6-m",
-        "shortname": "Mitaka 6-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Mitaka 6-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 35.675217,
@@ -653,16 +653,16 @@
         "built": 1970,
         "decommissioned": 2018,
         "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018.",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "CH3NH2"
         ]
     },
     "26": {
         "name": "McMath-Pierce Solar Telescope",
-        "shortname": "McMath Solar Telescope",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "McMath Solar Telescope",
+        "kind": "Optical",
+        "wavelengths": [
             "IR",
             "Vis",
             "UV"
@@ -673,16 +673,16 @@
         "built": 1962,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "C2H4"
         ]
     },
     "27": {
         "name": "AT&T Bell Laboratories 7-m Telescope",
-        "shortname": "Bell 7-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Bell 7-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": null,
@@ -691,8 +691,8 @@
         "built": 1976,
         "decommissioned": 1992,
         "notes": null,
-        "ndetects": 8,
-        "mol_list": [
+        "detects": 8,
+        "molecules": [
             "HCS+",
             "SiC2",
             "HNCS",
@@ -705,9 +705,9 @@
     },
     "28": {
         "name": "NASA Infrared Telescope Facility",
-        "shortname": "IRTF",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "IRTF",
+        "kind": "Optical",
+        "wavelengths": [
             "IR"
         ],
         "latitude": 19.8263,
@@ -716,17 +716,17 @@
         "built": 1974,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "SiH4",
             "CH4"
         ]
     },
     "29": {
         "name": "Mayall 4-m Telescope",
-        "shortname": "KPNO 4-m",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "KPNO 4-m",
+        "kind": "Optical",
+        "wavelengths": [
             "IR"
         ],
         "latitude": 31.9583,
@@ -735,8 +735,8 @@
         "built": 1973,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 4,
-        "mol_list": [
+        "detects": 4,
+        "molecules": [
             "NH",
             "C3",
             "C2H2",
@@ -745,9 +745,9 @@
     },
     "30": {
         "name": "Onsala 20-m Telescope",
-        "shortname": "Onsala 20-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Onsala 20-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -757,8 +757,8 @@
         "built": 1976,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 4,
-        "mol_list": [
+        "detects": 4,
+        "molecules": [
             "HOC+",
             "C3N",
             "l-C3H",
@@ -767,9 +767,9 @@
     },
     "31": {
         "name": "Five College Radio Observatory 14-m Telescope",
-        "shortname": "FCRAO 14-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "FCRAO 14-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -779,8 +779,8 @@
         "built": 1976,
         "decommissioned": 2005,
         "notes": null,
-        "ndetects": 5,
-        "mol_list": [
+        "detects": 5,
+        "molecules": [
             "PN",
             "HOC+",
             "C3O",
@@ -790,11 +790,11 @@
     },
     "32": {
         "name": "Atacama Pathfinder Experiment",
-        "shortname": "APEX",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "APEX",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": -23.0058,
         "longitude": -67.7592,
@@ -802,8 +802,8 @@
         "built": 2005,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 4,
-        "mol_list": [
+        "detects": 4,
+        "molecules": [
             "CF+",
             "OH+",
             "HO2",
@@ -812,11 +812,11 @@
     },
     "33": {
         "name": "Caltech Submillimeter Observatory",
-        "shortname": "CSO",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "CSO",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm",
-            "sub-mm"
+            "submm"
         ],
         "latitude": 19.8225,
         "longitude": -155.70694,
@@ -824,17 +824,17 @@
         "built": 1986,
         "decommissioned": 2015,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "NH2",
             "PH3"
         ]
     },
     "34": {
         "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
-        "shortname": "MWO 4.9-m",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "MWO 4.9-m",
+        "kind": "Single Dish",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 30.3866,
@@ -843,17 +843,17 @@
         "built": 1971,
         "decommissioned": 1988,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "HCNH+",
             "H3O+"
         ]
     },
     "35": {
         "name": "Hat Creek Station 20-ft Telescope",
-        "shortname": "Hat Creek 20-ft",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Hat Creek 20-ft",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm",
             "mm"
         ],
@@ -863,17 +863,17 @@
         "built": 1965,
         "decommissioned": 1983,
         "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate.",
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "H2O",
             "NH3"
         ]
     },
     "36": {
         "name": "Submillimeter Array",
-        "shortname": "SMA",
-        "type": "Interferometer",
-        "wavelength": [
+        "nick": "SMA",
+        "kind": "Interferometer",
+        "wavelengths": [
             "mm"
         ],
         "latitude": 19.8225,
@@ -882,18 +882,18 @@
         "built": 2003,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "TiO",
             "TiO2"
         ]
     },
     "37": {
         "name": "Herschel Space Telescope",
-        "shortname": "Herschel",
-        "type": "Space",
-        "wavelength": [
-            "sub-mm",
+        "nick": "Herschel",
+        "kind": "Space",
+        "wavelengths": [
+            "submm",
             "IR"
         ],
         "latitude": null,
@@ -902,8 +902,8 @@
         "built": 2009,
         "decommissioned": 2013,
         "notes": null,
-        "ndetects": 7,
-        "mol_list": [
+        "detects": 7,
+        "molecules": [
             "O2",
             "SH+",
             "HCl+",
@@ -915,9 +915,9 @@
     },
     "38": {
         "name": "United Kingdom Infrared Telescope",
-        "shortname": "UKIRT",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "UKIRT",
+        "kind": "Optical",
+        "wavelengths": [
             "IR"
         ],
         "latitude": 19.8225,
@@ -926,17 +926,17 @@
         "built": 1979,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "H3+"
         ]
     },
     "39": {
         "name": "Stratospheric Observatory for Infrared Astronomy",
-        "shortname": "SOFIA",
-        "type": "Airborne",
-        "wavelength": [
-            "sub-mm",
+        "nick": "SOFIA",
+        "kind": "Airborne",
+        "wavelengths": [
+            "submm",
             "IR"
         ],
         "latitude": null,
@@ -945,18 +945,18 @@
         "built": 2010,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 2,
-        "mol_list": [
+        "detects": 2,
+        "molecules": [
             "SH",
             "HeH+"
         ]
     },
     "40": {
         "name": "Odin",
-        "shortname": "Odin",
-        "type": "Space",
-        "wavelength": [
-            "sub-mm"
+        "nick": "Odin",
+        "kind": "Space",
+        "wavelengths": [
+            "submm"
         ],
         "latitude": null,
         "longitude": null,
@@ -964,16 +964,16 @@
         "built": 2001,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "O2"
         ]
     },
     "41": {
         "name": "Far Ultraviolet Spectroscopic Explorer",
-        "shortname": "FUSE",
-        "type": "Space",
-        "wavelength": [
+        "nick": "FUSE",
+        "kind": "Space",
+        "wavelengths": [
             "UV"
         ],
         "latitude": null,
@@ -982,17 +982,17 @@
         "built": 1999,
         "decommissioned": 2007,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "N2"
         ]
     },
     "42": {
         "name": "Kuiper Airborne Observatory",
-        "shortname": "KAO",
-        "type": "Airborne",
-        "wavelength": [
-            "sub-mm",
+        "nick": "KAO",
+        "kind": "Airborne",
+        "wavelengths": [
+            "submm",
             "IR"
         ],
         "latitude": null,
@@ -1001,16 +1001,16 @@
         "built": 1974,
         "decommissioned": 1995,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "HCl"
         ]
     },
     "43": {
         "name": "Tillinghast 60 inch",
-        "shortname": "Mt. Hopkins 60-in",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "Mt. Hopkins 60-in",
+        "kind": "Optical",
+        "wavelengths": [
             "IR"
         ],
         "latitude": 31.6811,
@@ -1019,16 +1019,16 @@
         "built": 1969,
         "decommissioned": null,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "C2"
         ]
     },
     "44": {
         "name": "Aerobee-150 Rocket",
-        "shortname": "Aerobee-150 Rocket",
-        "type": "Airborne",
-        "wavelength": [
+        "nick": "Aerobee-150 Rocket",
+        "kind": "Airborne",
+        "wavelengths": [
             "UV"
         ],
         "latitude": null,
@@ -1037,16 +1037,16 @@
         "built": 1970,
         "decommissioned": 1970,
         "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory.",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "H2"
         ]
     },
     "45": {
         "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
-        "shortname": "Millstone Hill 84-ft",
-        "type": "Single Dish",
-        "wavelength": [
+        "nick": "Millstone Hill 84-ft",
+        "kind": "Single Dish",
+        "wavelengths": [
             "cm"
         ],
         "latitude": 42.6233,
@@ -1055,18 +1055,18 @@
         "built": 1956,
         "decommissioned": 1978,
         "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time.",
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "OH"
         ]
     },
     "46": {
         "name": "Mount Wilson 100-in",
-        "shortname": "Mt. Wilson",
-        "type": "Optical",
-        "wavelength": [
+        "nick": "Mt. Wilson",
+        "kind": "Optical",
+        "wavelengths": [
             "UV",
-            "VIS"
+            "Vis"
         ],
         "latitude": null,
         "longitude": null,
@@ -1074,8 +1074,8 @@
         "built": 1917,
         "decommissioned": 1989,
         "notes": "Now known as the Hooker Telescope.",
-        "ndetects": 3,
-        "mol_list": [
+        "detects": 3,
+        "molecules": [
             "CH",
             "CN",
             "CH+"
@@ -1083,9 +1083,9 @@
     },
     "47": {
         "name": "Infrared Astronomical Satellite",
-        "shortname": "IRAS",
-        "type": "Space",
-        "wavelength": [
+        "nick": "IRAS",
+        "kind": "Space",
+        "wavelengths": [
             "IR"
         ],
         "latitude": null,
@@ -1094,8 +1094,8 @@
         "built": 1983,
         "decommissioned": 1983,
         "notes": null,
-        "ndetects": 1,
-        "mol_list": [
+        "detects": 1,
+        "molecules": [
             "CO2"
         ]
     }
