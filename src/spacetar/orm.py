@@ -331,16 +331,10 @@ class Wavelength(Base):  # type: ignore
     Represents a wavelength band in the electromagentic spectrum in **spacetar**.
     This class is a *mapped class*; every row in the `wavelengths` table in the
     SQLite database maps to an instance of this class. There are six wavelength
-    bands in **spacetar**:
-        * submm
-        * mm
-        * cm
-        * IR
-        * Vis
-        * UV
-    This table shares a many-to-many relationship with two tables: `molecules`
-    (as the wavelength(s) the molecule was discovered in) and `telescopes` (as
-    the wavelength(s) the telescope operates in).
+    bands in **spacetar**: submm, mm, cm, IR, Vis, and UV. This table shares a
+    many-to-many relationship with two tables: `molecules` (as the wavelength(s)
+    the molecule was discovered in) and `telescopes` (as the wavelength(s) the
+    telescope operates in).
 
     Args:
         id:     The ID of the wavelength band in the table.

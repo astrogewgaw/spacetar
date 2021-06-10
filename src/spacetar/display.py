@@ -113,14 +113,14 @@ def formulate(formula: str) -> str:
 def mol_row(mol: Any) -> List[str]:
 
     """
-    Render a row in a table of `Molecule`s.
+    Render a row in a table of `Molecules`.
 
     Args:
         mol:    A `Molecule`.
 
     Returns:
         A row in the table representing this `Molecule` instance
-        as s list of strings. These strings contain console markup
+        as a list of strings. These strings contain console markup
         that works with the `rich` package. This function is used
         to render the table of molecules onto the terminal.
     """
@@ -144,7 +144,7 @@ def mol_row(mol: Any) -> List[str]:
 def mol_header() -> List[Column]:
 
     """
-    The header for a table of `Molecule`s.
+    The header for a table of `Molecules`.
     """
 
     return [
@@ -202,7 +202,7 @@ def mol_summary(mol: Any) -> Panel:
 def src_row(src: Any) -> List[str]:
 
     """
-    Render a row in a table of `Source`s.
+    Render a row in a table of `Sources`.
 
     Args:
         src:    A `Source`.
@@ -227,7 +227,7 @@ def src_row(src: Any) -> List[str]:
 def src_header() -> List[Column]:
 
     """
-    The header for a table of `Source`s.
+    The header for a table of `Sources`.
     """
 
     return [
@@ -262,7 +262,7 @@ def src_summary(src: Any):
 def tel_row(tel: Any) -> List[str]:
 
     """
-    Render a row in a table of `Telescope`s.
+    Render a row in a table of `Telescopes`.
 
     Args:
         tel:    A `Telescope`.
@@ -291,7 +291,7 @@ def tel_row(tel: Any) -> List[str]:
 def tel_header() -> List[Column]:
 
     """
-    The header for a table of `Telescope`s.
+    The header for a table of `Telescopes`.
     """
 
     return [
