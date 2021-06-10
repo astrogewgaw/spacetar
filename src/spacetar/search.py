@@ -12,7 +12,18 @@ from .orm import Engine, Source, Molecule, Telescope, Wavelength
 @attr.s(repr=False, auto_attribs=True)
 class Results(object):
 
-    """"""
+    """
+    Represents the results of a query into the SQLite database.
+    The primary purpose of this class is to enable us to work
+    with search results using a common API, and to pretty print
+    them, using `rich`'s Console Protocol.
+
+    Args:
+        rows:   A list of search results from the SQLite database.
+                All items in the list should be of the same type,
+                and this should be one of `Molecule`, `Source`, or
+                `Telescope`.
+    """
 
     rows: List[Any]
 
@@ -35,14 +46,33 @@ class Results(object):
 
 def likable(term: str) -> str:
 
-    """"""
+    """
+    Ready a search term for a *like* search. This just meahs adding a
+    *%* character onto either side of the string. These serve the same
+    purpose as a *wildcard* character.
+
+    Args:
+        term:   The search term to make *likable*. Must be a string.
+
+    Returns:
+        A string that is ready to be given as input to a SQL query for
+        a like search.
+    """
 
     return f"%{term}%"
 
 
 def results(query: Any) -> Results:
 
-    """"""
+    """
+    Query the SQLite database and return the results as a `Result` object.
+
+    Args:
+        query:  The SQL query to execute.
+
+    Returns:
+        A `Results` object encapsulating the search results.
+    """
 
     with Session(Engine) as session:
         return Results(rows=[_[0] for _ in session.execute(query).all()])
@@ -67,9 +97,38 @@ def search_molecule(
     ppd: Optional[bool] = None,
     exgal: Optional[bool] = None,
     exo: Optional[bool] = None,
-) -> Any:
+) -> Results:
 
-    """"""
+    """
+    Search for space molecules from the `molecules` table in the SQLite database.
+
+    Args:
+        like:           Do a *like* search. This inserts wildcard characters into
+                        both sides of a string parameter and searches the SQLite
+                        database. This allows the user to use parts of a name or
+                        formula in their search, for instance.
+        name:           Search for molecules by name.
+        formula:        Seach for molecules by its molecular formula.
+        year:           Search for molecules by the year were discovered.
+        source:         Search for molecules by the source(s) they were discovered in.
+        telescope:      Search for molecules by the telescope(s) they were discovered by.
+        wavelength:     Search for molecules by the wavelength(s) in the electromagnetic
+                        spectrum they were discovered in.
+        neutral:        Search for molecules if they is neutral.
+        cation:         Search for molecules if they is cation.
+        anion:          Search for molecules if they is anion.
+        radical:        Search for molecules if they is radical.
+        cyclic:         Search for molecules if they is cyclic.
+        fullerene:      Search for molecules if they is fullerene.
+        polyaromatic:   Search for molecules if they is polyaromatic.
+        ice:            Search for molecules if they has been discovered in interstellar ices.
+        ppd:            Search for molecules if they has been discovered in protoplanetary disks.
+        exgal:          Search for molecules if they has been discovered in extragalactic sources.
+        exo:            Search for molecules if they has been discovered in exoplanets.
+
+    Returns:
+        A `Results` object.
+    """
 
     params = {
         0: name,
@@ -148,7 +207,18 @@ def search_source(
     detects: Optional[List[int]] = None,
 ) -> Any:
 
-    """"""
+    """
+    Search for an astronomical source from the `sources` table in the SQLite database.
+
+    Args:
+        like:           Do a *like* search. This inserts wildcard characters into
+                        both sides of a string parameter and searches the SQLite
+                        database. This allows the user to use parts of a name in
+                        the search, for instance.
+        name:           Search for sources by their name.
+        kind:           Search for sources by their kind/type.
+        detects:        Search for sources by the number of molecules detected in them.
+    """
 
     params = {
         0: name,
@@ -192,7 +262,23 @@ def search_telescope(
     detects: Optional[List[int]] = None,
 ):
 
-    """"""
+    """
+    Search for a telescope from the `telescopes` table in the SQLite database.
+
+    Args:
+        like:               Do a *like* search. This inserts wildcard characters into
+                            both sides of a string parameter and searches the SQLite
+                            database. This allows the user to use parts of a name in
+                            the search, for instance.
+        name:               Search for telescopes by their full name.
+        nick:               Search for telescopes by their short name (a.k.a. nick).
+        wavelengths:        Search for telescopes by the wavelength(s) in the electromagnetic spectrum
+                            they operate in.
+        diameter:           Search for telescopes by their diameter, if applicable.
+        built:              Search for telescopes by the year they were built in.
+        decommissioned:     Search for telescopes by the year they were decommissioned in, if applicable.
+        detects:            Search for telescopes by the number of molecules they have discovered.
+    """
 
     params = {
         0: name,

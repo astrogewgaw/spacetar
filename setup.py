@@ -5,15 +5,15 @@ from setuptools import setup, find_packages
 
 
 here = Path(__file__).parent.resolve()
-install_requires = ["attrs", "rich", "typer", "tabulate", "SQLAlchemy"]
 long_description = (here / "README.md").read_text(encoding="utf-8")
+install_requires = ["attrs", "rich", "typer", "tabulate", "SQLAlchemy"]
 
 
 setup(
     name="spacetar",
     use_scm_version=True,
     setup_requires=["setuptools_scm"],
-    description="Space molecules in your terminal!",
+    description="Space molecules 🧪 ⚗️ in your terminal 💻 !",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/astrogewgaw/spacetar",

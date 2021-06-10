@@ -19,5 +19,7 @@ extensions = extensions = [
     "sphinx.ext.autosectionlabel",
 ]
 
+myst_enable_extensions = ["amsmath"]
+
 html_theme = "sphinx_rtd_theme"
 html_baseurl = "https://spacetar.readthedocs.io"

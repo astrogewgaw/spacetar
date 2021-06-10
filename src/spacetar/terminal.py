@@ -13,18 +13,24 @@ app = typer.Typer()
 
 
 @app.command()
-def usage():
+def usage() -> None:
 
-    """"""
+    """
+    Show a bunch of usage examples for spacetar.
+    This uses a pager to display the uotput onto
+    the terminal.
+    """
 
     print_usage()
     sys.exit(0)
 
 
 @app.command()
-def version():
+def version() -> None:
 
-    """"""
+    """
+    Print the version of spacetar installed on the terminal.
+    """
 
     print_version()
     sys.exit(0)
@@ -53,7 +59,9 @@ def mols(
     exo: Optional[bool] = None,
 ) -> None:
 
-    """"""
+    """
+    Search the space molecules database in spacetar.
+    """
 
     if year is not None:
         if len(year) > 2:
@@ -120,9 +128,11 @@ def srcs(
     name: Optional[str] = None,
     kind: Optional[str] = None,
     detects: Optional[List[int]] = typer.Option(None),
-):
+) -> None:
 
-    """"""
+    """
+    Search the astronomical sources in spacetar.
+    """
 
     if detects is not None:
         if len(detects) > 2:
@@ -179,9 +189,11 @@ def tels(
     built: Optional[List[int]] = typer.Option(None),
     decommissioned: Optional[List[int]] = typer.Option(None),
     detects: Optional[List[int]] = typer.Option(None),
-):
+) -> None:
 
-    """"""
+    """
+    Search the telescopes database in spacetar.
+    """
 
     if detects is not None:
         if len(detects) > 2:

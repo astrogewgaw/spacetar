@@ -1,14 +1,9 @@
-from json import loads
 from pathlib import Path
 from importlib.metadata import version, PackageNotFoundError
 
-whoami = "spacetar"
-whereami = Path(__file__).parent.resolve()
-freezer = whereami / "data" / f"{whoami}.db"
-waves = ["submm", "mm", "cm", "IR", "Vis", "UV"]
-data = lambda _: loads((whereami / "data" / f"{_}.json").read_text())
+__here__ = Path(__file__).parent.resolve()
 
 try:
-    __version__ = version(whoami)
+    __version__ = version("spacetar")
 except PackageNotFoundError:
     pass
