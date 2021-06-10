@@ -6,7 +6,7 @@
 [![Documentation Status][docs-badge]][docs]
 [![Documentation coverage][interrogate-badge]][interrogate]
 
-## Space molecules ![test_tube][test_tube] ![alembic][alembic] in your terminal ![computer][computer] !
+## Space molecules 🧪 ⚗️ in your terminal 💻 !
 
 [gitmoji]: https://gitmoji.dev
 [rich]: https://rich.readthedocs.io
@@ -23,11 +23,3 @@
 [docs-badge]: https://readthedocs.org/projects/spacetar/badge/?version=latest
 [gitmoji-badge]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square
 [interrogate-badge]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/interrogate_badge.svg
-
-[dish]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/dish.png
-[planet]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/planet.png
-[alembic]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/alembic.png
-[computer]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/computer.png
-[test_tube]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/test_tube.png
-[milky_way]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/milky_way.png
-[telescope]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/telescope.png
