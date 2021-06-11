@@ -1,9 +1,11 @@
-from typing import Any, List
+from typing import Any, List, Union
+
 from rich.panel import Panel
 from rich.table import Table
 from rich.table import Column
 from rich.console import Console
 from rich.markdown import Markdown
+from rich.console import RenderGroup
 
 from .core import __here__, __version__
 
@@ -76,6 +78,72 @@ def render_mol_type(obj: Any) -> str:
             if value
         ]
     )
+
+
+def also_detected_in(obj: Any) -> Union[str, Panel]:
+
+    """
+    Takes a `Molecule` object and returns a `Panel` to render the
+    type of sources the molecule was detected in apart from the
+    interstellar medium. If there are no such sources, returns a
+    string.
+
+    Args:
+        obj:    A `Molecule` object.
+
+    Returns:
+        A `Panel` or a string.
+    """
+
+    alsos = {
+        "[yellow]*[/] Interstellar Ices": obj.ice,
+        "[yellow]*[/] Protoplanetary Disks": obj.ppd,
+        "[yellow]*[/] Extragalactic Sources": obj.exgal,
+        "[yellow]*[/] Exoplanets": obj.exo,
+    }
+
+    if not any(alsos.values()):
+        return "Nothing else."
+
+    grid = Table.grid()
+    grid.add_column(justify="left")
+
+    for name, value in alsos.items():
+        if value:
+            grid.add_row(name)
+
+    return Panel(grid)
+
+
+def molecules_detected(obj: Any) -> Panel:
+
+    """
+    Takes a `Source` or `Telescope` object as input and outputs the list
+    of molecules detected in/by them into a nicely-formatted `Panel`, to be
+    rendered onto the terminal.
+
+    Args:
+        obj:    A `Source` or `Telescope` object.
+
+    Returns:
+        A `Panel` of molecules detected in/by it.
+    """
+
+    mol_grid = Table.grid()
+    mol_grid.add_column(justify="left")
+    mol_grid.add_row(
+        "\n".join(
+            [
+                f"[yellow]{str(i + 1)}[/]. {_.formula} ({_.name})"
+                for (
+                    i,
+                    _,
+                ) in enumerate(obj.molecules)
+            ]
+        )
+    )
+
+    return Panel(mol_grid)
 
 
 def formulate(formula: str) -> str:
@@ -186,12 +254,15 @@ def mol_summary(mol: Any) -> Panel:
     grid.add_row("Detected in:", f"{comma_join(mol.sources)}")
     grid.add_row("         by:", f"{comma_join(mol.telescopes)}")
     grid.add_row("         in wavelength(s):", f"{comma_join(mol.wavelengths)}")
-    grid.add_row("Also detected in:", f"{mol.ice}")
+    grid.add_row("Also detected in:", also_detected_in(mol))
     grid.add_row("Rotational Constants ([u]A, B, C[/])", f"{mol.A}, {mol.B}, {mol.C}")
     grid.add_row("Ray's Asymmetry Parameter (\u03BA)", f"{mol.kappa}")
 
     return Panel(
-        grid,
+        RenderGroup(
+            grid,
+            (f"\n{mol.notes}" if mol.notes is not None else ""),
+        ),
         padding=2,
         expand=False,
         title=f"{mol.name}",
@@ -240,7 +311,7 @@ def src_header() -> List[Column]:
     ]
 
 
-def src_summary(src: Any):
+def src_summary(src: Any) -> Panel:
 
     """
     Takes a `Source` and summarises the information about it into that
@@ -256,7 +327,24 @@ def src_summary(src: Any):
         A `Panel` with summarised information about the source.
     """
 
-    pass
+    grid = Table.grid()
+    grid.add_column(justify="left")
+    grid.add_column(justify="right")
+
+    grid.add_row("Type:", f"{src.kind}")
+    grid.add_row("Right Ascension:", f"{src.ra}")
+    grid.add_row("Declination:", f"{src.dec}")
+    grid.add_row("Number of molecules detected:", f"{src.detects}")
+    grid.add_row("Molecules detected:", molecules_detected(src))
+    grid.add_row("SIMBAD URL:", f"[link]{src.simbad_url}[/]")
+
+    return Panel(
+        grid,
+        padding=2,
+        expand=False,
+        title=f"{src.name}",
+        title_align="left",
+    )
 
 
 def tel_row(tel: Any) -> List[str]:
@@ -324,7 +412,31 @@ def tel_summary(tel: Any):
         A `Panel` with summarised information about the telescope.
     """
 
-    pass
+    grid = Table.grid()
+
+    grid.add_column(justify="left")
+    grid.add_column(justify="right")
+
+    grid.add_row("Full name:", f"{tel.name}")
+    grid.add_row("Type:", f"{tel.kind}")
+    grid.add_row("Wavelength(s) it operates in:", f"{comma_join(tel.wavelengths)}")
+    grid.add_row("Where is it?", f"{tel.latitude}, {tel.longitude}")
+    grid.add_row("Diameter:", f"{tel.diameter}")
+    grid.add_row("Built in:", f"{tel.built}")
+    grid.add_row("Decommissioned in:", f"{tel.decommissioned}")
+    grid.add_row("Number of molecules detected:", f"{tel.detects}")
+    grid.add_row("Molecules detected:", molecules_detected(tel))
+
+    return Panel(
+        RenderGroup(
+            grid,
+            (f"\n{tel.notes}" if tel.notes is not None else ""),
+        ),
+        padding=2,
+        expand=False,
+        title=f"{tel.nick}",
+        title_align="left",
+    )
 
 
 def rich_tabular_repr(rows: List, kind: str) -> Table:
@@ -385,7 +497,7 @@ def summarize(obj: Any, kind: str) -> Panel:
     return {"mol": mol_summary, "src": src_summary, "tel": tel_summary}[kind](obj)
 
 
-def print_usage():
+def print_usage() -> None:
 
     """
     Pretty print usage information about spacetar, using `rich`'s
@@ -400,7 +512,7 @@ def print_usage():
         screen.print(Markdown(usage.read_text(encoding="utf-8")))
 
 
-def print_version():
+def print_version() -> None:
 
     """
     Pretty print the version of spacetar installed.
