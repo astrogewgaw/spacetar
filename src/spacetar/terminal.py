@@ -12,6 +12,16 @@ from .search import search_source, search_molecule, search_telescope
 app = typer.Typer()
 
 
+@app.callback()
+def main():
+
+    """
+    spacetar: Space molecules in your terminal!
+    """
+
+    pass
+
+
 @app.command()
 def usage() -> None:
 
@@ -37,7 +47,7 @@ def version() -> None:
 
 
 @app.command()
-def mols(
+def molecules(
     like: bool = False,
     no_pager: bool = False,
     name: Optional[str] = None,
@@ -122,7 +132,7 @@ def mols(
 
 
 @app.command()
-def srcs(
+def sources(
     like: bool = False,
     no_pager: bool = False,
     name: Optional[str] = None,
@@ -179,7 +189,7 @@ def srcs(
 
 
 @app.command()
-def tels(
+def telescopes(
     like: bool = False,
     no_pager: bool = False,
     name: Optional[str] = None,
