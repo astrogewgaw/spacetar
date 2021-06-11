@@ -1,5 +1,6 @@
 from sqlalchemy.orm import (  # type: ignore
     Session,
+    backref,
     relationship,
     declarative_base,
 )
@@ -112,7 +113,7 @@ class Molecule(Base):  # type: ignore
                 ForeignKey("sources.id"),
             ),
         ),
-        backref="molecules",
+        backref=backref("molecules", lazy="selectin"),
         lazy="selectin",
     )
 
@@ -132,7 +133,7 @@ class Molecule(Base):  # type: ignore
                 ForeignKey("telescopes.id"),
             ),
         ),
-        backref="molecules",
+        backref=backref("molecules", lazy="selectin"),
         lazy="selectin",
     )
 
@@ -152,7 +153,7 @@ class Molecule(Base):  # type: ignore
                 ForeignKey("wavelengths.id"),
             ),
         ),
-        backref="molecules",
+        backref=backref("molecules", lazy="selectin"),
         lazy="selectin",
     )
 
@@ -207,7 +208,7 @@ class Molecule(Base):  # type: ignore
     notes = Column(String(500))
 
     def __str__(self) -> str:
-        return ""
+        return f"{self.formula} ({self.name})"
 
     def __repr__(self) -> str:
         return str(self)
