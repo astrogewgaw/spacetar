@@ -1,271 +1,155 @@
 import sys
-import typer
+import click
 
-from textwrap import dedent
-from typing import List, Optional
-from rich.markdown import Markdown
+from .core import _bands
 
-from .display import screen, print_usage, print_version
-from .search import search_source, search_molecule, search_telescope
+from .search import (
+    search_source,
+    search_molecule,
+    search_telescope,
+)
 
-
-app = typer.Typer()
-
-
-@app.callback()
-def main():
-
-    """
-    spacetar: Space molecules in your terminal!
-    """
-
-    pass
-
-
-@app.command()
-def usage() -> None:
-
-    """
-    Show a bunch of usage examples for spacetar.
-    This uses a pager to display the uotput onto
-    the terminal.
-    """
-
-    print_usage()
-    sys.exit(0)
+from .display import (
+    console,
+    render_usage,
+    render_version,
+    summarize_source,
+    tabulate_sources,
+    summarize_molecule,
+    tabulate_molecules,
+    summarize_telescope,
+    tabulate_telescopes,
+)
 
 
-@app.command()
-def version() -> None:
+@click.group(invoke_without_command=True)
+@click.option("--help", is_flag=True, is_eager=True, default=None)
+@click.option("--usage", is_flag=True, is_eager=True, default=None)
+@click.option("--version", is_flag=True, is_eager=True, default=None)
+def main(**kwargs):
 
-    """
-    Print the version of spacetar installed on the terminal.
-    """
+    """"""
 
-    print_version()
-    sys.exit(0)
+    if kwargs["help"]:
+        pass
 
-
-@app.command()
-def molecules(
-    like: bool = False,
-    no_pager: bool = False,
-    name: Optional[str] = None,
-    formula: Optional[str] = None,
-    year: Optional[List[int]] = typer.Option(None),
-    source: Optional[str] = None,
-    telescope: Optional[str] = None,
-    wavelength: Optional[str] = None,
-    neutral: Optional[bool] = None,
-    cation: Optional[bool] = None,
-    anion: Optional[bool] = None,
-    radical: Optional[bool] = None,
-    cyclic: Optional[bool] = None,
-    fullerene: Optional[bool] = None,
-    polyaromatic: Optional[bool] = None,
-    ice: Optional[bool] = None,
-    ppd: Optional[bool] = None,
-    exgal: Optional[bool] = None,
-    exo: Optional[bool] = None,
-) -> None:
-
-    """
-    Search the space molecules database in spacetar.
-    """
-
-    if year is not None:
-        if len(year) > 2:
-            screen.print("An year range cannot have more than two values. Exiting...")
-            sys.exit(1)
-        if len(year) == 1:
-            year = year * 2
-        if len(year) == 0:
-            year = None
-
-    molecules = search_molecule(
-        like=like,
-        name=name,
-        formula=formula,
-        year=year,
-        source=source,
-        telescope=telescope,
-        wavelength=wavelength,
-        neutral=neutral,
-        cation=cation,
-        anion=anion,
-        radical=radical,
-        cyclic=cyclic,
-        fullerene=fullerene,
-        polyaromatic=polyaromatic,
-        ice=ice,
-        ppd=ppd,
-        exgal=exgal,
-        exo=exo,
-    )
-
-    if len(molecules.rows) == 0:
-        screen.print(
-            Markdown(
-                dedent(
-                    """
-                    No results to display.
-                    Maybe add the  `--like` option and try again?
-                    """
-                )
-                .strip()
-                .replace("\n", " ")
-            )
-        )
+    if kwargs["usage"]:
+        render_usage()
         sys.exit(0)
 
-    if len(molecules.rows) == 1:
-        screen.print(molecules.rows[0])
+    if kwargs["version"]:
+        render_version()
         sys.exit(0)
+
+
+@main.command()
+@click.option("--like", is_flag=True, default=False)
+@click.option("--no-pager", is_flag=True, default=False)
+@click.option("--name", type=str, default=None)
+@click.option("--formula", type=str, default=None)
+@click.option("--year", multiple=True, type=int, default=None)
+@click.option("--source", type=str, default=None)
+@click.option("--telescope", type=str, default=None)
+@click.option(
+    "--wavelength",
+    type=click.Choice(
+        _bands,
+        case_sensitive=False,
+    ),
+    default=None,
+)
+@click.option("--neutral", is_flag=True, default=None)
+@click.option("--cation", is_flag=True, default=None)
+@click.option("--anion", is_flag=True, default=None)
+@click.option("--radical", is_flag=True, default=None)
+@click.option("--cyclic", is_flag=True, default=None)
+@click.option("--fullerene", is_flag=True, default=None)
+@click.option("--polyaromatic", is_flag=True, default=None)
+@click.option("--ice", is_flag=True, default=None)
+@click.option("--ppd", is_flag=True, default=None)
+@click.option("--exgal", is_flag=True, default=None)
+@click.option("--exo", is_flag=True, default=None)
+def molecules(**kwargs) -> None:
+
+    """"""
+
+    no_pager = kwargs.pop("no_pager")
+    molecules = search_molecule(**kwargs)
+    if len(molecules) == 0:
+        console.print("Nothing to show. Maybe try again with `--like`")
+        sys.exit(0)
+    if len(molecules) == 1:
+        to_display = summarize_molecule(molecules[0])
+    if len(molecules) > 1:
+        to_display = tabulate_molecules(molecules)
 
     if no_pager:
-        screen.print(molecules)
-        sys.exit(0)
+        console.print(to_display)
     else:
-        with screen.pager(styles=True):
-            screen.print(molecules)
+        with console.pager(styles=True):
+            console.print(to_display)
+
+
+@main.command()
+@click.option("--like", is_flag=True, default=False)
+@click.option("--no-pager", is_flag=True, default=False)
+@click.option("--name", type=str, default=None)
+@click.option("--kind", type=str, default=None)
+@click.option("--detects", type=int, multiple=True, default=None)
+def sources(**kwargs) -> None:
+
+    """"""
+
+    no_pager = kwargs.pop("no_pager")
+    sources = search_source(**kwargs)
+    if len(sources) == 0:
+        console.print("Nothing to show. Maybe try again with `--like`")
         sys.exit(0)
-
-
-@app.command()
-def sources(
-    like: bool = False,
-    no_pager: bool = False,
-    name: Optional[str] = None,
-    kind: Optional[str] = None,
-    detects: Optional[List[int]] = typer.Option(None),
-) -> None:
-
-    """
-    Search the astronomical sources in spacetar.
-    """
-
-    if detects is not None:
-        if len(detects) > 2:
-            screen.print("A range cannot have more than two values. Exiting...")
-            sys.exit(1)
-        if len(detects) == 1:
-            detects = detects * 2
-        if len(detects) == 0:
-            detects = None
-
-    sources = search_source(
-        like=like,
-        name=name,
-        kind=kind,
-        detects=detects,
-    )
-
-    if len(sources.rows) == 0:
-        screen.print(
-            Markdown(
-                dedent(
-                    """
-                    No results to display.
-                    Maybe add the  `--like` option and try again?
-                    """
-                )
-                .strip()
-                .replace("\n", " ")
-            )
-        )
-        sys.exit(0)
-
-    if len(sources.rows) == 1:
-        screen.print(sources.rows[0])
-        sys.exit(0)
+    if len(sources) == 1:
+        to_display = summarize_source(sources[0])
+    if len(sources) > 1:
+        to_display = tabulate_sources(sources)
 
     if no_pager:
-        screen.print(sources)
-        sys.exit(0)
+        console.print(to_display)
     else:
-        with screen.pager(styles=True):
-            screen.print(sources)
+        with console.pager(styles=True):
+            console.print(to_display)
+
+
+@main.command()
+@click.option("--like", is_flag=True, default=False)
+@click.option("--no-pager", is_flag=True, default=False)
+@click.option("--name", type=str, default=None)
+@click.option("--kind", type=str, default=None)
+@click.option(
+    "--wavelength",
+    type=click.Choice(
+        _bands,
+        case_sensitive=False,
+    ),
+    default=None,
+)
+@click.option("--diameter", type=int, multiple=True, default=None)
+@click.option("--built", type=int, multiple=True, default=None)
+@click.option("--decommissioned", type=int, multiple=True, default=None)
+@click.option("--detects", type=int, multiple=True, default=None)
+def telescopes(**kwargs):
+
+    """"""
+
+    no_pager = kwargs.pop("no_pager")
+    telescopes = search_telescope(**kwargs)
+    if len(telescopes) == 0:
+        console.print("Nothing to show. Maybe try again with `--like`")
         sys.exit(0)
-
-
-@app.command()
-def telescopes(
-    like: bool = False,
-    no_pager: bool = False,
-    name: Optional[str] = None,
-    kind: Optional[str] = None,
-    wavelength: Optional[str] = None,
-    diameter: Optional[int] = None,
-    built: Optional[List[int]] = typer.Option(None),
-    decommissioned: Optional[List[int]] = typer.Option(None),
-    detects: Optional[List[int]] = typer.Option(None),
-) -> None:
-
-    """
-    Search the telescopes database in spacetar.
-    """
-
-    if detects is not None:
-        if len(detects) > 2:
-            screen.print("A range cannot have more than two values. Exiting...")
-            sys.exit(1)
-        if len(detects) == 1:
-            detects = detects * 2
-        if len(detects) == 0:
-            detects = None
-
-    if built is not None:
-        if len(built) > 2:
-            screen.print("An year range cannot have more than two values. Exiting...")
-            sys.exit(1)
-        if len(built) == 1:
-            built = built * 2
-        if len(built) == 0:
-            built = None
-
-    if decommissioned is not None:
-        if len(decommissioned) > 2:
-            screen.print("An year range cannot have more than two values. Exiting...")
-            sys.exit(1)
-        if len(decommissioned) == 1:
-            decommissioned = decommissioned * 2
-        if len(decommissioned) == 0:
-            decommissioned = None
-
-    telescopes = search_telescope(
-        like=like,
-        name=name,
-        kind=kind,
-        wavelength=wavelength,
-        diameter=diameter,
-        built=built,
-        decommissioned=decommissioned,
-        detects=detects,
-    )
-
-    if len(telescopes.rows) == 0:
-        screen.print(
-            Markdown(
-                dedent(
-                    """
-                    No results to display.
-                    Maybe add the  `--like` option and try again?
-                    """
-                )
-                .strip()
-                .replace("\n", " ")
-            )
-        )
-        sys.exit(0)
-
-    if len(telescopes.rows) == 1:
-        screen.print(telescopes.rows[0])
-        sys.exit(0)
+    if len(telescopes) == 1:
+        to_display = summarize_telescope(telescopes[0])
+    if len(telescopes) > 1:
+        to_display = tabulate_telescopes(telescopes)
 
     if no_pager:
-        screen.print(telescopes)
-        sys.exit(0)
+        console.print(to_display)
     else:
-        with screen.pager(styles=True):
-            screen.print(telescopes)
-        sys.exit(0)
+        with console.pager(styles=True):
+            console.print(to_display)

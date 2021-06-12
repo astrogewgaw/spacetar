@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 
 
 here = Path(__file__).parent.resolve()
+install_requires = ["rich", "click", "SQLAlchemy"]
 long_description = (here / "README.md").read_text(encoding="utf-8")
-install_requires = ["attrs", "rich", "typer", "tabulate", "SQLAlchemy"]
 
 
 setup(
@@ -42,7 +42,7 @@ setup(
     install_package_data=True,
     python_requires=">=3.5, <4",
     install_requires=install_requires,
-    entry_points={"console_scripts": ["spacetar=spacetar.terminal:app"]},
+    entry_points={"console_scripts": ["spacetar=spacetar.terminal:main"]},
     project_urls={
         "Documentation": "https://spacetar.readthedocs.io",
         "Source": "https://github.com/astrogewgaw/spacetar",
