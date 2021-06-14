@@ -1,12 +1,17 @@
-# type: ignore
-
 from pathlib import Path
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages  # type: ignore
 
 
 here = Path(__file__).parent.resolve()
-install_requires = ["rich", "click", "SQLAlchemy"]
 long_description = (here / "README.md").read_text(encoding="utf-8")
+
+install_requires = [
+    "rich",
+    "click",
+    "pyparsing",
+    "sqlalchemy",
+    "importlib_metadata",
+]
 
 
 setup(
@@ -28,11 +33,13 @@ setup(
         "Topic :: Scientific/Engineering :: Astronomy",
     ],
     keywords=(
+        "cli",
         "catalog",
         "terminal",
         "database",
         "astronomy",
         "catalogue",
+        "astrophysics",
         "astrochemistry",
         "space molecules",
         "command line tool",

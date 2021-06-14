@@ -383,11 +383,13 @@ def _partition_formula(formula: str) -> typ.List:
 
     """"""
 
-    if formula.find("c-") != -1:
-        formula = formula.replace("c-", "").strip()
-
-    if formula.find("l-") != -1:
-        formula = formula.replace("l-", "").strip()
+    for prefix in ["c-", "l-", "i-", "n-"]:
+        if formula.find(prefix) != -1:
+            formula = formula.replace(prefix, "").strip()
+            prefix_str = prefix
+            break
+        else:
+            prefix_str = ""
 
     for token in "+-":
         if token in formula:
@@ -404,9 +406,9 @@ def _partition_formula(formula: str) -> typ.List:
                 )
             stoich_str, charge_str = formula.split(token)
             charge_str = token + charge_str
-            return [stoich_str, charge_str]
+            return [prefix_str, stoich_str, charge_str]
     else:
-        return [formula, ""]
+        return [prefix_str, formula, ""]
 
 
 def composition(formula: str) -> typ.Dict:
@@ -415,7 +417,7 @@ def composition(formula: str) -> typ.Dict:
 
     composed: typ.Dict = {}
 
-    stoich_str, charge_str = _partition_formula(formula)
+    _, stoich_str, charge_str = _partition_formula(formula)
 
     stoich = {
         SYMBOLS.index(index) + 1: amount
@@ -465,9 +467,9 @@ def formula_to_unicode(formula: str) -> str:
 
     """"""
 
-    stoich_str, charge_str = _partition_formula(formula)
+    prefix_str, stoich_str, charge_str = _partition_formula(formula)
     for key, val in SUBS.items():
         stoich_str = stoich_str.replace(key, val)
     for key, val in SUPS.items():
         charge_str = charge_str.replace(key, val)
-    return "".join([stoich_str, charge_str])
+    return "".join([prefix_str, stoich_str, charge_str])

@@ -1,0 +1,29 @@
+name: Interrogate documentation.
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python 3.8.
+    - uses: actions/checkout@v2
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Interrogate.
+      uses: JackMcKew/python-interrogate-check@main
+      with:
+        path: 'spacetar'
+        badge-location: 'images/interrogate_badge.svg'
+    - name: Commit interrogate badge.
+      run: |
+        git config --local user.email "interrogatebot@example.com"
+        git config --local user.name "interrogatebot"
+        git add badges/interrogate_badge.svg
+        git commit -m "Update interrogate_badge.svg" -a
+    - name: Push the changes.
+      uses: ad-m/github-push-action@master
+      with:
+        branch: ${{ github.ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}

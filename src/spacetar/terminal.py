@@ -130,7 +130,7 @@ def sources(**kwargs) -> None:
     ),
     default=None,
 )
-@click.option("--diameter", type=int, multiple=True, default=None)
+@click.option("--diameter", type=float, multiple=True, default=None)
 @click.option("--built", type=int, multiple=True, default=None)
 @click.option("--decommissioned", type=int, multiple=True, default=None)
 @click.option("--detects", type=int, multiple=True, default=None)

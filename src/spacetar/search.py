@@ -1,7 +1,6 @@
-from sqlalchemy import or_, and_, select  # type: ignore
+from typing import List, Optional
 from sqlalchemy.orm import Query, Session  # type: ignore
-
-from typing import Any, List, Optional
+from sqlalchemy import or_, and_, desc, select  # type: ignore
 
 from .core import (
     Engine,
@@ -65,20 +64,20 @@ def search_molecule(
         telescope:      Search for molecules by the telescope(s) they were discovered by.
         wavelength:     Search for molecules by the wavelength(s) in the electromagnetic
                         spectrum they were discovered in.
-        neutral:        Search for molecules if they is neutral.
-        cation:         Search for molecules if they is cation.
-        anion:          Search for molecules if they is anion.
-        radical:        Search for molecules if they is radical.
-        cyclic:         Search for molecules if they is cyclic.
-        fullerene:      Search for molecules if they is fullerene.
-        polyaromatic:   Search for molecules if they is polyaromatic.
-        ice:            Search for molecules if they has been discovered in interstellar ices.
-        ppd:            Search for molecules if they has been discovered in protoplanetary disks.
-        exgal:          Search for molecules if they has been discovered in extragalactic sources.
-        exo:            Search for molecules if they has been discovered in exoplanets.
+        neutral:        Search for molecules if they are neutral.
+        cation:         Search for molecules if they are cation.
+        anion:          Search for molecules if they are anion.
+        radical:        Search for molecules if they are radical.
+        cyclic:         Search for molecules if they are cyclic.
+        fullerene:      Search for molecules if they are fullerene.
+        polyaromatic:   Search for molecules if they are polyaromatic.
+        ice:            Search for molecules if they have been discovered in interstellar ices.
+        ppd:            Search for molecules if they have been discovered in protoplanetary disks.
+        exgal:          Search for molecules if they have been discovered in extragalactic sources.
+        exo:            Search for molecules if they have been discovered in exoplanets.
 
     Returns:
-        A `Results` object.
+        A list of :class:`Molecule` instances.
     """
 
     query = select(Molecule).order_by(Molecule.year)
@@ -160,9 +159,12 @@ def search_source(
         name:           Search for sources by their name.
         kind:           Search for sources by their kind/type.
         detects:        Search for sources by the number of molecules detected in them.
+
+    Returns:
+        A list of :class:`Source` instances.
     """
 
-    query = select(Source).order_by(Source.detects)
+    query = select(Source).order_by(desc(Source.detects))
 
     terms = [name, kind, _ranger(detects)]
 
@@ -216,9 +218,12 @@ def search_telescope(
         built:              Search for telescopes by the year they were built in.
         decommissioned:     Search for telescopes by the year they were decommissioned in, if applicable.
         detects:            Search for telescopes by the number of molecules they have discovered.
+
+    Returns:
+        A list of :class:`Telescope` instances.
     """
 
-    query = select(Telescope).order_by(Telescope.detects)
+    query = select(Telescope).order_by(desc(Telescope.detects))
 
     terms = [
         name,

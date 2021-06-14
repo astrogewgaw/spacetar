@@ -4,7 +4,6 @@ import sqlalchemy as sql  # type: ignore
 import sqlalchemy.orm as orm  # type: ignore
 import importlib_metadata as imp  # type: ignore
 
-
 try:
     __version__ = imp.version("spacetar")
 except imp.PackageNotFoundError:
@@ -357,18 +356,26 @@ def _create_database():
         or type of an attribute).
     """
 
+    from rich.progress import track
+
     _database.unlink(missing_ok=True)
 
     Base.metadata.create_all(Engine)
 
     with orm.Session(Engine) as session:
 
-        for _ in _bands:
+        for _ in track(
+            _bands,
+            description="Creating the `wavelengths` table...",
+        ):
             wavelength = Wavelength(name=_)
             session.add(wavelength)
             session.commit()
 
-        for _ in _raw("sources").values():
+        for _ in track(
+            _raw("sources").values(),
+            description="Creating the `sources` table...",
+        ):
 
             source = Source(
                 name=_["name"],
@@ -381,7 +388,10 @@ def _create_database():
             session.add(source)
             session.commit()
 
-        for _ in _raw("telescopes").values():
+        for _ in track(
+            _raw("telescopes").values(),
+            description="Creating the `telescopes` table...",
+        ):
             telescope = Telescope(
                 name=_["name"],
                 nick=_["nick"],
@@ -409,7 +419,10 @@ def _create_database():
             session.add(telescope)
             session.commit()
 
-        for _ in _raw("molecules").values():
+        for _ in track(
+            _raw("molecules").values(),
+            description="Creating the `molecules` table...",
+        ):
             molecule = Molecule(
                 label=_["label"],
                 name=_["name"],

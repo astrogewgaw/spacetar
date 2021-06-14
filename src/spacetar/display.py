@@ -35,7 +35,7 @@ _kindof = lambda _: ", ".join(
 _detections = lambda _: Panel(
     "\n".join(
         [
-            f"[yellow1]{str(i + 1)}[/]. {__.formula} ({__.name})"
+            f"[yellow1]{str(i + 1)}[/]. {formula_to_unicode(__.formula)} ({__.name})"
             for (
                 i,
                 __,
@@ -43,6 +43,21 @@ _detections = lambda _: Panel(
         ]
     ),
     title=f"Number of molecules detected: {_.detects}",
+)
+_decommissioned = lambda _: (
+    dedent(
+        f"""
+                {
+                    (
+                        _.decommissioned
+                        if _.decommissioned is not None
+                        else 'Still working...'
+                    )
+                }
+                """
+    )
+    .replace("\n", "")
+    .strip()
 )
 
 
@@ -111,7 +126,7 @@ def summarize_molecule(molecule: Molecule):
             "\n",
             Panel(_alsos, title="Also detected in", padding=1),
             Panel(
-                (f"\n{molecule.notes}" if molecule.notes is not None else ""),
+                (f"\n{molecule.notes}" if molecule.notes is not None else "Nothing."),
                 title="Notes",
                 expand=True,
             ),
@@ -265,10 +280,22 @@ def summarize_telescope(telescope: Telescope):
     grid.add_row("Full name:", f"{telescope.name}")
     grid.add_row("Type:", f"{telescope.kind}")
     grid.add_row("Wavelength(s) it operates in:", f"{_commas(telescope.wavelengths)}")
-    grid.add_row("Where is it?", f"{telescope.latitude}, {telescope.longitude}")
+
+    grid.add_row(
+        "Where is it?",
+        dedent(
+            f"""
+            [i]Lat.[/] {telescope.latitude},
+            [i]Long.[/] {telescope.longitude}
+            """
+        )
+        .replace("\n", " ")
+        .strip(),
+    )
+
     grid.add_row("Diameter:", f"{telescope.diameter}")
     grid.add_row("Built in:", f"{telescope.built}")
-    grid.add_row("Decommissioned in:", f"{telescope.decommissioned}")
+    grid.add_row("Decommissioned in:", _decommissioned(telescope))
 
     return Panel(
         RenderGroup(
@@ -335,19 +362,7 @@ def tabulate_telescopes(telescopes: List[Telescope]):
             f"{telescope.longitude}",
             f"{telescope.diameter}",
             f"{telescope.built}",
-            dedent(
-                f"""
-                {
-                    (
-                        telescope.decommissioned
-                        if telescope.decommissioned is not None
-                        else 'Still working...'
-                    )
-                }
-                """
-            )
-            .replace("\n", "")
-            .strip(),
+            _decommissioned(telescope),
             f"{telescope.detects}",
         )
     return table

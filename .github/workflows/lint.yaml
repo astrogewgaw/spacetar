@@ -1,0 +1,22 @@
+name: Lint spacetar.
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: excitedleigh/setup-nox@v2.0.0
+    - name: Lint all files in spacetar.
+      run: |
+        make lint
+        git add .
+        git config --global user.email "lintbot@example.com"
+        git config --global user.name "lintbot"
+        git commit -m "Code linted." || true
+    - name: Push the changes.
+      uses: ad-m/github-push-action@master
+      with:
+        branch: ${{ github.ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
