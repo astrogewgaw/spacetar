@@ -28,11 +28,11 @@ def test_kind():
 
     src = results[0]
 
-    assert src.name == "L134"
+    assert src.name == "TMC-1"
     assert src.kind == "Dark Cloud"
-    assert src.ra == "15:53:36.3"
-    assert src.dec == "-04:35:26.0"
-    assert src.detects == 1
+    assert src.ra == "04:41:45.9"
+    assert src.dec == "+25:41:27"
+    assert src.detects == 41
 
 
 def test_detects():
@@ -57,8 +57,8 @@ def test_detects():
 
     src = results[0]
 
-    assert src.name == "B1-b"
-    assert src.kind == "Dark Cloud"
-    assert src.ra == "03:33:20.8"
-    assert src.dec == "+31:07:34"
-    assert src.detects == 4
+    assert src.name == "rho Oph A"
+    assert src.kind == "SFR"
+    assert src.ra == "16:25:35.14"
+    assert src.dec == "-23:26:49.9"
+    assert src.detects == 6
