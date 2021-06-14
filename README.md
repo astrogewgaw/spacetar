@@ -10,7 +10,9 @@
 
 ## Space molecules :test_tube: :alembic: in your terminal :computer: !
 
-Space is really cold :cold_face:. Too cold for any molecules to form or react. Which is exactly why scientists were really surprised when they discovered molecules in space. Things like **ammonia**, **ethanol** :beers:, and even **ethylene glycol** (used in **anti-freeze** :snowflake:) have been detected since then. To date, we know of more than *200 molecules* detected in the vastness of space. [**spacetar**][repo] brings them right into your terminal :computer:.
+Space is really cold :cold_face:. In fact, scientists thought it was too cold there for any molecules to form or react. So, when scientists actually detected the first molecules in space, they realised that they had to re-think everything they knew about the *interstellar medium* (the space between stars :star:). And so **astrochemistry**, the study of how space molecules form and react, was born. Since then, we have detected molecules like smelly **ammonia**, intoxicating **ethanol** :beers:, and even **ethylene glycol** (used in **anti-freeze** :snowflake:); the catalog of space molecules now has more than *200 unique species*.
+
+[**spacetar**][repo] brings them right into your terminal :computer:.
 
 Want to know when the *first molecule* was discovered in space :1st_place_medal: ? Or which telescope :telescope: has detected the *most number of molecules*? Or maybe you want to know where you can find the most ethanol :beers: :wine_glass: so that you know where to stock-up when we all get our warp drives :space_invader:? All you have to do is open your terminal and start typing in :keyboard: your questions :grin: :
 
