@@ -1,9 +1,9 @@
 # Reference
 
-## spacetar.orm module
+## spacetar.core module
 
 ```{eval-rst}
-.. automodule:: spacetar.orm
+.. automodule:: spacetar.core
    :members:
    :show-inheritance:
 ```
@@ -12,6 +12,14 @@
 
 ```{eval-rst}
 .. automodule:: spacetar.search
+   :members:
+   :show-inheritance:
+```
+
+## spacetar.chimie module
+
+```{eval-rst}
+.. automodule:: spacetar.chimie
    :members:
    :show-inheritance:
 ```

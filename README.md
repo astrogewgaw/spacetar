@@ -1,42 +1,78 @@
 # spacetar
 
-![License][license]
-[![Gitmoji][gitmoji-badge]][gitmoji]
-[![Code style: black][black-badge]][black]
-[![Documentation Status][docs-badge]][docs]
-[![Documentation coverage][interrogate-badge]][interrogate]
+[![Uses Gitmoji][gitmoji-badge]][gitmoji]
+[![Uses Black][black-badge]][black]
+![MIT License][license-badge]
+[![Docs Status][docs-badge]][docs]
+[![Docs Coverage][interrogate-badge]][interrogate]
 
-## Space molecules 🧪 ⚗️ in your terminal 💻 !
+## Space molecules :test_tube: :alembic: in your terminal :computer: !
 
-To date, we have discovered *more than 200* molecules in the space. [**spacetar**][repo] brings them right into your terminal 💻. Do you want to know when the *first* space molecule was detected 🥇 ? Or which telescope 🔭 has detected the most molecules in space? Maybe you want to track down all the places in space where *ethanol* 🍻 has been detected, for when we all get ourselves a warp drive 👾. 
+Space is really cold :cold_face:. Too cold for any molecules to form or react. Which is exactly why scientists were really surprised when they discovered molecules in space. Things like **ammonia**, **ethanol** :beers:, and even **ethylene glycol** (used in **anti-freeze** :snowflake:) have been detected since then. To date, we know of more than *200 molecules* detected in the vastness of space. [**spacetar**][repo] brings them right into your terminal :computer:.
 
-[**spacetar**][repo] can answer any and all questions about space molecules; all you have to do is start typing ⌨️ !
+Want to know when the *first molecule* was discovered in space :1st_place_medal: ? Or which telescope :telescope: has detected the *most number of molecules*? Or maybe you want to know where you can find the most ethanol :beers: :wine_glass: so that you know where to stock-up when we all get our warp drives :space_invader:? All you have to do is open your terminal and start typing in :keyboard: your questions :grin: :
 
-Want to know more? Check out the [**documentation**][docs] for help on how to use **spacetar**, both from within Python and from the command line.
+* The *first molecule* ?
 
-**spacetar** works because it stands on the *shoulders of giants*: it uses data compiled for the [***2018 Census of Interstellar, Circumstellar, Extragalactic, Protoplanetary Disk, and Exoplanetary Molecules***][census-paper], which can be found [**here**][census]. Thanks to [**@bmcguir2**][brett] for the excellent work in compiling the database and making it available to all 😁. Many features in [**spacetar**][repo] are directly inspired from [**@bmcguir2**][brett]'s code. If you end up using spacetar for any serious work, particularly something that leads to a scientific publication, don't forget to cite his paper!
+    ```bash
+    spacetar molecules
+    ```
 
-*Notes:*
+    ![Molecules Table][molecules-table]
 
-* I have not attempted to make **spacetar** compatible for all kinds of systems. It is only compatible with Python versions greater than 3.6, for instance. While this is by design, **spacetar** hopes to atleast be compatible across Linux, Mac, and Windows. If you encounter any issues with installing or working with spacetar on your particular operating system, you are free to open an [**issue**][issues]. The same goes if you find a *bug* 🐛 !
+    (*This display the full table of molecules. The entries are arranged by year, so the first row is the first molecule discovered in space* :grin: *!*)
 
-* **spacetar** assumes some things about your terminal, such as Unicode compatibility. If you run into any trouble (for example, your terminal is full of ANSI escape sequences instead of nicely formatted tables), let me know by opening an [**issue**][issues].
+* Which telescope has discovered the *most molecules* ?
+
+    ```bash
+    spacetar telescopes
+    ```
+
+    ![Telescope Table][telescopes-table]
+
+    (*This displays the full table of telescopes that have detected molecules in space. The entries are arranged by the number of molecules detected, so the first row is the telescope that has discovered the most number of molecules* :grin: *!*)
+
+* Where is all the *ethanol* ?
+
+    ```bash
+    spacetar molecules --name ethanol
+    ```
+
+    ![Ethanol Summary][ethanol]
+
+    (*This display a pretty summary for ethanol. You can read out all the destinations you are going to hit in the **Detected in** entry. As you can see, **Sgr B2** is the place to be. This cloud has so much ethanol in it that we could use it to supply us with beers for millions of years* :beers: *!*)
+
+    You can also get to know more about **Sgr B2** by typing:
+
+    ```bash
+    spacetar sources --name "Sgr B2"
+    ```
+
+    ![Sgr B2 Summary][Sgr-B2]
+
+Excited :grin:? Check out the [**docs**][docs] for more info on how to install and use spacetar, both from within Python and from the command line. If you find this project fun, star :star: the [**repo**][repo] on GitHub! You can also rave about spacetar, or bring up your ideas :bulb: / feature requests, in the [**discussions**][discuss] or via [**email**][me-email]. You can also make an [**issue**][issues] if you run into a bug :bug:.
+
+[**spacetar**][repo], like everything else, stands on the *shoulders of giants*. It uses data compiled by [*Prof. Brett McGuire*][brett-github] for his paper, the [*2018 Census of Interstellar, Circumstellar, Extragalactic, Protoplanetary Disk, and Exoplanetary Molecules*][census-paper]. You can find the database, along with some of the code that inspired [**spacetar**][repo] in the first place, in the associated [*GitHub repository*][census-repo]. Thank you Brett for the wonderful work :smile: ! If you end up using the database in [**spacetar**][repo] for something that might lead to a scientific publication, don't forget to cite the associated paper above.
 
 [gitmoji]: https://gitmoji.dev
-[rich]: https://rich.readthedocs.io
-[brett]: https://github.com/bmcguir2
+[me-email]: ujjwalpanda97@gmail.com
 [black]: https://github.com/psf/black
 [docs]: https://spacetar.readthedocs.io
-[SQLAlchemy]: https://www.sqlalchemy.org/
-[repo]: https://github.com/astrogewgaw/spacetar/
-[issues]: https://github.com/astrogewgaw/spacetar/issues
+[me-github]: https://github.com/astrogewgaw
+[brett-github]: https://github.com/bmcguir2
+[me-twitter]: https://twitter.com/astrogewgaw
+[repo]: https://github.com/astrogewgaw/spacetar
 [census-paper]: https://doi.org/10.3847/1538-4365/aae5d2
-[census]: https://github.com/bmcguir2/astromolecule_census/
-[interrogate]: https://interrogate.readthedocs.io/en/latest/
-[discussions]: https://github.com/astrogewgaw/spacetar/discussions
-
-[license]: https://img.shields.io/badge/License-MIT-green.svg
+[issues]: https://github.com/astrogewgaw/spacetar/issues
+[interrogate]: https://interrogate.readthedocs.io/en/latest
+[discuss]: https://github.com/astrogewgaw/spacetar/discussions
+[census-repo]: https://github.com/bmcguir2/astromolecule_census
+[license-badge]: https://img.shields.io/badge/License-MIT-green.svg
 [black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
 [docs-badge]: https://readthedocs.org/projects/spacetar/badge/?version=latest
+[Sgr-B2]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/Sgr_B2.png
+[ethanol]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/ethanol.png
 [gitmoji-badge]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square
+[molecules-table]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/molecules_table.png
+[telescopes-table]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/telescopes_table.png
 [interrogate-badge]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/interrogate_badge.svg
