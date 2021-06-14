@@ -10,7 +10,7 @@
 
 ## Space molecules :test_tube: :alembic: in your terminal :computer: !
 
-Space is really cold :cold_face:. In fact, scientists thought it was too cold there for any molecules to form or react. So, when scientists actually detected the first molecules in space, they realised that they had to re-think everything they knew about the *interstellar medium* (the space between stars :star:). And so **astrochemistry**, the study of how space molecules form and react, was born. Since then, we have detected molecules like smelly **ammonia**, intoxicating **ethanol** :beers:, and even **ethylene glycol** (used in **anti-freeze** :snowflake:); the catalog of space molecules now has more than *200 unique species*.
+Outer space is cold :cold_face: and vast. Since molecules often need to collide with one another with sufficient energy to form and react, scientists assumed that there could never be any molecules in space. Space was just too cold and too big for two molecules to ever encounter one another with enough energy. And then radio astronomers :satellite: detected some of the first molecules in space. A realisation hit the astronomical community at large; whatever they thought they knew about chemistry in space was wrong. Thus began a completely new field: :sparkles: **astrochemistry** :sparkles:. Since then, we have discovered all kinds of molecules in space: from smelly *ammonia* :nauseated_face: to intoxicating ethanol, :beers:. To date, we know of more than *200 molecules* :exploding_head: that our telescopes have detected in space, and the number increases each year.
 
 [**spacetar**][repo] brings them right into your terminal :computer:.
 
@@ -24,7 +24,7 @@ Want to know when the *first molecule* was discovered in space :1st_place_medal:
 
     ![Molecules Table][molecules-table]
 
-    (*This display the full table of molecules. The entries are arranged by year, so the first row is the first molecule discovered in space* :grin: *!*)
+    (*This displays the full table of molecules. The entries are arranged by year, so the first row is the first molecule discovered in space!* :grin:)
 
 * Which telescope has discovered the *most molecules* ?
 
@@ -34,7 +34,7 @@ Want to know when the *first molecule* was discovered in space :1st_place_medal:
 
     ![Telescope Table][telescopes-table]
 
-    (*This displays the full table of telescopes that have detected molecules in space. The entries are arranged by the number of molecules detected, so the first row is the telescope that has discovered the most number of molecules* :grin: *!*)
+    (*This displays the full table of telescopes that have detected molecules in space. The entries are arranged by the number of molecules detected, so the first row is the telescope that has discovered the most number of molecules!* :grin:)
 
 * Where is all the *ethanol* ?
 
@@ -44,7 +44,7 @@ Want to know when the *first molecule* was discovered in space :1st_place_medal:
 
     ![Ethanol Summary][ethanol]
 
-    (*This display a pretty summary for ethanol. You can read out all the destinations you are going to hit in the **Detected in** entry. As you can see, **Sgr B2** is the place to be. This cloud has so much ethanol in it that we could use it to supply us with beers for millions of years* :beers: *!*)
+    (*This display a pretty summary for ethanol. You can read out all the destinations you are going to hit in the **Detected in** entry. As you can see, **Sgr B2** is the place to be. This cloud has so much ethanol in it that we could use it to supply us with beers for millions of years!* :beers:)
 
     You can also get to know more about **Sgr B2** by typing:
 
