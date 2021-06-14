@@ -21,6 +21,7 @@ def test_name():
     assert tel.decommissioned is None
     assert tel.detects == 27
 
+
 def test_kind():
 
     """"""
