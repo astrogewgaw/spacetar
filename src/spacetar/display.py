@@ -35,7 +35,7 @@ _kindof = lambda _: ", ".join(
 _detections = lambda _: Panel(
     "\n".join(
         [
-            f"[yellow1]{str(i + 1)}[/]. {formula_to_unicode(__.formula)} ({__.name})"
+            f"[yellow1]{str(i + 1)}[/]. {formula_to_unicode(str(__.formula))} ({__.name})"
             for (
                 i,
                 __,
@@ -91,7 +91,7 @@ def summarize_molecule(molecule: Molecule):
     grid.add_column(justify="left")
     grid.add_column(justify="right")
 
-    grid.add_row("Formula:", f"{formula_to_unicode(molecule.formula)}")
+    grid.add_row("Formula:", f"{formula_to_unicode(str(molecule.formula))}")
     grid.add_row("Molecular mass (in a.m.u.):", f"{molecule.mass}")
     grid.add_row("Type:", f"{_kindof(molecule)}")
     grid.add_row("Discovery year:", f"{molecule.year}")
@@ -173,7 +173,7 @@ def tabulate_molecules(molecules: List[Molecule]):
         table.add_row(
             dedent(
                 f"""
-                Formula: [b]{formula_to_unicode(molecule.formula)}[/]
+                Formula: [b]{formula_to_unicode(str(molecule.formula))}[/]
                 Name: [i]{molecule.name}[/]
                 Type: {_kindof(molecule)}
                 Molecular mass: {molecule.mass:.2f} a.m.u.

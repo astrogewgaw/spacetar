@@ -1,6 +1,7 @@
 from typing import List, Optional
-from sqlalchemy.orm import Query, Session  # type: ignore
-from sqlalchemy import or_, and_, desc, select  # type: ignore
+from sqlalchemy.orm import Session
+from sqlalchemy.sql.selectable import Select
+from sqlalchemy import or_, and_, desc, select
 
 from .core import (
     Engine,
@@ -23,7 +24,7 @@ _ranger = lambda _: (
 )
 
 
-def _results(query: Query) -> List:
+def _results(query: Select) -> List:
     with Session(Engine) as session:
         return [_[0] for _ in session.execute(query).all()]
 
