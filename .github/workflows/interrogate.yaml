@@ -15,7 +15,7 @@ jobs:
     - name: Interrogate.
       uses: JackMcKew/python-interrogate-check@main
       with:
-        path: 'spacetar'
+        path: '.'
         badge-location: 'images/interrogate_badge.svg'
     - name: Commit interrogate badge.
       run: |
