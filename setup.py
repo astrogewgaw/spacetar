@@ -9,7 +9,7 @@ install_requires = [
     "rich",
     "click",
     "pyparsing",
-    "sqlalchemy",
+    "sqlalchemy[mypy]",
     "importlib_metadata",
 ]
 
