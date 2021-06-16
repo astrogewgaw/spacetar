@@ -1,8 +1,12 @@
 import json
+import typing
 import pathlib
-import sqlalchemy as sql  # type: ignore
-import sqlalchemy.orm as orm  # type: ignore
-import importlib_metadata as imp  # type: ignore
+import sqlalchemy as sql
+import sqlalchemy.orm as orm
+import importlib_metadata as imp
+
+from .chimie import SYMBOLS, composition, molecular_mass
+
 
 try:
     __version__ = imp.version("spacetar")
@@ -18,16 +22,9 @@ Base = orm.declarative_base()
 Engine = sql.create_engine(f"sqlite:///{_database}", future=True)
 
 
-class Molecule(Base):  # type: ignore
+class Molecule(Base):
 
     """
-    Represents a single space molecule in **spacetar**. This class is a *mapped
-    class*; every row in the `molecules` table in the SQLite database directly
-    maps to this class. It is used to search the `molecules` table and pretty
-    print the results, thanks to `rich`'s Console Protocol. The methods in this
-    class supply additional information on a single molecule, such as the number
-    of atoms, its molecular mass, or its degree of unsaturation.
-
     Args:
         id:             The ID of the molecule in the `molecules` table.
         label:          The label used for the molecule in the table. This is used
@@ -81,12 +78,12 @@ class Molecule(Base):  # type: ignore
     __tablename__: str = "molecules"
 
     id = sql.Column(sql.Integer, primary_key=True)
-    label = sql.Column(sql.String(50), unique=True)
-    name = sql.Column(sql.String(50))
-    formula = sql.Column(sql.String(50))
+    label = sql.Column(sql.String(50), unique=True, nullable=False)
+    name = sql.Column(sql.String(50), nullable=False)
+    formula = sql.Column(sql.String(50), nullable=False)
     year = sql.Column(sql.Integer)
 
-    sources = orm.relationship(
+    sources: typing.List["Source"] = orm.relationship(
         "Source",
         secondary=sql.Table(
             "assoc_mol_src",
@@ -106,7 +103,7 @@ class Molecule(Base):  # type: ignore
         lazy="selectin",
     )
 
-    telescopes = orm.relationship(
+    telescopes: typing.List["Telescope"] = orm.relationship(
         "Telescope",
         secondary=sql.Table(
             "assoc_mol_tel",
@@ -126,7 +123,7 @@ class Molecule(Base):  # type: ignore
         lazy="selectin",
     )
 
-    wavelengths = orm.relationship(
+    wavelengths: typing.List["Wavelength"] = orm.relationship(
         "Wavelength",
         sql.Table(
             "assoc_mol_wave",
@@ -153,8 +150,6 @@ class Molecule(Base):  # type: ignore
     cyclic = sql.Column(sql.Boolean)
     fullerene = sql.Column(sql.Boolean)
     polyaromatic = sql.Column(sql.Boolean)
-
-    mass = sql.Column(sql.Float)
 
     A = sql.Column(sql.Float)
     B = sql.Column(sql.Float)
@@ -202,17 +197,85 @@ class Molecule(Base):  # type: ignore
     def __repr__(self) -> str:
         return str(self)
 
+    @property
+    def composition(self) -> typing.Dict:
 
-class Source(Base):  # type: ignore
+        """"""
+
+        if self.formula:
+            return {
+                SYMBOLS[Z - 1]: natoms
+                for (
+                    Z,
+                    natoms,
+                ) in composition(self.formula).items()
+                if Z != 0
+            }
+        else:
+            return {}
+
+    @property
+    def natoms(self):
+
+        """"""
+
+        return sum([natom for natom in self.composition.values()])
+
+    @property
+    def mass(self) -> float:
+
+        """"""
+
+        if self.formula:
+            return molecular_mass(composition(self.formula))
+        else:
+            return 0.0
+
+    @property
+    def charge(self) -> int:
+
+        """"""
+
+        if self.formula:
+            return composition(self.formula).get(0, 0)
+        else:
+            return 0
+
+    @property
+    def unsaturation(self):
+
+        """"""
+
+        for key in self.composition.keys():
+            if key in (
+                set(SYMBOLS)
+                ^ {
+                    "C",
+                    "H",
+                    "O",
+                    "N",
+                    "F",
+                    "Cl",
+                    "Br",
+                    "I",
+                    "At",
+                    "Te",
+                }
+            ):
+                return None
+        else:
+            return 1 + 0.5 * (
+                self.composition.get("H", 0) * -1
+                + self.composition.get("C", 0) * 2
+                + self.composition.get("N", 0) * 1
+                + self.composition.get("Cl", 0) * -1
+                + self.composition.get("F", 0) * -1
+            )
+
+
+class Source(Base):
 
     """
-    Represents a astronomical source in **spacetar**. This class is a *mapped class*;
-    every row in the `sources` table in the SQLite database directly maps to this
-    class. It is used to search the `sources` table and pretty print the results, thanks
-    to `rich`'s Console Protocol. The methods in this class supply useful information
-    about the astronomical source in question, such as its coordinates or its URL in
-    the SIMBAD database.
-
     Args:
         id:             The ID of the source in the table.
         name:           The name of the source.
@@ -243,14 +306,9 @@ class Source(Base):  # type: ignore
         return str(self)
 
 
-class Telescope(Base):  # type: ignore
+class Telescope(Base):
 
     """
-    Represents a telescope in **spacetar**. This class is a *mapped class*;
-    each row in the `telescopes` table in the SQLite database maps to an
-    instance of this class. It is used to search the `telescope` table and
-    pretty print the results, thanks to `rich`'s Console Protocol.
-
     Args:
         id:                 The ID of the telescope in the table.
         name:               The full name of the telescope.
@@ -272,7 +330,7 @@ class Telescope(Base):  # type: ignore
     name = sql.Column(sql.String(50), unique=True)
     nick = sql.Column(sql.String(50), unique=True)
     kind = sql.Column(sql.String(50))
-    wavelengths = orm.relationship(
+    wavelengths: typing.List["Wavelength"] = orm.relationship(
         "Wavelength",
         sql.Table(
             "assoc_tel_wave",
@@ -306,17 +364,9 @@ class Telescope(Base):  # type: ignore
         return str(self)
 
 
-class Wavelength(Base):  # type: ignore
+class Wavelength(Base):
 
     """
-    Represents a wavelength band in the electromagentic spectrum in **spacetar**.
-    This class is a *mapped class*; every row in the `wavelengths` table in the
-    SQLite database maps to an instance of this class. There are six wavelength
-    _bands in **spacetar**: submm, mm, cm, IR, Vis, and UV. This table shares a
-    many-to-many orm.relationship with two tables: `molecules` (as the wavelength(s)
-    the molecule was discovered in) and `telescopes` (as the wavelength(s) the
-    telescope operates in).
-
     Args:
         id:     The ID of the wavelength band in the table.
         name:   The name of the wavelength band.
@@ -339,22 +389,7 @@ class Wavelength(Base):  # type: ignore
 
 def _create_database():
 
-    """
-    Create the SQLite database from the JSON data. This function is meant
-    for internal usage only, and should be used only when the author of
-    this library (that's me) or the user (that's you) modifies the JSON
-    data and needs to update the SQLite database. If you end up updating
-    the JSON data and/or the SQLite database, you can definitely make a
-    pull request to this repository so that other users can also access
-    your changes. All PRs that update the database in some constructive
-    way are welcome.
-
-    Note:
-        The database is recreated every time this function is run. We don't
-        insert rows into the SQLite database, because the modifications to
-        the JSON data could be breaking changes (such as changing the name
-        or type of an attribute).
-    """
+    """"""
 
     from rich.progress import track
 
@@ -366,7 +401,7 @@ def _create_database():
 
         for _ in track(
             _bands,
-            description="Creating the `wavelengths` table...",
+            description="[i][u]Storing wavelength bands: ",
         ):
             wavelength = Wavelength(name=_)
             session.add(wavelength)
@@ -374,7 +409,7 @@ def _create_database():
 
         for _ in track(
             _raw("sources").values(),
-            description="Creating the `sources` table...",
+            description="[i][u]Storing sources: ",
         ):
 
             source = Source(
@@ -390,7 +425,7 @@ def _create_database():
 
         for _ in track(
             _raw("telescopes").values(),
-            description="Creating the `telescopes` table...",
+            description="[i][u]Storing telescopes: ",
         ):
             telescope = Telescope(
                 name=_["name"],
@@ -421,7 +456,7 @@ def _create_database():
 
         for _ in track(
             _raw("molecules").values(),
-            description="Creating the `molecules` table...",
+            description="[i][u]Storing molecules: ",
         ):
             molecule = Molecule(
                 label=_["label"],
@@ -435,7 +470,6 @@ def _create_database():
                 cyclic=_["cyclic"],
                 fullerene=_["fullerene"],
                 polyaromatic=_["polyaromatic"],
-                mass=_["mass"],
                 A=_["A"],
                 B=_["B"],
                 C=_["C"],
