@@ -61,17 +61,18 @@ _decommissioned = lambda _: (
 )
 
 
-def render_usage():
+def render_usage(kind: str = "cli"):
 
     """"""
+
+    if kind not in ["cli", "py"]:
+        raise ValueError("There is no help for using spacetar this way. Exiting...")
 
     with console.pager(styles=True):
         console.print(
             Markdown(
-                (_data / "usage.md").read_text(encoding="utf-8"),
+                (_data / f"{kind}_usage.md").read_text(encoding="utf-8"),
                 justify="full",
-                code_theme="fruity",
-                inline_code_theme="fruity",
             )
         )
 
@@ -170,6 +171,37 @@ def tabulate_molecules(molecules: List[Molecule]):
 
     for molecule in molecules:
 
+        rot_consts = Table.grid(expand=True)
+        rot_consts.add_column(justify="left")
+        rot_consts.add_column(justify="right")
+
+        rot_consts.add_row(
+            "A:",
+            f"""{
+                molecule.A
+                if molecule.A is not None
+                else '[b u]None'
+            }""",
+        )
+
+        rot_consts.add_row(
+            "B:",
+            f"""{
+                molecule.B
+                if molecule.B is not None
+                else '[b u]None'
+            }""",
+        )
+
+        rot_consts.add_row(
+            "C:",
+            f"""{
+                molecule.C
+                if molecule.C is not None
+                else '[b u]None'
+            }""",
+        )
+
         table.add_row(
             dedent(
                 f"""
@@ -183,14 +215,12 @@ def tabulate_molecules(molecules: List[Molecule]):
             _bullets(molecule.sources),
             _bullets(molecule.telescopes),
             _bullets(molecule.wavelengths),
-            dedent(
-                f"""
-                A = {molecule.A}
-                B = {molecule.B}
-                C = {molecule.C}
-                """
-            ).strip(),
-            f"{_kappa} = {molecule.kappa}",
+            rot_consts,
+            (
+                f"{_kappa} = {molecule.kappa:.6f}"
+                if molecule.kappa is not None
+                else f"{_kappa} = [b u]None"
+            ),
         )
 
     return table

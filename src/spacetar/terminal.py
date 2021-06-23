@@ -24,7 +24,6 @@ from .display import (
 
 @click.group(invoke_without_command=True)
 @click.option("--help", is_flag=True, is_eager=True, default=None)
-@click.option("--usage", is_flag=True, is_eager=True, default=None)
 @click.option("--version", is_flag=True, is_eager=True, default=None)
 def main(**kwargs):
 
@@ -33,13 +32,26 @@ def main(**kwargs):
     if kwargs["help"]:
         pass
 
-    if kwargs["usage"]:
-        render_usage()
-        sys.exit(0)
-
     if kwargs["version"]:
         render_version()
         sys.exit(0)
+
+
+@main.command()
+@click.argument(
+    "kind",
+    type=click.Choice(
+        ["cli", "py"],
+        case_sensitive=False,
+    ),
+    default="cli",
+)
+def usage(kind: str):
+
+    """"""
+
+    render_usage(kind=kind)
+    sys.exit(0)
 
 
 @main.command()

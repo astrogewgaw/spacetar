@@ -6,7 +6,7 @@ from textwrap import dedent
 from collections import defaultdict
 
 
-SYMBOLS = (
+symbols = (
     "H",
     "He",
     "Li",
@@ -128,10 +128,10 @@ SYMBOLS = (
 )
 
 
-MASSES = [
-    (SYMBOL, MASS)
-    for SYMBOL, MASS in zip(
-        SYMBOLS,
+masses = [
+    (symbol, mass)
+    for symbol, mass in zip(
+        symbols,
         [
             1.008,
             4.002602,
@@ -420,7 +420,7 @@ def composition(formula: str) -> typ.Dict:
     _, stoich_str, charge_str = _partition_formula(formula)
 
     stoich = {
-        SYMBOLS.index(index) + 1: amount
+        symbols.index(index) + 1: amount
         for (
             index,
             amount,
@@ -459,7 +459,7 @@ def molecular_mass(composed: typ.Dict) -> float:
         if key == 0:
             mass -= value * 5.489e-4
         else:
-            mass += value * MASSES[key - 1][-1]
+            mass += value * masses[key - 1][-1]
     return mass
 
 
