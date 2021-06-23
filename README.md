@@ -44,7 +44,7 @@ Want to know when the *first molecule* was discovered in space 🥇 ? Or which t
 
     ![Ethanol Summary][ethanol]
 
-    (*This display a pretty summary for ethanol. You can read out all the destinations you are going to hit in the **Detected in** entry. As you can see, **Sgr B2** is the place to be. This cloud has so much ethanol in it that we could use it to supply us with beers for millions of years!* 🍻))
+    (*This displays a pretty summary for ethanol. You can read out all the destinations you are going to hit in the **Detected in** entry. As you can see, **Sgr B2** is the place to be. This cloud has so much ethanol in it that we could use it to supply us with beers for millions of years!* 🍻)
 
     You can also get to know more about **Sgr B2** by typing:
 
