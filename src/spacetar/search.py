@@ -1,7 +1,8 @@
+from math import inf
 from typing import List, Optional
 from sqlalchemy.orm import Session
+from sqlalchemy import or_, and_, select
 from sqlalchemy.sql.selectable import Select
-from sqlalchemy import or_, and_, desc, select
 
 from .core import (
     Engine,
@@ -12,21 +13,94 @@ from .core import (
 )
 
 
-_likable = lambda _: f"%{_}%"
-_ranger = lambda _: (
+lk = lambda x, on: (x if not on else f"%{x}%") if x is not None else "%%"
+
+rn = lambda x: (
     {
-        0: None,
-        1: _ * 2,
-        2: _,
-    }.get(len(_), None)
-    if _ is not None
-    else _
+        0: [-inf, inf],
+        1: x * 2,
+        2: x,
+    }[len(x)]
+    if x is not None
+    else [-inf, inf]
 )
 
 
-def _results(query: Select) -> List:
-    with Session(Engine) as session:
-        return [_[0] for _ in session.execute(query).all()]
+class Results(list):
+
+    """"""
+
+    def __str__(self) -> str:
+        return f"<Results | Number of results: {self.count})>"
+
+    def __repr__(self) -> str:
+        return str(self)
+
+    @classmethod
+    def from_query(cls, query: Select):
+        with Session(Engine) as session:
+            return cls([_[0] for _ in session.execute(query).all()])
+
+    @property
+    def count(self):
+        return len(self)
+
+    def most(self, column: str):
+        return Results(
+            filter(
+                lambda _: getattr(_, column)
+                == getattr(
+                    max(
+                        self,
+                        key=lambda _: getattr(_, column),
+                    ),
+                    column,
+                ),
+                self,
+            )
+        )
+
+    def least(self, column: str):
+        return Results(
+            filter(
+                lambda _: getattr(_, column)
+                == getattr(
+                    min(
+                        self,
+                        key=lambda _: getattr(_, column),
+                    ),
+                    column,
+                ),
+                self,
+            )
+        )
+
+    def between(
+        self,
+        column: str,
+        between: List,
+    ):
+        return Results(
+            [
+                result
+                for result in self
+                if (getattr(result, column) >= between[0])
+                and (getattr(result, column) <= between[1])
+            ]
+        )
+
+    def orderby(
+        self,
+        column: str,
+        reverse: bool = False,
+    ):
+        return Results(
+            sorted(
+                self,
+                key=lambda _: getattr(_, column),
+                reverse=reverse,
+            )
+        )
 
 
 def search_molecule(
@@ -50,96 +124,54 @@ def search_molecule(
     exo: Optional[bool] = None,
 ) -> List:
 
-    """
-    Search for space molecules from the `molecules` table in the SQLite database.
+    """"""
 
-    Args:
-        like:           Do a *like* search. This inserts wildcard characters into
-                        both sides of a string parameter and searches the SQLite
-                        database. This allows the user to use parts of a name or
-                        formula in their search, for instance.
-        name:           Search for molecules by name.
-        formula:        Seach for molecules by its molecular formula.
-        year:           Search for molecules by the year were discovered.
-        source:         Search for molecules by the source(s) they were discovered in.
-        telescope:      Search for molecules by the telescope(s) they were discovered by.
-        wavelength:     Search for molecules by the wavelength(s) in the electromagnetic
-                        spectrum they were discovered in.
-        neutral:        Search for molecules if they are neutral.
-        cation:         Search for molecules if they are cation.
-        anion:          Search for molecules if they are anion.
-        radical:        Search for molecules if they are radical.
-        cyclic:         Search for molecules if they are cyclic.
-        fullerene:      Search for molecules if they are fullerene.
-        polyaromatic:   Search for molecules if they are polyaromatic.
-        ice:            Search for molecules if they have been discovered in interstellar ices.
-        ppd:            Search for molecules if they have been discovered in protoplanetary disks.
-        exgal:          Search for molecules if they have been discovered in extragalactic sources.
-        exo:            Search for molecules if they have been discovered in exoplanets.
-
-    Returns:
-        A list of :class:`Molecule` instances.
-    """
-
-    query = select(Molecule).order_by(Molecule.year)
-
-    terms = [
-        name,
-        formula,
-        _ranger(year),
-        source,
-        telescope,
-        wavelength,
-        neutral,
-        cation,
-        anion,
-        radical,
-        cyclic,
-        fullerene,
-        polyaromatic,
-        ice,
-        ppd,
-        exgal,
-        exo,
-    ]
-
-    extensions = [
-        lambda _: query.where(Molecule.name.like(_)),
-        lambda _: query.where(Molecule.formula.like(_)),
-        lambda _: query.where(and_((Molecule.year >= _[0]), (Molecule.year <= _[1]))),
-        lambda _: query.where(Molecule.sources.any(Source.name.like(_))),
-        lambda _: query.where(
-            Molecule.telescopes.any(
-                or_(
-                    Telescope.name.like(_),
-                    Telescope.nick.like(_),
+    return Results.from_query(
+        (
+            (
+                select(Molecule)
+                .where(Molecule.name.like(lk(name, like)))
+                .where(Molecule.formula.like(lk(formula, like)))
+                .where(
+                    and_(
+                        Molecule.year >= rn(year)[0],
+                        Molecule.year <= rn(year)[1],
+                    )
+                )
+                .where(Molecule.sources.any(Source.name.like(lk(source, like))))
+                .where(
+                    Molecule.telescopes.any(
+                        or_(
+                            Telescope.name.like(lk(telescope, like)),
+                            Telescope.nick.like(lk(telescope, like)),
+                        )
+                    )
                 )
             )
-        ),
-        lambda _: query.where(Molecule.wavelengths.any(Wavelength.name.like(_))),
-        lambda _: query.where(Molecule.neutral == _),
-        lambda _: query.where(Molecule.cation == _),
-        lambda _: query.where(Molecule.anion == _),
-        lambda _: query.where(Molecule.radical == _),
-        lambda _: query.where(Molecule.cyclic == _),
-        lambda _: query.where(Molecule.fullerene == _),
-        lambda _: query.where(Molecule.polyaromatic == _),
-        lambda _: query.where(Molecule.ice == _),
-        lambda _: query.where(Molecule.ppd == _),
-        lambda _: query.where(Molecule.exgal == _),
-        lambda _: query.where(Molecule.exo == _),
-    ]
-
-    if not any(terms):
-        return _results(query)
-
-    for term, extension in zip(terms, extensions):
-        if term is not None:
-            if like:
-                if isinstance(term, str):
-                    term = _likable(term)
-            query = extension(term)
-    return _results(query)
+            .where(Molecule.wavelengths.any(Wavelength.name.like(lk(wavelength, like))))
+            .where(
+                and_(
+                    *[
+                        getattr(Molecule, _) == __
+                        for _, __ in [
+                            ("neutral", neutral),
+                            ("cation", cation),
+                            ("anion", anion),
+                            ("radical", radical),
+                            ("cyclic", cyclic),
+                            ("fullerene", fullerene),
+                            ("polyaromatic", polyaromatic),
+                            ("ice", ice),
+                            ("ppd", ppd),
+                            ("exgal", exgal),
+                            ("exo", exo),
+                        ]
+                        if __ is not None
+                    ]
+                )
+            )
+        )
+    ).orderby("year")
 
 
 def search_source(
@@ -149,47 +181,17 @@ def search_source(
     detects: Optional[List[int]] = None,
 ) -> List:
 
-    """
-    Search for an astronomical source from the `sources` table in the SQLite database.
+    """"""
 
-    Args:
-        like:           Do a *like* search. This inserts wildcard characters into
-                        both sides of a string parameter and searches the SQLite
-                        database. This allows the user to use parts of a name in
-                        the search, for instance.
-        name:           Search for sources by their name.
-        kind:           Search for sources by their kind/type.
-        detects:        Search for sources by the number of molecules detected in them.
-
-    Returns:
-        A list of :class:`Source` instances.
-    """
-
-    query = select(Source).order_by(desc(Source.detects))
-
-    terms = [name, kind, _ranger(detects)]
-
-    extensions = [
-        lambda __: query.where(Source.name.like(__)),
-        lambda __: query.where(Source.kind.like(__)),
-        lambda __: query.where(
-            and_(
-                (Source.detects >= __[0]),
-                (Source.detects <= __[1]),
-            )
-        ),
-    ]
-
-    if not any(terms):
-        return _results(query)
-
-    for term, extension in zip(terms, extensions):
-        if term is not None:
-            if like:
-                if isinstance(term, str):
-                    term = _likable(term)
-            query = extension(term)
-    return _results(query)
+    return (
+        Results.from_query(
+            select(Source)
+            .where(Source.name.like(lk(name, like)))
+            .where(Source.kind.like(lk(kind, like)))
+        )
+        .between("detects", between=rn(detects))
+        .orderby("detects", reverse=True)
+    )
 
 
 def search_telescope(
@@ -203,81 +205,36 @@ def search_telescope(
     detects: Optional[List[int]] = None,
 ) -> List:
 
-    """
-    Search for a telescope from the `telescopes` table in the SQLite database.
+    """"""
 
-    Args:
-        like:               Do a *like* search. This inserts wildcard characters into
-                            both sides of a string parameter and searches the SQLite
-                            database. This allows the user to use parts of a name in
-                            the search, for instance.
-        name:               Search for telescopes by their full name.
-        nick:               Search for telescopes by their short name (a.k.a. nick).
-        wavelengths:        Search for telescopes by the wavelength(s) in the electromagnetic spectrum
-                            they operate in.
-        diameter:           Search for telescopes by their diameter, if applicable.
-        built:              Search for telescopes by the year they were built in.
-        decommissioned:     Search for telescopes by the year they were decommissioned in, if applicable.
-        detects:            Search for telescopes by the number of molecules they have discovered.
-
-    Returns:
-        A list of :class:`Telescope` instances.
-    """
-
-    query = select(Telescope).order_by(desc(Telescope.detects))
-
-    terms = [
-        name,
-        kind,
-        wavelength,
-        _ranger(diameter),
-        _ranger(built),
-        _ranger(decommissioned),
-        _ranger(detects),
-    ]
-
-    extensions = [
-        lambda _: query.where(
+    query = (
+        select(Telescope)
+        .where(
             or_(
-                Telescope.name.like(_),
-                Telescope.nick.like(_),
+                Telescope.name.like(lk(name, like)),
+                Telescope.nick.like(lk(name, like)),
             )
-        ),
-        lambda _: query.where(Telescope.kind == _),
-        lambda _: query.where(Telescope.wavelengths.any(Wavelength.name.like(_))),
-        lambda _: query.where(
-            and_(
-                (Telescope.diameter >= _[0]),
-                (Telescope.diameter <= _[1]),
-            )
-        ),
-        lambda _: query.where(
-            and_(
-                (Telescope.built >= _[0]),
-                (Telescope.built <= _[1]),
-            )
-        ),
-        lambda _: query.where(
-            and_(
-                (Telescope.decommissioned >= _[0]),
-                (Telescope.decommissioned <= _[1]),
-            )
-        ),
-        lambda _: query.where(
-            and_(
-                (Telescope.detects >= _[0]),
-                (Telescope.detects <= _[1]),
-            )
-        ),
-    ]
+        )
+        .where(Telescope.kind.like(lk(kind, like)))
+        .where(Telescope.wavelengths.any(Wavelength.name.like(lk(wavelength, like))))
+    )
 
-    if not any(terms):
-        return _results(query)
+    for name, term in [
+        ("diameter", diameter),
+        ("built", built),
+        ("decommissioned", decommissioned),
+    ]:
+        if (term is not None) and (len(term) != 0):
+            query = query.where(
+                and_(
+                    getattr(Telescope, name) >= rn(term)[0],
+                    getattr(Telescope, name) <= rn(term)[1],
+                    getattr(Telescope, name).is_not(None),
+                )
+            )
 
-    for term, extension in zip(terms, extensions):
-        if term is not None:
-            if like:
-                if isinstance(term, str):
-                    term = _likable(term)
-            query = extension(term)
-    return _results(query)
+    return (
+        Results.from_query(query)
+        .between("detects", between=rn(detects))
+        .orderby("detects", reverse=True)
+    )

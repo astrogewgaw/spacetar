@@ -41,7 +41,7 @@ def test_detects():
 
     results = search_source(detects=[1])
 
-    assert len(results) == 32
+    assert len(results) == 37
 
     src = results[0]
 
@@ -53,12 +53,12 @@ def test_detects():
 
     results = search_source(detects=[4, 6])
 
-    assert len(results) == 6
+    assert len(results) == 7
 
     src = results[0]
 
-    assert src.name == "rho Oph A"
-    assert src.kind == "SFR"
-    assert src.ra == "16:25:35.14"
-    assert src.dec == "-23:26:49.9"
+    assert src.name == "VY Ca Maj"
+    assert src.kind == "Oxygen Star"
+    assert src.ra == "07:22:58.3"
+    assert src.dec == "-25:46:03.2"
     assert src.detects == 6
