@@ -43,7 +43,11 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Whiteoak et al. 1980 MNRAS 190, 17",
         "exgal_lab_ref": null,
-        "exgal_sources": "LMC, NGC 4945, NGC 5128",
+        "exgal_sources": [
+            "LMC",
+            "NGC 4945",
+            "NGC 5128"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -93,7 +97,11 @@
         "ppd_isos_ref": "[C15N] Hily-Blant et al. 2017 A&A 603, L6",
         "exgal_ref": "Henkel et al. 1988 A&A 201, L23",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, NGC 253, IC 342",
+        "exgal_sources": [
+            "M82",
+            "NGC 253",
+            "IC 342"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -144,7 +152,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Magain & Gillet 1987 A&A 184, L5",
         "exgal_lab_ref": null,
-        "exgal_sources": "LMC",
+        "exgal_sources": [
+            "LMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -194,7 +204,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Weliachew 1971 ApJ 167, L47",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, NGC 253",
+        "exgal_sources": [
+            "M82",
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -244,7 +257,10 @@
         "ppd_isos_ref": "[13CO] Sargent & Beckwith 1987 ApJ 323, 294 [C18O] Dutrey et al. 1994 A&A 286, 149 [C17O] Smith et al. 2009 ApJ 701, 163; Guilloteau et al. 2013 A&A 549, A92",
         "exgal_ref": "Rickard et al. 1975 ApJ 199, L75",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, NGC 253",
+        "exgal_sources": [
+            "M82",
+            "NGC 253"
+        ],
         "exo_ref": "Madhusudhan et al. 2011 Nature 469, 64; Barman et al. 2011 ApJ 733, 65; Lanotte et al. 2014 A&A 572, A73; Barman et al. 2015 ApJ 804, 61",
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -294,7 +310,9 @@
         "ppd_isos_ref": "[HD] Bergin et al. 2013 Nature 493, 644",
         "exgal_ref": "Thompson et al. 1978 ApJ 222, L49",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 1068",
+        "exgal_sources": [
+            "NGC 1068"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -344,7 +362,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Mauersberger & Henkel 1991 A&A 245, 457",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -397,7 +417,10 @@
         "ppd_isos_ref": "[C34S] Artur de la Villarmois et al. 2018 A&A 614, A26",
         "exgal_ref": "Henkel & Bally 1985 A&A 150, L25",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, IC 342",
+        "exgal_sources": [
+            "M82",
+            "IC 342"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -447,7 +470,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Johansson 1991 Proc. IAU Symposium 146, 1; Petuchowski & Bennett 1992 ApJ 391, 137",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, NGC 253",
+        "exgal_sources": [
+            "M82",
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -497,7 +523,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -547,7 +575,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2003 A&A 411, L465",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -597,7 +627,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Welty et al. 2012 MNRAS 428, 1107",
         "exgal_lab_ref": null,
-        "exgal_sources": "SMC",
+        "exgal_sources": [
+            "SMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -647,7 +679,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2003 A&A 411, L465",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -697,7 +731,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Wallstrom et al. 2019 A&A 629, A128",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211",
+        "exgal_sources": [
+            "PKS 1830-211"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -747,7 +783,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -797,7 +835,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -847,7 +887,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -897,7 +939,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": "[26AlF] Kami\u0144ski et al. 2018 Nature Astronomy 2, 778",
@@ -952,7 +996,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1002,7 +1048,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1052,7 +1100,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1104,7 +1154,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Gonzalez-Alfonso et al. 2004 ApJ 613, 247",
         "exgal_lab_ref": null,
-        "exgal_sources": "Arp 220",
+        "exgal_sources": [
+            "Arp 220"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1154,7 +1206,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1204,7 +1258,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1255,7 +1311,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Fuente et al. 2006 ApJ 641, L105",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82",
+        "exgal_sources": [
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1305,7 +1363,11 @@
         "ppd_isos_ref": null,
         "exgal_ref": "van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Monje et al. 2011 ApJL 742, L21",
         "exgal_lab_ref": null,
-        "exgal_sources": "Mrk 231, Arp 220, Cloverleaf LOS",
+        "exgal_sources": [
+            "Mrk 231",
+            "Arp 220",
+            "Cloverleaf LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1355,7 +1417,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1406,7 +1470,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2016 A&A 589, L5",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1456,7 +1522,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1509,7 +1577,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1559,7 +1629,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1609,7 +1681,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1659,7 +1733,11 @@
         "ppd_isos_ref": null,
         "exgal_ref": "van der Werf et al. 2010 A&A 518, L42; Rangwala et al. 2011 ApJ 743, 94; Gonzalez-Alfonso et al. 2013 A&A 550, A25",
         "exgal_lab_ref": null,
-        "exgal_sources": "Mrk 231, Arp 220, NGC 4418",
+        "exgal_sources": [
+            "Mrk 231",
+            "Arp 220",
+            "NGC 4418"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1709,7 +1787,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2017 A&A 606, A109",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211",
+        "exgal_sources": [
+            "PKS 1830-211"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1760,7 +1840,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1810,7 +1892,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1860,7 +1944,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": "Haynes et al. 2015 ApJ 806, 146; Sedaghati et al. 2017 Nature 549, 238; Nugroho et al. 2017 ApJ 154, 221",
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1910,7 +1996,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2015 A&A 582, L4",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -1962,7 +2050,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2012,7 +2102,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2062,7 +2154,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2114,7 +2208,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Churchwell et al. 1977 A&A 54, 969",
         "exgal_lab_ref": null,
-        "exgal_sources": "M33",
+        "exgal_sources": [
+            "M33"
+        ],
         "exo_ref": "Tinetti et al. 2007 Nature 448, 169; Deming et al. 2014 ApJ 774, 95; Kreidberg et al. 2014 ApJL 793, L27; Kreidberg et al. 2015 ApJ 814, 66; Lockwood et al. 2014 ApJ 783, L29",
         "exo_lab_ref": null,
         "isos_ref": "[HDO] Turner et al. 1975 ApJ 198, L125",
@@ -2168,7 +2264,9 @@
         "ppd_isos_ref": "[DCO+] van Dishoeck et al. 2003 A&A 400, L1 [H13CO+] van Zadelhoff et al. 2001 A&A 377, 566; van Dishoeck et al. 2003 A&A 400, L1",
         "exgal_ref": "Stark et al. 1979 ApJ 229, 118",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82",
+        "exgal_sources": [
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2223,7 +2321,10 @@
         "ppd_isos_ref": "[DCN] Qi et al. 2008 ApJ 681, 1396 [H13CN] Guzman et al. 2015 ApJ 814, 53 [HC15N] Guzman et al. 2015 ApJ 814, 53",
         "exgal_ref": "Rickard et al. 1977 ApJ 214, 390",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, M82",
+        "exgal_sources": [
+            "NGC 253",
+            "M82"
+        ],
         "exo_ref": "Hawker et al. 2018 ApJL 863, L11",
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2273,7 +2374,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Mauersberger et al. 1995 A&A 294, 23",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2324,7 +2427,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Henkel et al. 1988 A&A 201, L23",
         "exgal_lab_ref": null,
-        "exgal_sources": "IC 342",
+        "exgal_sources": [
+            "IC 342"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2381,7 +2486,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Hekkila et al. 1999 A&A 344, 817",
         "exgal_lab_ref": null,
-        "exgal_sources": "LMC",
+        "exgal_sources": [
+            "LMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2434,7 +2541,13 @@
         "ppd_isos_ref": "[N2D+] Huang et al. 2015 ApJL 809, L26",
         "exgal_ref": "Mauersberger & Henkel 1991 A&A 245, 457",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, Maffei 2, IC 342, M82, NGC 6946",
+        "exgal_sources": [
+            "NGC 253",
+            "Maffei 2",
+            "IC 342",
+            "M82",
+            "NGC 6946"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2484,7 +2597,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Henkel et al. 1988 A&A 201, L23",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82",
+        "exgal_sources": [
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2535,7 +2650,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2003 A&A 411, L465",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2588,7 +2705,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Sage & Ziurys 1995 ApJ 447, 625; Garcia-Burillo et al. 2002 ApJ 575, L55",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82",
+        "exgal_sources": [
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2639,7 +2758,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2691,7 +2812,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2013 A&A 551, A109",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2742,7 +2865,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Usero et al. 2004 A&A 419, 897",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 1068",
+        "exgal_sources": [
+            "NGC 1068"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2793,7 +2918,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2847,7 +2974,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2006 ApJS 164, 450",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2897,7 +3026,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Welty et al. 2012 MNRAS 428, 1107",
         "exgal_lab_ref": null,
-        "exgal_sources": "SMC",
+        "exgal_sources": [
+            "SMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": "https://arxiv.org/abs/1911.09751",
@@ -2949,7 +3080,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": "Stevenson et al. 2010 Nature 464, 1161; Madhusudhan et al. 2011 Nature 469, 64; Lanotte et al. 2014 A&A 572, A73",
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -2999,7 +3132,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3049,7 +3184,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3099,7 +3236,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3149,7 +3288,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2014 A&A 566, A112",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": "Melosso et al. 2020 A&A 641, A153",
@@ -3199,7 +3340,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3249,7 +3392,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3300,7 +3445,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3351,7 +3498,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Geballe et al. 2006 ApJ 644, 907",
         "exgal_lab_ref": null,
-        "exgal_sources": "IRAS 08572+3915",
+        "exgal_sources": [
+            "IRAS 08572+3915"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3401,7 +3550,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3451,7 +3602,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3501,7 +3654,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3551,7 +3706,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3601,7 +3758,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3652,7 +3811,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3705,7 +3866,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Weiss et al. 2010 A&A 521, L1",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82",
+        "exgal_sources": [
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3758,7 +3921,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2014 A&A 566, L6",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3810,7 +3975,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3860,7 +4027,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3911,7 +4080,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -3962,7 +4133,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4013,7 +4186,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4063,7 +4238,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4113,7 +4290,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4163,7 +4342,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4213,7 +4394,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4263,7 +4446,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4313,7 +4498,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4363,7 +4550,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin & Ho 1979 A&A 74, L7",
         "exgal_lab_ref": null,
-        "exgal_sources": "IC 342, NGC 253",
+        "exgal_sources": [
+            "IC 342",
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4425,7 +4615,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Gardner & Whiteoak 1974 Nature 247, 526",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, NGC 4945",
+        "exgal_sources": [
+            "NGC 253",
+            "NGC 4945"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4476,7 +4669,11 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Nguyen-Q-Rieu et al. 1991 A&A 241, L33",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, Maffei 2, IC 342",
+        "exgal_sources": [
+            "NGC 253",
+            "Maffei 2",
+            "IC 342"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4526,7 +4723,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2006 ApJS 164, 450",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4576,7 +4775,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Matsuura et al. 2002 ApJ 580, L133",
         "exgal_lab_ref": null,
-        "exgal_sources": "LMC",
+        "exgal_sources": [
+            "LMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4629,7 +4830,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4680,7 +4883,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4730,7 +4935,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Aladro et al. 2015 A&A 579, A101; Martin et al. 2006 ApJS 164, 450",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4783,7 +4990,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4838,7 +5047,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4889,7 +5100,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4941,7 +5154,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "van der Tak et al. 2007 A&A 477, L5",
         "exgal_lab_ref": null,
-        "exgal_sources": "M82, Arp 220",
+        "exgal_sources": [
+            "M82",
+            "Arp 220"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -4994,7 +5210,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5044,7 +5262,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2006 ApJS 164, 450",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5094,7 +5314,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5144,7 +5366,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5194,7 +5418,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5244,7 +5470,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5294,7 +5522,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5349,7 +5579,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5402,7 +5634,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5454,7 +5688,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5504,7 +5740,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5554,7 +5792,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5604,7 +5844,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5654,7 +5896,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5705,7 +5949,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5755,7 +6001,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5805,7 +6053,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5855,7 +6105,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Mauersberger et al. 1990 A&A 236, 63; Henkel et al. 1988 A&A 201, L23",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5905,7 +6157,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -5955,7 +6209,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6005,7 +6261,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Martin et al. 2006 ApJS 164, 450",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6055,7 +6313,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6105,7 +6365,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6155,7 +6417,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6208,7 +6472,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Seaquist & Bell 1986 ApJ 303, L67",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 5128",
+        "exgal_sources": [
+            "NGC 5128"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6262,7 +6528,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6312,7 +6580,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6363,7 +6633,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6415,7 +6687,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6465,7 +6739,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": "Swain et al. 2008 Nature 452, 329; Barman et al. 2011 ApJ 733, 65; Stevenson et al. 2014 ApJ 791, 36; Barman et al. 2015 ApJ 804, 61",
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6516,7 +6792,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6566,7 +6844,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6620,7 +6900,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6670,7 +6952,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6720,7 +7004,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6770,7 +7056,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6820,7 +7108,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6871,7 +7161,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6922,7 +7214,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -6975,7 +7269,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7025,7 +7321,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7076,7 +7374,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Henkel et al. 1987 A&A 188, L1",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, IC 342",
+        "exgal_sources": [
+            "NGC 253",
+            "IC 342"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7127,7 +7428,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Mauersberger et al. 1991 A&A 247, 307",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7177,7 +7480,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2013 A&A 551, A109",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7227,7 +7532,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7277,7 +7584,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7327,7 +7636,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7377,7 +7688,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7428,7 +7741,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7478,7 +7793,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7528,7 +7845,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7578,7 +7897,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7629,7 +7950,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7679,7 +8002,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Bernard-Salas et al. 2006 ApJ 652, L29",
         "exgal_lab_ref": null,
-        "exgal_sources": "SMP LMC 11",
+        "exgal_sources": [
+            "SMP LMC 11"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7729,7 +8054,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7779,7 +8106,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7829,7 +8158,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7879,7 +8210,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7929,7 +8262,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -7979,7 +8314,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8029,7 +8366,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8079,7 +8418,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Mauersberger et al. 1991 A&A 247, 307",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253, M82",
+        "exgal_sources": [
+            "NGC 253",
+            "M82"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8133,7 +8475,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Muller et al. 2011 A&A 535, A103",
         "exgal_lab_ref": null,
-        "exgal_sources": "PKS 1830-211 LOS",
+        "exgal_sources": [
+            "PKS 1830-211 LOS"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8183,7 +8527,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8233,7 +8579,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Aladro et al. 2015 A&A 579, A101",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 253",
+        "exgal_sources": [
+            "NGC 253"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8283,7 +8631,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8336,7 +8686,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8386,7 +8738,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8437,7 +8791,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8489,7 +8845,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8539,7 +8897,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8589,7 +8949,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8640,7 +9002,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Sewi\u0142o et al. 2018 ApJL 853, L19",
         "exgal_lab_ref": null,
-        "exgal_sources": "LMC",
+        "exgal_sources": [
+            "LMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8690,7 +9054,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8740,7 +9106,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8791,7 +9159,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8841,7 +9211,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8891,7 +9263,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8941,7 +9315,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Bernard-Salas et al. 2006 ApJ 652, L29",
         "exgal_lab_ref": null,
-        "exgal_sources": "SMP LMC 11",
+        "exgal_sources": [
+            "SMP LMC 11"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -8993,7 +9369,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9043,7 +9421,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9095,7 +9475,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9145,7 +9527,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9195,7 +9579,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9245,7 +9631,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9297,7 +9685,10 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Qiu et al. 2018 A&A 613, A3; Sewi\u0142o et al. 2018 ApJL 853, L19",
         "exgal_lab_ref": null,
-        "exgal_sources": "NGC 1068, LMC",
+        "exgal_sources": [
+            "NGC 1068",
+            "LMC"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9347,7 +9738,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9398,7 +9791,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9449,7 +9844,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9501,7 +9898,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9552,7 +9951,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9602,7 +10003,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9653,7 +10056,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9703,7 +10108,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9753,7 +10160,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9803,7 +10212,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9856,7 +10267,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9906,7 +10319,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -9956,7 +10371,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10006,7 +10423,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10056,7 +10475,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10106,7 +10527,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10157,7 +10580,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10207,7 +10632,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10257,7 +10684,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10307,7 +10736,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10357,7 +10788,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": "Bernard-Salas et al. 2006 ApJ 652, L29",
         "exgal_lab_ref": null,
-        "exgal_sources": "SMP LMC 11",
+        "exgal_sources": [
+            "SMP LMC 11"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10407,7 +10840,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10457,7 +10892,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10507,7 +10944,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10558,7 +10997,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10608,7 +11049,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10658,7 +11101,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10708,7 +11153,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10758,7 +11205,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10808,7 +11257,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10858,7 +11309,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10908,7 +11361,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -10958,7 +11413,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -11010,7 +11467,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -11062,7 +11521,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -11112,7 +11573,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,
@@ -11164,7 +11627,9 @@
         "ppd_isos_ref": null,
         "exgal_ref": null,
         "exgal_lab_ref": null,
-        "exgal_sources": null,
+        "exgal_sources": [
+            "None"
+        ],
         "exo_ref": null,
         "exo_lab_ref": null,
         "isos_ref": null,

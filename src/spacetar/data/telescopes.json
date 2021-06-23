@@ -12,34 +12,7 @@
         "diameter": 100,
         "built": 2004,
         "decommissioned": null,
-        "notes": null,
-        "detects": 24,
-        "molecules": [
-            "CNCHO",
-            "HNCNH",
-            "H2NCO+",
-            "c-H2C3O",
-            "CH2CNH",
-            "HNCHCN",
-            "C6H-",
-            "HC5O",
-            "CH2CCHCN",
-            "CH3CHNH",
-            "CH3CONH2",
-            "C8H-",
-            "HC7O",
-            "CH3CH2CHO",
-            "CH3C5N",
-            "CH3CHCH2O",
-            "CH3C6H",
-            "C6H5CN",
-            "C10H7CN",
-            "C10H7CN",
-            "HCCCH2CN",
-            "HC4NC",
-            "HC11N",
-            "C5H5CN"
-        ]
+        "notes": null
     },
     "2": {
         "name": "IRAM 30-m",
@@ -54,70 +27,7 @@
         "diameter": 30,
         "built": 1984,
         "decommissioned": null,
-        "notes": null,
-        "detects": 60,
-        "molecules": [
-            "NaCl",
-            "AlCl",
-            "KCl",
-            "AlF",
-            "SiC",
-            "CP",
-            "NH",
-            "CF+",
-            "CN-",
-            "NS+",
-            "C2S",
-            "MgNC",
-            "MgCN",
-            "SiCN",
-            "AlNC",
-            "SiNC",
-            "HCP",
-            "KCN",
-            "HO2",
-            "SiCSi",
-            "S2H",
-            "HCS",
-            "HSC",
-            "NCO",
-            "CaNC",
-            "C3S",
-            "HC2N",
-            "C3N-",
-            "PH3",
-            "HCNO",
-            "l-C3H+",
-            "HMgNC",
-            "HCCO",
-            "CNCN",
-            "H2CCC",
-            "C4H-",
-            "CH3O",
-            "NH3D+",
-            "NCCNH+",
-            "C5H",
-            "CH3NC",
-            "H2C4",
-            "C5N",
-            "HC4N",
-            "C5N-",
-            "SiH3CN",
-            "C7H",
-            "NH2CH2CN",
-            "CH3SiH3",
-            "C8H",
-            "CH2CHCH3",
-            "CH3CH2SH",
-            "(CH3)2CO",
-            "C2H5OCHO",
-            "CH3COOCH3",
-            "n-C3H7CN",
-            "MgC3N",
-            "MgC4H",
-            "HC3HNH",
-            "HC3O+"
-        ]
+        "notes": null
     },
     "3": {
         "name": "Spizter",
@@ -131,13 +41,7 @@
         "diameter": 0.85,
         "built": 2003,
         "decommissioned": 2020,
-        "notes": null,
-        "detects": 3,
-        "molecules": [
-            "C60",
-            "C60+",
-            "C70"
-        ]
+        "notes": null
     },
     "4": {
         "name": "Hubble Space Telescope",
@@ -153,11 +57,7 @@
         "diameter": 2.4,
         "built": 1990,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "VO"
-        ]
+        "notes": null
     },
     "5": {
         "name": "Atacama Large Millimeter/sub-millimeter Array",
@@ -172,16 +72,7 @@
         "diameter": null,
         "built": 2011,
         "decommissioned": null,
-        "notes": null,
-        "detects": 6,
-        "molecules": [
-            "HONO",
-            "CH3Cl",
-            "HOCH2CN",
-            "NH2CONH2",
-            "CH3OCH2OH",
-            "i-C3H7CN"
-        ]
+        "notes": null
     },
     "6": {
         "name": "Infrared Space Observatory",
@@ -195,15 +86,7 @@
         "diameter": 0.6,
         "built": 1995,
         "decommissioned": 1998,
-        "notes": null,
-        "detects": 5,
-        "molecules": [
-            "HF",
-            "CH3",
-            "HC4H",
-            "HC6H",
-            "C6H6"
-        ]
+        "notes": null
     },
     "7": {
         "name": "NRAO 140-ft",
@@ -217,23 +100,7 @@
         "diameter": 43,
         "built": 1965,
         "decommissioned": 2008,
-        "notes": "Technically started operations again in 2014, but not for PI science.",
-        "detects": 13,
-        "molecules": [
-            "H2CO",
-            "HC3N",
-            "HCOOH",
-            "CH2CN",
-            "CH3OH",
-            "NH2CHO",
-            "HC2CHO",
-            "C5S",
-            "CH3CHO",
-            "CH3C3N",
-            "CH3C4H",
-            "(CH3)2CO",
-            "HC9N"
-        ]
+        "notes": "Technically started operations again in 2014, but not for PI science."
     },
     "8": {
         "name": "Algonquin 46-m Telescope",
@@ -248,13 +115,7 @@
         "diameter": 46,
         "built": 1966,
         "decommissioned": 1987,
-        "notes": "Technically in operation much longer, but seems to have ceased PI science in 1987.",
-        "detects": 3,
-        "molecules": [
-            "HC5N",
-            "HC7N",
-            "HC9N"
-        ]
+        "notes": "Technically in operation much longer, but seems to have ceased PI science in 1987."
     },
     "9": {
         "name": "NRAO/ARO 12-m Telescope",
@@ -268,37 +129,7 @@
         "diameter": 12,
         "built": 1984,
         "decommissioned": null,
-        "notes": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities).  The observatory was handed over to the ARO in 2000 and renamed.  In 2013, the antenna was replaced with a 12-m ALMA prototype antenna.",
-        "detects": 27,
-        "molecules": [
-            "PN",
-            "SiN",
-            "SO+",
-            "CO+",
-            "CH2",
-            "NaCN",
-            "N2O",
-            "MgCN",
-            "CCP",
-            "AlOH",
-            "KCN",
-            "FeCN",
-            "CCN",
-            "C3O",
-            "HCNH+",
-            "H3O+",
-            "H2CN",
-            "SiC3",
-            "HOCN",
-            "HSCN",
-            "H2COH+",
-            "CH2CHOH",
-            "CH3NCO",
-            "CH2OHCHO",
-            "CH2CHCHO",
-            "(CH3)2CO",
-            "HOCH2CH2OH"
-        ]
+        "notes": "Originally the NRAO 36-ft (11 m) telescope until 1984, when the dish was replaced (these are counted as separate facilities).  The observatory was handed over to the ARO in 2000 and renamed.  In 2013, the antenna was replaced with a 12-m ALMA prototype antenna."
     },
     "10": {
         "name": "NRAO 36-ft Telescope",
@@ -312,43 +143,7 @@
         "diameter": 11,
         "built": 1967,
         "decommissioned": 1984,
-        "notes": "Became the NRAO/ARO 12-m telescope in 1984.",
-        "detects": 33,
-        "molecules": [
-            "CO",
-            "SiO",
-            "CS",
-            "SO",
-            "SiS",
-            "NS",
-            "NO",
-            "HCO+",
-            "HCN",
-            "OCS",
-            "HNC",
-            "H2S",
-            "N2H+",
-            "C2H",
-            "SO2",
-            "HCO",
-            "HNO",
-            "HCS+",
-            "SiC2",
-            "HNCO",
-            "C3N",
-            "HNCS",
-            "l-C3H",
-            "HOCN",
-            "NH2CN",
-            "H2CCO",
-            "C4H",
-            "CH3CN",
-            "CH3CCH",
-            "CH3NH2",
-            "CH3OCH3",
-            "CH3CH2OH",
-            "CH3CH2CN"
-        ]
+        "notes": "Became the NRAO/ARO 12-m telescope in 1984."
     },
     "11": {
         "name": "Nobeyama 45-m Telescope",
@@ -363,25 +158,7 @@
         "diameter": 45,
         "built": 1982,
         "decommissioned": null,
-        "notes": null,
-        "detects": 15,
-        "molecules": [
-            "C2S",
-            "C2O",
-            "C3O",
-            "C3S",
-            "c-C3H",
-            "CH2CN",
-            "SiC4",
-            "HCCNC",
-            "HNCCC",
-            "H2COH+",
-            "HC2CHO",
-            "HC3NH+",
-            "C6H",
-            "c-C2H4O",
-            "C8H"
-        ]
+        "notes": null
     },
     "12": {
         "name": "Effelsberg 100-m Telescope",
@@ -395,14 +172,7 @@
         "diameter": 100,
         "built": 1972,
         "decommissioned": null,
-        "notes": null,
-        "detects": 4,
-        "molecules": [
-            "H2CCC",
-            "C5N",
-            "HCOOCH3",
-            "CH3C4H"
-        ]
+        "notes": null
     },
     "13": {
         "name": "Haystack 37-m Telescope",
@@ -417,13 +187,7 @@
         "diameter": 37,
         "built": 1964,
         "decommissioned": null,
-        "notes": null,
-        "detects": 3,
-        "molecules": [
-            "c-C2H4O",
-            "HC7N",
-            "CH3C4H"
-        ]
+        "notes": null
     },
     "14": {
         "name": "Plateu de Bure Interferometer",
@@ -437,12 +201,7 @@
         "diameter": null,
         "built": 1988,
         "decommissioned": 2016,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "TiO2",
-            "NH2CH2CN"
-        ]
+        "notes": null
     },
     "15": {
         "name": "Northern Extended Millimeter Array",
@@ -456,9 +215,7 @@
         "diameter": null,
         "built": 2016,
         "decommissioned": null,
-        "notes": null,
-        "detects": 0,
-        "molecules": []
+        "notes": null
     },
     "16": {
         "name": "Berkeley-Illinois-Maryland Array",
@@ -472,11 +229,7 @@
         "diameter": null,
         "built": 1986,
         "decommissioned": 2005,
-        "notes": "Became part of CARMA.",
-        "detects": 1,
-        "molecules": [
-            "CH3COOH"
-        ]
+        "notes": "Became part of CARMA."
     },
     "17": {
         "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
@@ -490,12 +243,7 @@
         "diameter": null,
         "built": 1984,
         "decommissioned": 2005,
-        "notes": "Became part of CARMA.",
-        "detects": 2,
-        "molecules": [
-            "PN",
-            "CH3COOH"
-        ]
+        "notes": "Became part of CARMA."
     },
     "18": {
         "name": "Yebes RT40-m Telescope",
@@ -510,14 +258,7 @@
         "diameter": null,
         "built": 2007,
         "decommissioned": null,
-        "notes": null,
-        "detects": 4,
-        "molecules": [
-            "NCCNH+",
-            "MgC3N",
-            "MgC4H",
-            "HC3O+"
-        ]
+        "notes": null
     },
     "19": {
         "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
@@ -531,11 +272,7 @@
         "diameter": 26,
         "built": 1965,
         "decommissioned": 1994,
-        "notes": "Primarily used for VLBI for much of its later years.",
-        "detects": 1,
-        "molecules": [
-            "CH3OCH3"
-        ]
+        "notes": "Primarily used for VLBI for much of its later years."
     },
     "20": {
         "name": "Australia Telescope Compact Array",
@@ -549,11 +286,7 @@
         "diameter": null,
         "built": 1988,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "NH2CH2CN"
-        ]
+        "notes": null
     },
     "21": {
         "name": "Parkes 64-m Telescope",
@@ -567,15 +300,7 @@
         "diameter": 64,
         "built": 1961,
         "decommissioned": null,
-        "notes": null,
-        "detects": 5,
-        "molecules": [
-            "H2CS",
-            "CH2NH",
-            "CH3NH2",
-            "CH2CHCN",
-            "HCOOCH3"
-        ]
+        "notes": null
     },
     "22": {
         "name": "ARO 10-m Submillimeter Telescope",
@@ -590,17 +315,7 @@
         "diameter": 10,
         "built": 1993,
         "decommissioned": null,
-        "notes": null,
-        "detects": 7,
-        "molecules": [
-            "PO",
-            "AlO",
-            "AlOH",
-            "KCN",
-            "CCN",
-            "PH3",
-            "CH3NCO"
-        ]
+        "notes": null
     },
     "23": {
         "name": "Swedish-ESO 15-m Submillimetre Telescope",
@@ -615,12 +330,7 @@
         "diameter": 15,
         "built": 1987,
         "decommissioned": 2003,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "c-C2H4O",
-            "CH2CHCHO"
-        ]
+        "notes": null
     },
     "24": {
         "name": "Goldstone 72-m (DSS-14; \"Mars\")",
@@ -634,11 +344,7 @@
         "diameter": 70,
         "built": 1966,
         "decommissioned": null,
-        "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?",
-        "detects": 1,
-        "molecules": [
-            "H2C6"
-        ]
+        "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?"
     },
     "25": {
         "name": "Tokyo Astronomical Observatory Mitaka 6-m",
@@ -652,11 +358,7 @@
         "diameter": 6,
         "built": 1970,
         "decommissioned": 2018,
-        "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018.",
-        "detects": 1,
-        "molecules": [
-            "CH3NH2"
-        ]
+        "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018."
     },
     "26": {
         "name": "McMath-Pierce Solar Telescope",
@@ -672,11 +374,7 @@
         "diameter": 1.6,
         "built": 1962,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "C2H4"
-        ]
+        "notes": null
     },
     "27": {
         "name": "AT&T Bell Laboratories 7-m Telescope",
@@ -690,18 +388,7 @@
         "diameter": 7,
         "built": 1976,
         "decommissioned": 1992,
-        "notes": null,
-        "detects": 8,
-        "molecules": [
-            "HCS+",
-            "SiC2",
-            "HNCS",
-            "HOCO+",
-            "l-C3H",
-            "HOCN",
-            "c-C3H2",
-            "CH3SH"
-        ]
+        "notes": null
     },
     "28": {
         "name": "NASA Infrared Telescope Facility",
@@ -715,12 +402,7 @@
         "diameter": 3,
         "built": 1974,
         "decommissioned": null,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "SiH4",
-            "CH4"
-        ]
+        "notes": null
     },
     "29": {
         "name": "Mayall 4-m Telescope",
@@ -734,14 +416,7 @@
         "diameter": 4,
         "built": 1973,
         "decommissioned": null,
-        "notes": null,
-        "detects": 4,
-        "molecules": [
-            "NH",
-            "C3",
-            "C2H2",
-            "C5"
-        ]
+        "notes": null
     },
     "30": {
         "name": "Onsala 20-m Telescope",
@@ -756,14 +431,7 @@
         "diameter": 20,
         "built": 1976,
         "decommissioned": null,
-        "notes": null,
-        "detects": 4,
-        "molecules": [
-            "HOC+",
-            "C3N",
-            "l-C3H",
-            "CH2CN"
-        ]
+        "notes": null
     },
     "31": {
         "name": "Five College Radio Observatory 14-m Telescope",
@@ -778,15 +446,7 @@
         "diameter": null,
         "built": 1976,
         "decommissioned": 2005,
-        "notes": null,
-        "detects": 5,
-        "molecules": [
-            "PN",
-            "HOC+",
-            "C3O",
-            "l-C3H",
-            "CH2CN"
-        ]
+        "notes": null
     },
     "32": {
         "name": "Atacama Pathfinder Experiment",
@@ -801,14 +461,7 @@
         "diameter": 12,
         "built": 2005,
         "decommissioned": null,
-        "notes": null,
-        "detects": 4,
-        "molecules": [
-            "CF+",
-            "OH+",
-            "HO2",
-            "HOOH"
-        ]
+        "notes": null
     },
     "33": {
         "name": "Caltech Submillimeter Observatory",
@@ -823,12 +476,7 @@
         "diameter": 10.4,
         "built": 1986,
         "decommissioned": 2015,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "NH2",
-            "PH3"
-        ]
+        "notes": null
     },
     "34": {
         "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
@@ -842,12 +490,7 @@
         "diameter": null,
         "built": 1971,
         "decommissioned": 1988,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "HCNH+",
-            "H3O+"
-        ]
+        "notes": null
     },
     "35": {
         "name": "Hat Creek Station 20-ft Telescope",
@@ -862,12 +505,7 @@
         "diameter": null,
         "built": 1965,
         "decommissioned": 1983,
-        "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate.",
-        "detects": 2,
-        "molecules": [
-            "H2O",
-            "NH3"
-        ]
+        "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate."
     },
     "36": {
         "name": "Submillimeter Array",
@@ -881,12 +519,7 @@
         "diameter": null,
         "built": 2003,
         "decommissioned": null,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "TiO",
-            "TiO2"
-        ]
+        "notes": null
     },
     "37": {
         "name": "Herschel Space Telescope",
@@ -901,17 +534,7 @@
         "diameter": null,
         "built": 2009,
         "decommissioned": 2013,
-        "notes": null,
-        "detects": 7,
-        "molecules": [
-            "O2",
-            "SH+",
-            "HCl+",
-            "ArH+",
-            "H2O+",
-            "H2Cl+",
-            "PH3"
-        ]
+        "notes": null
     },
     "38": {
         "name": "United Kingdom Infrared Telescope",
@@ -925,11 +548,7 @@
         "diameter": 3.8,
         "built": 1979,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "H3+"
-        ]
+        "notes": null
     },
     "39": {
         "name": "Stratospheric Observatory for Infrared Astronomy",
@@ -944,12 +563,7 @@
         "diameter": 2.5,
         "built": 2010,
         "decommissioned": null,
-        "notes": null,
-        "detects": 2,
-        "molecules": [
-            "SH",
-            "HeH+"
-        ]
+        "notes": null
     },
     "40": {
         "name": "Odin",
@@ -963,11 +577,7 @@
         "diameter": 1.1,
         "built": 2001,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "O2"
-        ]
+        "notes": null
     },
     "41": {
         "name": "Far Ultraviolet Spectroscopic Explorer",
@@ -981,11 +591,7 @@
         "diameter": null,
         "built": 1999,
         "decommissioned": 2007,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "N2"
-        ]
+        "notes": null
     },
     "42": {
         "name": "Kuiper Airborne Observatory",
@@ -1000,11 +606,7 @@
         "diameter": null,
         "built": 1974,
         "decommissioned": 1995,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "HCl"
-        ]
+        "notes": null
     },
     "43": {
         "name": "Tillinghast 60 inch",
@@ -1018,11 +620,7 @@
         "diameter": 1.5,
         "built": 1969,
         "decommissioned": null,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "C2"
-        ]
+        "notes": null
     },
     "44": {
         "name": "Aerobee-150 Rocket",
@@ -1036,11 +634,7 @@
         "diameter": null,
         "built": 1970,
         "decommissioned": 1970,
-        "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory.",
-        "detects": 1,
-        "molecules": [
-            "H2"
-        ]
+        "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory."
     },
     "45": {
         "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
@@ -1054,11 +648,7 @@
         "diameter": 26,
         "built": 1956,
         "decommissioned": 1978,
-        "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time.",
-        "detects": 1,
-        "molecules": [
-            "OH"
-        ]
+        "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time."
     },
     "46": {
         "name": "Mount Wilson 100-in",
@@ -1073,13 +663,7 @@
         "diameter": 2.54,
         "built": 1917,
         "decommissioned": 1989,
-        "notes": "Now known as the Hooker Telescope.",
-        "detects": 3,
-        "molecules": [
-            "CH",
-            "CN",
-            "CH+"
-        ]
+        "notes": "Now known as the Hooker Telescope."
     },
     "47": {
         "name": "Infrared Astronomical Satellite",
@@ -1093,10 +677,6 @@
         "diameter": 0.6,
         "built": 1983,
         "decommissioned": 1983,
-        "notes": null,
-        "detects": 1,
-        "molecules": [
-            "CO2"
-        ]
+        "notes": null
     }
 }

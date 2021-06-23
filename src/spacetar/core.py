@@ -5,7 +5,7 @@ import sqlalchemy as sql
 import sqlalchemy.orm as orm
 import importlib_metadata as imp
 
-from .chimie import SYMBOLS, composition, molecular_mass
+from .chimie import symbols, composition, molecular_mass
 
 
 try:
@@ -24,56 +24,7 @@ Engine = sql.create_engine(f"sqlite:///{_database}", future=True)
 
 class Molecule(Base):
 
-    """
-    Args:
-        id:             The ID of the molecule in the `molecules` table.
-        label:          The label used for the molecule in the table. This is used
-                        because steroeisomers can have the same name and/or molecular
-                        formula, so they cannot be used as unique labels. As of 2021,
-                        this is only true for **1** molecule.
-        name:           The name of the molecule.
-        formula:        The molecular formula of the molecule.
-        year:           The year the molecule was discovered.
-        sources:        The source(s) it was discovered in.
-        telescopes:     The telescope(s) it was discovered by.
-        wavelengths:    The wavelength(s) in the electromagnetic spectrum it was
-                        discovered in.
-        neutral:        Flag indicating if the molecule is neutral.
-        cation:         Flag indicating if the molecule is cation.
-        anion:          Flag indicating if the molecule is anion.
-        radical:        Flag indicating if the molecule is radical.
-        cyclic:         Flag indicating if the molecule is cyclic.
-        fullerene:      Flag indicating if the molecule is fullerene.
-        polyaromatic:   Flag indicating if the molecule is polyaromatic.
-        mass:           The molecular mass of the molecule, in a.m.u.
-        A, B, C:        Rotational constants for the molecule.
-        mua:            Dipole moment of the molecule along the axis of least moment of inertia.
-        mub:            Dipole moment of the molecule along the axis of intermediate moment of inertia.
-        muc:            Dipole moment of the molecule along the axis of greatest moment of inertia.
-        kappa:          Ray's asymmetry parameter for the molecule. This can be calculated from
-                        a molecule's rotational constants using: :math:`\\kappa = \\frac{2B - A - C}{A - C}`.
-        ice:            Flag indicating if the molecule has been discovered in interstellar ices.
-        ppd:            Flag indicating if the molecule has been discovered in protoplanetary disks.
-        exgal:          Flag indicating if the molecule has been discovered in extragalactic sources.
-        exo:            Flag indicating if the molecule has been discovered in exoplanets.
-        isos:           Isomers that have been detected in the ISM for this molecule, if any.
-        ppd_isos:       Isomers that have been detected in protoplanetary disks for this molecule, if any.
-        ism_ref:        References for the molecule's detection in the ISM.
-        lab_ref:        References for lab work that backs up this molecule's ISM detection.
-        ice_ref:        References for the molecule's detection in interstellar ices.
-        ice_lab_ref:    References for lab work that backs up this molecule's detection in interstellar ices.
-        ppd_ref:        References for the molecule's detection in protoplanetary disks.
-        ppd_lab_ref:    References for lab work that backs up this molecule's detection in protoplanetary disks.
-        ppd_isos_ref:   References for the detection of the isomers of this molecule in protoplanetary disks.
-        exgal_ref:      References for the molecule's detection in extragalactic sources.
-        exgal_lab_ref:  References for lab work that backs up this molecule's detection in extragalactic sources.
-        exgal_sources:  Extragalactic sources that this molecule has been detected in.
-        exo_ref:        References for the molecule's detection in exoplanets.
-        exo_lab_ref:    References for lab work that backs up this molecule's detection in exoplanets.
-        isos_ref:       References for the detection of this molecule's isomers in space.
-        isos_lab_ref:   References for lab work that backs up the detection of this molecule's isomers.
-        notes:          Notes about this molecule, if any.
-    """
+    """"""
 
     __tablename__: str = "molecules"
 
@@ -181,7 +132,6 @@ class Molecule(Base):
 
     exgal_ref = sql.Column(sql.String(500))
     exgal_lab_ref = sql.Column(sql.String(500))
-    exgal_sources = sql.Column(sql.String(50))
 
     exo_ref = sql.Column(sql.String(500))
     exo_lab_ref = sql.Column(sql.String(500))
@@ -204,7 +154,7 @@ class Molecule(Base):
 
         if self.formula:
             return {
-                SYMBOLS[Z - 1]: natoms
+                symbols[Z - 1]: natoms
                 for (
                     Z,
                     natoms,
@@ -248,7 +198,7 @@ class Molecule(Base):
 
         for key in self.composition.keys():
             if key in (
-                set(SYMBOLS)
+                set(symbols)
                 ^ {
                     "C",
                     "H",
@@ -275,19 +225,7 @@ class Molecule(Base):
 
 class Source(Base):
 
-    """
-    Args:
-        id:             The ID of the source in the table.
-        name:           The name of the source.
-        kind:           The kind/type of astronomical object the source is, such as a dark or
-                        line-of-sight (LOS) cloud, a star forming region (SFR), or a HI/HII
-                        region.
-        ra:             The right ascension of the source.
-        dec:            The declination of the source.
-        detects:        The number of molecules detected in this source.
-        molecules:      The molecules detected in this source.
-        simbad_url:     The URL for this source in the SIMBAD database, if it exists.
-    """
+    """"""
 
     __tablename__: str = "sources"
 
@@ -296,7 +234,7 @@ class Source(Base):
     kind = sql.Column(sql.String(50))
     ra = sql.Column(sql.String(50))
     dec = sql.Column(sql.String(50))
-    detects = sql.Column(sql.Integer)
+    exgal = sql.Column(sql.Boolean)
     simbad_url = sql.Column(sql.String(500))
 
     def __str__(self) -> str:
@@ -305,24 +243,17 @@ class Source(Base):
     def __repr__(self) -> str:
         return str(self)
 
+    @property
+    def detects(self):
+
+        """"""
+
+        return len(self.molecules)
+
 
 class Telescope(Base):
 
-    """
-    Args:
-        id:                 The ID of the telescope in the table.
-        name:               The full name of the telescope.
-        nick:               The short name (a.k.a. nick) of the telescope.
-        wavelengths:        The wavelength(s) in the electromagnetic spectrum
-                            this telescope operates in.
-        latitude:           The latitude of the telescope.
-        longitude:          The longitude of the telescope.
-        diameter:           The diameter of this telescope, if applicable.
-        built:              The year this telescope was built.
-        decommissioned:     The year this telescope was decommissioned, if applicable.
-        notes:              Notes about this telescope, if any.
-        detects:            The number of molecules detected by this telescope.
-    """
+    """"""
 
     __tablename__: str = "telescopes"
 
@@ -355,7 +286,6 @@ class Telescope(Base):
     built = sql.Column(sql.Integer)
     decommissioned = sql.Column(sql.Integer)
     notes = sql.Column(sql.String(500))
-    detects = sql.Column(sql.Integer)
 
     def __str__(self) -> str:
         return f"<Telescope: {self.name}>"
@@ -363,14 +293,17 @@ class Telescope(Base):
     def __repr__(self) -> str:
         return str(self)
 
+    @property
+    def detects(self):
+
+        """"""
+
+        return len(self.molecules)
+
 
 class Wavelength(Base):
 
-    """
-    Args:
-        id:     The ID of the wavelength band in the table.
-        name:   The name of the wavelength band.
-    """
+    """"""
 
     __tablename__: str = "wavelengths"
 
@@ -408,8 +341,8 @@ def _create_database():
             session.commit()
 
         for _ in track(
-            _raw("sources").values(),
-            description="[i][u]Storing sources: ",
+            _raw("galactic").values(),
+            description="[i][u]Storing galactic sources: ",
         ):
 
             source = Source(
@@ -417,7 +350,23 @@ def _create_database():
                 kind=_["kind"],
                 ra=_["ra"],
                 dec=_["dec"],
-                detects=_["detects"],
+                exgal=False,
+                simbad_url=_["simbad_url"],
+            )
+            session.add(source)
+            session.commit()
+
+        for _ in track(
+            _raw("extragalactic").values(),
+            description="[i][u]Storing extragalactic sources: ",
+        ):
+
+            source = Source(
+                name=_["name"],
+                kind=_["kind"],
+                ra=_["ra"],
+                dec=_["dec"],
+                exgal=True,
                 simbad_url=_["simbad_url"],
             )
             session.add(source)
@@ -437,7 +386,6 @@ def _create_database():
                 built=_["built"],
                 decommissioned=_["decommissioned"],
                 notes=_["notes"],
-                detects=_["detects"],
             )
 
             for name in _["wavelengths"]:
@@ -492,7 +440,6 @@ def _create_database():
                 ppd_isos_ref=_["ppd_isos_ref"],
                 exgal_ref=_["exgal_ref"],
                 exgal_lab_ref=_["exgal_lab_ref"],
-                exgal_sources=_["exgal_sources"],
                 exo_ref=_["exo_ref"],
                 exo_lab_ref=_["exo_lab_ref"],
                 isos_ref=_["isos_ref"],
@@ -512,6 +459,17 @@ def _create_database():
                     molecule.wavelengths.append(wavelength)
 
             for name in _["sources"]:
+                source = (
+                    session.query(Source)
+                    .filter_by(
+                        name=name,
+                    )
+                    .first()
+                )
+                if source is not None:
+                    molecule.sources.append(source)
+
+            for name in _["exgal_sources"]:
                 source = (
                     session.query(Source)
                     .filter_by(
