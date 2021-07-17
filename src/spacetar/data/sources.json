@@ -4,6 +4,10 @@
         "kind": "LOS Cloud",
         "ra": "06:10:48.0",
         "dec": "-06:12:00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL+890"
     },
     "2": {
@@ -11,6 +15,10 @@
         "kind": "LOS Cloud",
         "ra": "06:34:37.741",
         "dec": "+04:12:44.20",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL961"
     },
     "3": {
@@ -18,6 +26,10 @@
         "kind": "LOS Cloud",
         "ra": "06:41:10.06",
         "dec": "+09:29:35.8",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=AFGL989"
     },
     "4": {
@@ -25,6 +37,10 @@
         "kind": "Dark Cloud",
         "ra": "03:33:20.8",
         "dec": "+31:07:34",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%5BHKM99%5D+B1-b"
     },
     "5": {
@@ -32,6 +48,10 @@
         "kind": "Carbon Star",
         "ra": "21:02:18.27",
         "dec": "+36:41:37.0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+2688"
     },
     "6": {
@@ -39,6 +59,10 @@
         "kind": "Carbon Star",
         "ra": "04:42:53.62",
         "dec": "+36:06:53.40",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=CRL+618"
     },
     "7": {
@@ -46,6 +70,10 @@
         "kind": "LOS Cloud",
         "ra": "23:23:24.00",
         "dec": "+58:48:54.0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Cas+A"
     },
     "8": {
@@ -53,6 +81,10 @@
         "kind": "SNR",
         "ra": "05:34:31.94",
         "dec": "+22:00:52.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Crab+Nebula"
     },
     "9": {
@@ -60,6 +92,10 @@
         "kind": "LOS Cloud",
         "ra": "20:32:40.96",
         "dec": "+41:04:13.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%4011680932&Name=Schulte%2012"
     },
     "10": {
@@ -67,6 +103,10 @@
         "kind": "SFR",
         "ra": "20:39:01.6",
         "dec": "+42:19:38",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21"
     },
     "11": {
@@ -74,6 +114,10 @@
         "kind": "LOS Cloud",
         "ra": "20:39:01.6",
         "dec": "+42:19:38",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21"
     },
     "12": {
@@ -81,20 +125,32 @@
         "kind": "SFR",
         "ra": "20:39:01.01",
         "dec": "+42:22:50.22",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=DR+21%28OH%29"
     },
     "13": {
         "name": "G+0.693-0.027",
         "kind": "Shock",
-        "ra": "17:47:21.86",
-        "dec": "-28:22:43.00",
-        "simbad_url": null
+        "ra": "17:47:21.9",
+        "dec": "-28:21:27.00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%404986185&Name=GCM%20%2b0.693%20-0.027"
     },
     "14": {
         "name": "G327.3-0.6 LOS",
         "kind": "LOS Cloud",
         "ra": "15:53:05.0",
         "dec": "-54:35:24",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=G327.3-0.6"
     },
     "15": {
@@ -102,6 +158,10 @@
         "kind": "LOS Cloud",
         "ra": "18:27:18.43",
         "dec": "-25:04:02.84",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402520798&Name=GJ%20%202136%20B"
     },
     "16": {
@@ -109,6 +169,10 @@
         "kind": "SFR",
         "ra": null,
         "dec": null,
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": null
     },
     "17": {
@@ -116,6 +180,10 @@
         "kind": "LOS Cloud",
         "ra": "14:15:01.61",
         "dec": "-61:42:24.38",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+124314"
     },
     "18": {
@@ -123,6 +191,10 @@
         "kind": "LOS Cloud",
         "ra": "04:23:59.78",
         "dec": "24:18:03.53",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+27778"
     },
     "19": {
@@ -130,6 +202,10 @@
         "kind": "PDR",
         "ra": "05:40:53.936",
         "dec": "-02:28:00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%40828287&Name=NAME%20Horsehead%20Nebula"
     },
     "20": {
@@ -137,6 +213,10 @@
         "kind": "SNR",
         "ra": "06:16:43.4",
         "dec": "+22:32:24",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC+443G"
     },
     "21": {
@@ -144,6 +224,10 @@
         "kind": "Protostar",
         "ra": "16:32:22.56",
         "dec": "-24:28:31.8",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRAS+16293-2422"
     },
     "22": {
@@ -151,6 +235,10 @@
         "kind": "Carbon Star",
         "ra": "09:47:57.406",
         "dec": "+13:16:43.56",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRC%2B10216"
     },
     "23": {
@@ -158,6 +246,10 @@
         "kind": "HII",
         "ra": "20:04:45.59",
         "dec": "33:32:42.0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402904320&Name=NAME%20K%203-50A"
     },
     "24": {
@@ -165,6 +257,10 @@
         "kind": "Dark Cloud",
         "ra": "15:53:36.3",
         "dec": "-04:35:26.0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402622026&Name=LDN%20%20134"
     },
     "25": {
@@ -172,6 +268,10 @@
         "kind": "Dark Cloud",
         "ra": "04:39:53.0",
         "dec": "+25:45:00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1527"
     },
     "26": {
@@ -179,6 +279,10 @@
         "kind": "Dark Cloud",
         "ra": "05:04:16.6",
         "dec": "+25:10:48",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L1544"
     },
     "27": {
@@ -186,6 +290,10 @@
         "kind": "Dark Cloud",
         "ra": "15:54:12.2",
         "dec": "-02:49:42",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=L183"
     },
     "28": {
@@ -193,6 +301,10 @@
         "kind": "Dark Cloud",
         "ra": "18:17:35.0",
         "dec": "-04:39:48",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=L483"
     },
     "29": {
@@ -200,6 +312,10 @@
         "kind": "LOS Cloud",
         "ra": null,
         "dec": null,
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": null
     },
     "30": {
@@ -207,6 +323,10 @@
         "kind": "Dark Cloud",
         "ra": "15:42:52.4",
         "dec": "-34:07:53.5",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%405549180&Name=NAME%20Lupus-1A"
     },
     "31": {
@@ -214,6 +334,10 @@
         "kind": "LOS Cloud",
         "ra": "18:20:47",
         "dec": "-16:10:18",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17"
     },
     "32": {
@@ -221,6 +345,10 @@
         "kind": "PDR",
         "ra": "18:20:23.1",
         "dec": "-16:11:43",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M17+SW"
     },
     "33": {
@@ -228,6 +356,10 @@
         "kind": "LOS Cloud",
         "ra": "13:42:11.62",
         "dec": "+28:22:38.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M3"
     },
     "34": {
@@ -235,6 +367,10 @@
         "kind": "PDR",
         "ra": "05:41:43",
         "dec": "-01:50:30",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024"
     },
     "35": {
@@ -242,6 +378,10 @@
         "kind": "LOS Cloud",
         "ra": "05:41:43",
         "dec": "-01:50:30",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2024"
     },
     "36": {
@@ -249,6 +389,10 @@
         "kind": "YSO",
         "ra": "06:40:58",
         "dec": "+09:53:42",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+2264"
     },
     "37": {
@@ -256,6 +400,10 @@
         "kind": "SFR",
         "ra": "17:20:53.3",
         "dec": "-35:46:59",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I"
     },
     "38": {
@@ -263,6 +411,10 @@
         "kind": "LOS Cloud",
         "ra": "17:20:53.3",
         "dec": "-35:46:59",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402361705&Name=NAME%20NGC%206334-I"
     },
     "39": {
@@ -270,6 +422,10 @@
         "kind": "PDR",
         "ra": "21:01:36.9",
         "dec": "+68:09:48",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023"
     },
     "40": {
@@ -277,6 +433,10 @@
         "kind": "PN",
         "ra": "21:07:01.8",
         "dec": "+42:14:10",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7023"
     },
     "41": {
@@ -284,6 +444,10 @@
         "kind": "YSO",
         "ra": "23:13:37.2",
         "dec": "61:30:00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538"
     },
     "42": {
@@ -291,6 +455,10 @@
         "kind": "LOS Cloud",
         "ra": "23:13:37.2",
         "dec": "61:30:00",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+7538"
     },
     "43": {
@@ -298,6 +466,10 @@
         "kind": "SFR",
         "ra": "05:35:14.16",
         "dec": "-05:22:21.5",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+KL"
     },
     "44": {
@@ -305,9 +477,10 @@
         "kind": "PDR",
         "ra": "05:35:22.30",
         "dec": "-05:24:33.0",
-        "molecules": [
-            "CF+"
-        ],
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Orion+Bar"
     },
     "45": {
@@ -315,6 +488,10 @@
         "kind": "SFR",
         "ra": "16:25:35.14",
         "dec": "-23:26:49.9",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Rho+Oph+A"
     },
     "46": {
@@ -322,6 +499,10 @@
         "kind": "Sgr A",
         "ra": "17:45:40.0",
         "dec": "-29:00:28.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A"
     },
     "47": {
@@ -329,6 +510,10 @@
         "kind": "LOS Cloud",
         "ra": "17:45:40.0",
         "dec": "-29:00:28.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+A"
     },
     "48": {
@@ -336,6 +521,10 @@
         "kind": "SFR",
         "ra": "17:47:20.4",
         "dec": "-28:23:07",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2"
     },
     "49": {
@@ -343,6 +532,10 @@
         "kind": "LOS Cloud",
         "ra": "17:47:20.4",
         "dec": "-28:23:07",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Sgr+B2"
     },
     "50": {
@@ -350,6 +543,10 @@
         "kind": "PN",
         "ra": "17:45:35.29",
         "dec": "-46:05:23.7",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=PN%20Tc%201%20"
     },
     "51": {
@@ -357,6 +554,10 @@
         "kind": "Dark Cloud",
         "ra": "04:41:45.9",
         "dec": "+25:41:27",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=TMC-1"
     },
     "52": {
@@ -364,6 +565,10 @@
         "kind": "Oxygen Star",
         "ra": "07:22:58.3",
         "dec": "-25:46:03.2",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=VY+Canis+Majoris"
     },
     "53": {
@@ -371,6 +576,10 @@
         "kind": "LOS Cloud",
         "ra": "02:27:04.10",
         "dec": "+61:52:27.1",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3"
     },
     "54": {
@@ -378,6 +587,10 @@
         "kind": "SFR",
         "ra": "02:27:04.1",
         "dec": "+61:52:52",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W3+%28OH%29&NbIdent=1"
     },
     "55": {
@@ -385,6 +598,10 @@
         "kind": "LOS Cloud",
         "ra": "18:10:28.6",
         "dec": "-19:55:51",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W31"
     },
     "56": {
@@ -392,6 +609,10 @@
         "kind": "LOS Cloud",
         "ra": "18:14:14.0",
         "dec": "-17:55:50",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W33"
     },
     "57": {
@@ -399,6 +620,10 @@
         "kind": "LOS Cloud",
         "ra": "18:47:32.4",
         "dec": "-01:56:31",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43"
     },
     "58": {
@@ -406,6 +631,10 @@
         "kind": "LOS Cloud",
         "ra": "18:56:10.65",
         "dec": "+01:13:21.30",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W43"
     },
     "59": {
@@ -413,6 +642,10 @@
         "kind": "SFR",
         "ra": "19:10:19.6",
         "dec": "+09:07:42",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49"
     },
     "60": {
@@ -420,6 +653,10 @@
         "kind": "LOS Cloud",
         "ra": "19:10:19.6",
         "dec": "+09:07:42",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W49"
     },
     "61": {
@@ -427,6 +664,10 @@
         "kind": "SFR",
         "ra": "19:23:50",
         "dec": "+14:06:0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51"
     },
     "62": {
@@ -434,6 +675,10 @@
         "kind": "LOS Cloud",
         "ra": "19:23:50",
         "dec": "+14:06:0",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=W51"
     },
     "63": {
@@ -441,6 +686,219 @@
         "kind": "LOS Cloud",
         "ra": "03:58:57.9",
         "dec": "+35:47:27.74",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
         "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Xi+Per"
+    },
+    "64": {
+        "name": "M33",
+        "kind": "Galaxy",
+        "ra": "01:33:50.904",
+        "dec": "+30:39:35.79",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M33"
+    },
+    "65": {
+        "name": "NGC 6946",
+        "kind": "HII Galaxy",
+        "ra": "20:34:52.332",
+        "dec": "+60:09:13.24",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+6946"
+    },
+    "66": {
+        "name": "NGC 253",
+        "kind": "Seyfert Galaxy",
+        "ra": "00:47:33.134",
+        "dec": "-25:17:19.68",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+253"
+    },
+    "67": {
+        "name": "SMC",
+        "kind": "Galaxy",
+        "ra": "00:52:38.0",
+        "dec": "-72:48:01",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=SMC"
+    },
+    "68": {
+        "name": "NGC 4418",
+        "kind": "Seyfert 2 Galaxy",
+        "ra": "12:26:54.628",
+        "dec": "-00:52:39.51",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+4418"
+    },
+    "69": {
+        "name": "NGC 1068",
+        "kind": "Galaxy",
+        "ra": "02:42:40.771",
+        "dec": "-00:00:47.84",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+1068"
+    },
+    "70": {
+        "name": "M82",
+        "kind": "Interacting Galaxies",
+        "ra": "09:55:52.430",
+        "dec": "+69:40:46.93",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=M82"
+    },
+    "71": {
+        "name": "LMC",
+        "kind": "Galaxy",
+        "ra": "05:23:34.6",
+        "dec": "-69:45:22",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=LMC"
+    },
+    "72": {
+        "name": "QSO Mrk 231",
+        "kind": "Seyfert 1 Galaxy",
+        "ra": "12:56:14.2340989340",
+        "dec": "+56:52:25.238555193",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Mrk+231"
+    },
+    "73": {
+        "name": "NGC 4945",
+        "kind": "Seyfert 2 Galaxy",
+        "ra": "13:05:27.279",
+        "dec": "-49:28:04.44",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+4945"
+    },
+    "74": {
+        "name": "NGC 5128",
+        "kind": "Seyfert 2 Galaxy",
+        "ra": "13:05:27.279",
+        "dec": "-49:28:04.44",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC+4945"
+    },
+    "75": {
+        "name": "SMP LMC 11",
+        "kind": "Planetary Nebula",
+        "ra": "04:51:37.824",
+        "dec": "-67:05:16.63",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=SMP+LMC+11"
+    },
+    "76": {
+        "name": "Arp 220",
+        "kind": "Seyfert Galaxy",
+        "ra": "15:34:57.22396",
+        "dec": "+23:30:11.6084",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Arp+220"
+    },
+    "77": {
+        "name": "Cloverleaf LOS",
+        "kind": "Quasar",
+        "ra": "14:15:46.25",
+        "dec": "+11:29:43.4",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Cloverleaf"
+    },
+    "78": {
+        "name": "IC 342",
+        "kind": "Starburst Galaxy",
+        "ra": "03:46:48.514",
+        "dec": "+68:05:45.98",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC+342"
+    },
+    "79": {
+        "name": "Maffei 2",
+        "kind": "Galaxy",
+        "ra": "02:41:55.092",
+        "dec": "+59:36:14.73",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Maffei+2"
+    },
+    "80": {
+        "name": "PKS 1830-211 LOS",
+        "kind": "Blazar",
+        "ra": "18:33:39.92",
+        "dec": "-21:03:39.9",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=PKS+1830-211"
+    },
+    "81": {
+        "name": "IRAS 08572+3915",
+        "kind": "AGN",
+        "ra": "09:00:25.364",
+        "dec": "+39:03:54.23",
+        "exo": false,
+        "ppd": false,
+        "ice": false,
+        "exgal": true,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=IRAS+08572%2B3915"
+    },
+    "82": {
+        "name": "HD 209458b",
+        "kind": "Exoplanet",
+        "ra": "22:03:10.7729598762",
+        "dec": "+18:53:03.548248479",
+        "exo": true,
+        "ppd": false,
+        "ice": false,
+        "exgal": false,
+        "simbad_url": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=HD+209458b"
     }
 }

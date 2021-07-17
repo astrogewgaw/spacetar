@@ -1,22 +1,28 @@
 from typing import List
 from textwrap import dedent
 from rich.table import Table
+from rich.box import MINIMAL
 from rich.panel import Panel
 from rich.markdown import Markdown
 from rich.console import Console, RenderGroup
 
 from .core import _data, __version__
 from .chimie import formula_to_unicode
-from .core import Molecule, Source, Telescope
+from .core import _logo, Molecule, Source, Telescope
 
 
+"""
+"""
 console = Console()
 
 
+"""
+"""
 _kappa = "\u03BA"
 _copyright = "[b]spacetar[/] | Copyright (c) 2021 [b]Ujjwal Panda[/]"
 _commas = lambda _: ", ".join([f"{__.name}" for __ in _])
 _bullets = lambda _: "\n".join([f"[yellow]*[/] {__.name}" for __ in _])
+
 _kindof = lambda _: ", ".join(
     [
         name
@@ -27,11 +33,12 @@ _kindof = lambda _: ", ".join(
             "Radical": _.radical,
             "Cyclic": _.cyclic,
             "Fullerene": _.fullerene,
-            "Polyaromatic Hydrocarbon (PAH)": _.polyaromatic,
+            "Polyaromatic Hydrocarbon (PAH)": _.pah,
         }.items()
         if value
     ]
 )
+
 _detections = lambda _: Panel(
     "\n".join(
         [
@@ -44,6 +51,7 @@ _detections = lambda _: Panel(
     ),
     title=f"Number of molecules detected: {_.detects}",
 )
+
 _decommissioned = lambda _: (
     dedent(
         f"""
@@ -61,11 +69,18 @@ _decommissioned = lambda _: (
 )
 
 
+def render_help():
+
+    """"""
+
+    console.print(_logo, style="bold", highlight=False)
+
+
 def render_usage(kind: str = "cli"):
 
     """"""
 
-    if kind not in ["cli", "py"]:
+    if kind not in ["cli", "python"]:
         raise ValueError("There is no help for using spacetar this way. Exiting...")
 
     with console.pager(styles=True):
@@ -92,27 +107,42 @@ def summarize_molecule(molecule: Molecule):
     grid.add_column(justify="left")
     grid.add_column(justify="right")
 
-    grid.add_row("Formula:", f"{formula_to_unicode(str(molecule.formula))}")
-    grid.add_row("Molecular mass (in a.m.u.):", f"{molecule.mass}")
-    grid.add_row("Type:", f"{_kindof(molecule)}")
-    grid.add_row("Discovery year:", f"{molecule.year}")
-    grid.add_row("Detected in:", f"{_commas(molecule.sources)}")
-    grid.add_row("         by:", f"{_commas(molecule.telescopes)}")
-    grid.add_row("         in wavelength(s):", f"{_commas(molecule.wavelengths)}")
-    grid.add_row("[u]Rotational Constants[/]")
-    grid.add_row("                   A:", f"{molecule.A}")
-    grid.add_row("                   B:", f"{molecule.B}")
-    grid.add_row("                   C:", f"{molecule.C}")
-    grid.add_row("Ray's Asymmetry Parameter (\u03BA)", f"{molecule.kappa}")
+    grid.add_row(
+        "[u]Chemical Formula[/]:", f"{formula_to_unicode(str(molecule.formula))}"
+    )
+
+    grid.add_row("[u]Molecular mass (in a.m.u.)[/]:", f"{molecule.mass}")
+    grid.add_row("[u]Type[/]:", f"{_kindof(molecule)}")
+    grid.add_row("[u]Discovery in[/]:", f"{molecule.year}")
+    grid.add_row("[u]Detected in the following sources[/]:")
+
+    grid.add_row(
+        "\tISM/CSM:",
+        _commas([_ for _ in molecule.sources if (not _.exgal and not _.exo)]),
+    )
+    grid.add_row(
+        "\tExoplanets:",
+        _commas([_ for _ in molecule.sources if (not _.exgal and _.exo)]),
+    )
+    grid.add_row(
+        "\tExtragalactic:",
+        _commas([_ for _ in molecule.sources if (_.exgal and not _.exo)]),
+    )
+
+    grid.add_row("[u]Detected by[/]:", f"{_commas(molecule.telescopes)}")
+    grid.add_row("[u]Detected in wavelength(s)[/]:", f"{_commas(molecule.wavelengths)}")
+    grid.add_row("[u]Rotational Constants[/]:")
+    grid.add_row("\tA:", f"{molecule.A}")
+    grid.add_row("\tB:", f"{molecule.B}")
+    grid.add_row("\tC:", f"{molecule.C}")
+    grid.add_row(f"[u]Ray's Asymmetry Parameter ({_kappa})[/]:", f"{molecule.kappa}")
 
     _alsos = "\n".join(
         [
             f"[yellow1]*[/] {__}"
             for _, __ in [
-                (molecule.ice, "Interstellar Ices"),
-                (molecule.ppd, "Protoplanetary Disks"),
-                (molecule.exgal, "Extragalactic Sources"),
-                (molecule.exo, "Exoplanets"),
+                (molecule.ice, "[u]Interstellar Ices[/]"),
+                (molecule.ppd, "[u]Protoplanetary Disks[/]"),
             ]
             if _
         ]
@@ -151,7 +181,7 @@ def tabulate_molecules(molecules: List[Molecule]):
             [u]Number of molecules[/]:
             [b]{len(molecules)}[/]
             out of a total of
-            [b]220[/].
+            [b]240[/].
             """
         )
         .replace("\n", " ")
@@ -163,64 +193,29 @@ def tabulate_molecules(molecules: List[Molecule]):
 
     table.add_column("Space molecule", justify="left")
     table.add_column("Year discovered in", justify="center")
-    table.add_column("Source(s) detected in", justify="left")
+    table.add_column("ISM/CSM Source(s)", justify="left")
+    table.add_column("Exoplanetary Source(s)", justify="left")
+    table.add_column("Extragalactic Source(s)", justify="left")
     table.add_column("Telescope(s) detected by", justify="left")
     table.add_column("Wavelength band(s) detected in", justify="left")
-    table.add_column("Rotational constants", justify="center")
-    table.add_column(f"Ray's asymmetry parameter\n({_kappa})", justify="center")
 
     for molecule in molecules:
-
-        rot_consts = Table.grid(expand=True)
-        rot_consts.add_column(justify="left")
-        rot_consts.add_column(justify="right")
-
-        rot_consts.add_row(
-            "A:",
-            f"""{
-                molecule.A
-                if molecule.A is not None
-                else '[b u]None'
-            }""",
-        )
-
-        rot_consts.add_row(
-            "B:",
-            f"""{
-                molecule.B
-                if molecule.B is not None
-                else '[b u]None'
-            }""",
-        )
-
-        rot_consts.add_row(
-            "C:",
-            f"""{
-                molecule.C
-                if molecule.C is not None
-                else '[b u]None'
-            }""",
-        )
 
         table.add_row(
             dedent(
                 f"""
-                Formula: [b]{formula_to_unicode(str(molecule.formula))}[/]
-                Name: [i]{molecule.name}[/]
-                Type: {_kindof(molecule)}
-                Molecular mass: {molecule.mass:.2f} a.m.u.
+                [u]Formula[/]: [b]{formula_to_unicode(str(molecule.formula))}[/]
+                [u]Name[/]: [i]{molecule.name}[/]
+                [u]Type[/]: {_kindof(molecule)}
+                [u]Molecular mass[/]: {molecule.mass:.2f} a.m.u.
                 """
             ).strip(),
             f"{molecule.year:d}",
-            _bullets(molecule.sources),
+            _bullets([_ for _ in molecule.sources if (not _.exgal and not _.exo)]),
+            _bullets([_ for _ in molecule.sources if (not _.exgal and _.exo)]),
+            _bullets([_ for _ in molecule.sources if (_.exgal and not _.exo)]),
             _bullets(molecule.telescopes),
             _bullets(molecule.wavelengths),
-            rot_consts,
-            (
-                f"{_kappa} = {molecule.kappa:.6f}"
-                if molecule.kappa is not None
-                else f"{_kappa} = [b u]None"
-            ),
         )
 
     return table
@@ -266,7 +261,7 @@ def tabulate_sources(sources: List[Source]):
             [u]Number of sources[/]:
             [b]{len(sources)}[/]
             out of a total of
-            [b]63[/].
+            [b]83[/].
             """
         )
         .replace("\n", " ")
@@ -358,7 +353,7 @@ def tabulate_telescopes(telescopes: List[Telescope]):
             [u]Number of telescopes[/]:
             [b]{len(telescopes)}[/]
             out of a total of
-            [b]47[/]
+            [b]46[/]
             """
         )
         .replace("\n", " ")

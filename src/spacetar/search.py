@@ -1,6 +1,6 @@
 from math import inf
-from typing import List, Optional
 from sqlalchemy.orm import Session
+from typing import Any, List, Optional
 from sqlalchemy import or_, and_, select
 from sqlalchemy.sql.selectable import Select
 
@@ -45,7 +45,20 @@ class Results(list):
     def count(self):
         return len(self)
 
+    def search(
+        self,
+        column: str,
+        term: Any,
+    ):
+
+        """"""
+
+        return Results(filter(lambda _: getattr(_, column) == term, self))
+
     def most(self, column: str):
+
+        """"""
+
         return Results(
             filter(
                 lambda _: getattr(_, column)
@@ -61,6 +74,9 @@ class Results(list):
         )
 
     def least(self, column: str):
+
+        """"""
+
         return Results(
             filter(
                 lambda _: getattr(_, column)
@@ -80,6 +96,9 @@ class Results(list):
         column: str,
         between: List,
     ):
+
+        """"""
+
         return Results(
             [
                 result
@@ -94,6 +113,9 @@ class Results(list):
         column: str,
         reverse: bool = False,
     ):
+
+        """"""
+
         return Results(
             sorted(
                 self,
@@ -117,7 +139,7 @@ def search_molecule(
     radical: Optional[bool] = None,
     cyclic: Optional[bool] = None,
     fullerene: Optional[bool] = None,
-    polyaromatic: Optional[bool] = None,
+    pah: Optional[bool] = None,
     ice: Optional[bool] = None,
     ppd: Optional[bool] = None,
     exgal: Optional[bool] = None,
@@ -126,7 +148,7 @@ def search_molecule(
 
     """"""
 
-    return Results.from_query(
+    results = Results.from_query(
         (
             (
                 select(Molecule)
@@ -147,31 +169,40 @@ def search_molecule(
                         )
                     )
                 )
-            )
-            .where(Molecule.wavelengths.any(Wavelength.name.like(lk(wavelength, like))))
-            .where(
-                and_(
-                    *[
-                        getattr(Molecule, _) == __
-                        for _, __ in [
-                            ("neutral", neutral),
-                            ("cation", cation),
-                            ("anion", anion),
-                            ("radical", radical),
-                            ("cyclic", cyclic),
-                            ("fullerene", fullerene),
-                            ("polyaromatic", polyaromatic),
-                            ("ice", ice),
-                            ("ppd", ppd),
-                            ("exgal", exgal),
-                            ("exo", exo),
+                .where(
+                    Molecule.wavelengths.any(Wavelength.name.like(lk(wavelength, like)))
+                )
+                .where(
+                    and_(
+                        *[
+                            getattr(Molecule, _) == __
+                            for _, __ in [
+                                ("cyclic", cyclic),
+                                ("fullerene", fullerene),
+                                ("pah", pah),
+                                ("ice", ice),
+                                ("ppd", ppd),
+                                ("exgal", exgal),
+                                ("exo", exo),
+                            ]
+                            if __ is not None
                         ]
-                        if __ is not None
-                    ]
+                    )
                 )
             )
         )
-    ).orderby("year")
+    )
+
+    for _, __ in [
+        ("neutral", neutral),
+        ("cation", cation),
+        ("anion", anion),
+        ("radical", radical),
+    ]:
+        if __ is not None:
+            results = results.search(column=_, term=__)
+
+    return results.orderby("year")
 
 
 def search_source(

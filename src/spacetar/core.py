@@ -1,3 +1,4 @@
+import re
 import json
 import typing
 import pathlib
@@ -13,10 +14,20 @@ try:
 except imp.PackageNotFoundError:
     pass
 
+_sep = re.compile(r"\s*[,]\s*")
 _data = pathlib.Path(__file__).parent.resolve().joinpath("data")
 _database = _data / "spacetar.db"
-_bands = ["submm", "mm", "cm", "IR", "Vis", "UV"]
+_nullnum = lambda _: (_ if _ is not None else 0.0)
+_bands = ["sub-mm", "mm", "cm", "IR", "Vis", "UV"]
 _raw = lambda name: json.loads((_data / f"{name}.json").read_text())
+_logo = """
+                               __            
+   _________  ____ _________  / /_____ ______
+  / ___/ __ \/ __ `/ ___/ _ \/ __/ __ `/ ___/
+ (__  ) /_/ / /_/ / /__/  __/ /_/ /_/ / /    
+/____/ .___/\__,_/\___/\___/\__/\__,_/_/     
+    /_/                                      
+"""
 
 Base = orm.declarative_base()
 Engine = sql.create_engine(f"sqlite:///{_database}", future=True)
@@ -94,13 +105,9 @@ class Molecule(Base):
         lazy="selectin",
     )
 
-    neutral = sql.Column(sql.Boolean)
-    cation = sql.Column(sql.Boolean)
-    anion = sql.Column(sql.Boolean)
-    radical = sql.Column(sql.Boolean)
     cyclic = sql.Column(sql.Boolean)
     fullerene = sql.Column(sql.Boolean)
-    polyaromatic = sql.Column(sql.Boolean)
+    pah = sql.Column(sql.Boolean)
 
     A = sql.Column(sql.Float)
     B = sql.Column(sql.Float)
@@ -110,34 +117,19 @@ class Molecule(Base):
     mub = sql.Column(sql.Float)
     muc = sql.Column(sql.Float)
 
-    kappa = sql.Column(sql.Float)
-
     ice = sql.Column(sql.Boolean)
     ppd = sql.Column(sql.Boolean)
     exgal = sql.Column(sql.Boolean)
     exo = sql.Column(sql.Boolean)
 
+    ism_refs = sql.Column(sql.String(500))
+    lab_refs = sql.Column(sql.String(500))
+    exo_refs = sql.Column(sql.String(500))
+    exgal_refs = sql.Column(sql.String(500))
+
     isos = sql.Column(sql.String(50))
-    ppd_isos = sql.Column(sql.String(50))
-
-    ism_ref = sql.Column(sql.String(500))
-    lab_ref = sql.Column(sql.String(500))
-
-    ice_ref = sql.Column(sql.String(500))
-    ice_lab_ref = sql.Column(sql.String(500))
-
-    ppd_ref = sql.Column(sql.String(500))
-    ppd_lab_ref = sql.Column(sql.String(500))
-    ppd_isos_ref = sql.Column(sql.String(500))
-
-    exgal_ref = sql.Column(sql.String(500))
-    exgal_lab_ref = sql.Column(sql.String(500))
-
-    exo_ref = sql.Column(sql.String(500))
-    exo_lab_ref = sql.Column(sql.String(500))
-
-    isos_ref = sql.Column(sql.String(500))
-    isos_lab_ref = sql.Column(sql.String(500))
+    isos_refs = sql.Column(sql.String(500))
+    isos_lab_refs = sql.Column(sql.String(500))
 
     notes = sql.Column(sql.String(500))
 
@@ -172,6 +164,24 @@ class Molecule(Base):
         return sum([natom for natom in self.composition.values()])
 
     @property
+    def nelectrons(self):
+
+        """"""
+
+        return (
+            sum(
+                [
+                    Z * natom
+                    for (
+                        Z,
+                        natom,
+                    ) in composition(self.formula).items()
+                ]
+            )
+            - self.charge
+        )
+
+    @property
     def mass(self) -> float:
 
         """"""
@@ -190,6 +200,46 @@ class Molecule(Base):
             return composition(self.formula).get(0, 0)
         else:
             return 0
+
+    @property
+    def neutral(self) -> bool:
+
+        """"""
+
+        if self.charge == 0:
+            return True
+        else:
+            return False
+
+    @property
+    def cation(self):
+
+        """"""
+
+        if not self.neutral and (self.charge > 0):
+            return True
+        else:
+            return False
+
+    @property
+    def anion(self):
+
+        """"""
+
+        if not self.neutral and (self.charge < 0):
+            return True
+        else:
+            return False
+
+    @property
+    def radical(self):
+
+        """"""
+
+        if (self.nelectrons % 2) == 0:
+            return False
+        else:
+            return True
 
     @property
     def unsaturation(self):
@@ -222,6 +272,28 @@ class Molecule(Base):
                 + self.composition.get("F", 0) * -1
             )
 
+    @property
+    def kappa(self) -> typing.Optional[float]:
+
+        """"""
+
+        if any(
+            _ is not None
+            for _ in [
+                self.A,
+                self.B,
+                self.C,
+            ]
+        ):
+            if self.A == None and self.C == None:
+                return -1
+            else:
+                over = (2 * _nullnum(self.B)) - _nullnum(self.A) - _nullnum(self.C)
+                under = _nullnum(self.A) - _nullnum(self.C)
+                return over / under
+        else:
+            return None
+
 
 class Source(Base):
 
@@ -235,6 +307,7 @@ class Source(Base):
     ra = sql.Column(sql.String(50))
     dec = sql.Column(sql.String(50))
     exgal = sql.Column(sql.Boolean)
+    exo = sql.Column(sql.Boolean)
     simbad_url = sql.Column(sql.String(500))
 
     def __str__(self) -> str:
@@ -351,6 +424,7 @@ def _create_database():
                 ra=_["ra"],
                 dec=_["dec"],
                 exgal=False,
+                exo=False,
                 simbad_url=_["simbad_url"],
             )
             session.add(source)
@@ -367,6 +441,24 @@ def _create_database():
                 ra=_["ra"],
                 dec=_["dec"],
                 exgal=True,
+                exo=False,
+                simbad_url=_["simbad_url"],
+            )
+            session.add(source)
+            session.commit()
+
+        for _ in track(
+            _raw("exoplanets").values(),
+            description="[i][u]Storing exoplanetary sources: ",
+        ):
+
+            source = Source(
+                name=_["name"],
+                kind=_["kind"],
+                ra=_["ra"],
+                dec=_["dec"],
+                exgal=False,
+                exo=True,
                 simbad_url=_["simbad_url"],
             )
             session.add(source)
@@ -407,44 +499,31 @@ def _create_database():
             description="[i][u]Storing molecules: ",
         ):
             molecule = Molecule(
-                label=_["label"],
                 name=_["name"],
                 formula=_["formula"],
+                label=_["label"],
                 year=_["year"],
-                neutral=_["neutral"],
-                cation=_["cation"],
-                anion=_["anion"],
-                radical=_["radical"],
                 cyclic=_["cyclic"],
                 fullerene=_["fullerene"],
-                polyaromatic=_["polyaromatic"],
-                A=_["A"],
-                B=_["B"],
-                C=_["C"],
+                pah=_["pah"],
                 mua=_["mua"],
                 mub=_["mub"],
                 muc=_["muc"],
-                kappa=_["kappa"],
+                isos=_["isos"],
+                isos_refs=_["isos_refs"],
+                isos_lab_refs=_["isos_lab_refs"],
                 ice=_["ice"],
                 ppd=_["ppd"],
                 exgal=_["exgal"],
+                exgal_refs=_["exgal_refs"],
                 exo=_["exo"],
-                isos=_["isos"],
-                ppd_isos=_["ppd_isos"],
-                ism_ref=_["ism_ref"],
-                lab_ref=_["lab_ref"],
-                ice_ref=_["ice_ref"],
-                ice_lab_ref=_["ice_lab_ref"],
-                ppd_ref=_["ppd_ref"],
-                ppd_lab_ref=_["ppd_lab_ref"],
-                ppd_isos_ref=_["ppd_isos_ref"],
-                exgal_ref=_["exgal_ref"],
-                exgal_lab_ref=_["exgal_lab_ref"],
-                exo_ref=_["exo_ref"],
-                exo_lab_ref=_["exo_lab_ref"],
-                isos_ref=_["isos_ref"],
-                isos_lab_ref=_["isos_lab_ref"],
+                exo_refs=_["exo_refs"],
                 notes=_["notes"],
+                A=_["A"],
+                B=_["B"],
+                C=_["C"],
+                ism_refs=_["ism_refs"],
+                lab_refs=_["lab_refs"],
             )
 
             for name in _["wavelengths"]:
@@ -469,7 +548,24 @@ def _create_database():
                 if source is not None:
                     molecule.sources.append(source)
 
-            for name in _["exgal_sources"]:
+            for name in re.split(
+                _sep,
+                str(_["exgal_sources"]),
+            ):
+                source = (
+                    session.query(Source)
+                    .filter_by(
+                        name=name,
+                    )
+                    .first()
+                )
+                if source is not None:
+                    molecule.sources.append(source)
+
+            for name in re.split(
+                _sep,
+                str(_["exo_sources"]),
+            ):
                 source = (
                     session.query(Source)
                     .filter_by(

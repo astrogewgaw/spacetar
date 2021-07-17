@@ -11,6 +11,7 @@ from .search import (
 
 from .display import (
     console,
+    render_help,
     render_usage,
     render_version,
     summarize_source,
@@ -30,7 +31,8 @@ def main(**kwargs):
     """"""
 
     if kwargs["help"]:
-        pass
+        render_help()
+        sys.exit(0)
 
     if kwargs["version"]:
         render_version()
@@ -38,10 +40,31 @@ def main(**kwargs):
 
 
 @main.command()
+def help():
+
+    """"""
+
+    render_help()
+    sys.exit(0)
+
+
+@main.command()
+def version():
+
+    """"""
+
+    render_version()
+    sys.exit(0)
+
+
+@main.command()
 @click.argument(
     "kind",
     type=click.Choice(
-        ["cli", "py"],
+        [
+            "cli",
+            "python",
+        ],
         case_sensitive=False,
     ),
     default="cli",
@@ -76,7 +99,7 @@ def usage(kind: str):
 @click.option("--radical", is_flag=True, default=None)
 @click.option("--cyclic", is_flag=True, default=None)
 @click.option("--fullerene", is_flag=True, default=None)
-@click.option("--polyaromatic", is_flag=True, default=None)
+@click.option("--pah", is_flag=True, default=None)
 @click.option("--ice", is_flag=True, default=None)
 @click.option("--ppd", is_flag=True, default=None)
 @click.option("--exgal", is_flag=True, default=None)

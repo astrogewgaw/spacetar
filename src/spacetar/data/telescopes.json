@@ -1,7 +1,7 @@
 {
     "1": {
         "name": "Green Bank Telescope",
-        "nick": "GBT",
+        "nick": "GBT 100-m",
         "kind": "Single Dish",
         "wavelengths": [
             "cm",
@@ -16,11 +16,11 @@
     },
     "2": {
         "name": "IRAM 30-m",
-        "nick": "IRAM",
+        "nick": "IRAM 30-m",
         "kind": "Single Dish",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": 37.066161,
         "longitude": -3.392719,
@@ -65,7 +65,7 @@
         "kind": "Interferometer",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": -23.0193,
         "longitude": -67.7532,
@@ -147,7 +147,7 @@
     },
     "11": {
         "name": "Nobeyama 45-m Telescope",
-        "nick": "Nobeyama",
+        "nick": "Nobeyama 45-m",
         "kind": "Single Dish",
         "wavelengths": [
             "cm",
@@ -162,7 +162,7 @@
     },
     "12": {
         "name": "Effelsberg 100-m Telescope",
-        "nick": "Effelsberg",
+        "nick": "Effelsberg 100-m",
         "kind": "Single Dish",
         "wavelengths": [
             "cm"
@@ -204,20 +204,6 @@
         "notes": null
     },
     "15": {
-        "name": "Northern Extended Millimeter Array",
-        "nick": "NOEMA",
-        "kind": "Interferometer",
-        "wavelengths": [
-            "mm"
-        ],
-        "latitude": 44.63389,
-        "longitude": 5.90792,
-        "diameter": null,
-        "built": 2016,
-        "decommissioned": null,
-        "notes": null
-    },
-    "16": {
         "name": "Berkeley-Illinois-Maryland Array",
         "nick": "BIMA",
         "kind": "Interferometer",
@@ -231,7 +217,7 @@
         "decommissioned": 2005,
         "notes": "Became part of CARMA."
     },
-    "17": {
+    "16": {
         "name": "Caltech Owens Valley Radio Observatory Millimeter Array",
         "nick": "OVRO",
         "kind": "Interferometer",
@@ -245,9 +231,9 @@
         "decommissioned": 2005,
         "notes": "Became part of CARMA."
     },
-    "18": {
+    "17": {
         "name": "Yebes RT40-m Telescope",
-        "nick": "Yebes",
+        "nick": "Yebes 40-m",
         "kind": "Single Dish",
         "wavelengths": [
             "cm",
@@ -260,7 +246,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "19": {
+    "18": {
         "name": "Maryland Point Observatory Naval Research Lab 85-foot Telescope",
         "nick": "NRL 85-ft",
         "kind": "Single Dish",
@@ -274,7 +260,7 @@
         "decommissioned": 1994,
         "notes": "Primarily used for VLBI for much of its later years."
     },
-    "20": {
+    "19": {
         "name": "Australia Telescope Compact Array",
         "nick": "ATCA",
         "kind": "Interferometer",
@@ -288,7 +274,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "21": {
+    "20": {
         "name": "Parkes 64-m Telescope",
         "nick": "Parkes",
         "kind": "Single Dish",
@@ -302,13 +288,13 @@
         "decommissioned": null,
         "notes": null
     },
-    "22": {
+    "21": {
         "name": "ARO 10-m Submillimeter Telescope",
         "nick": "SMT",
         "kind": "Single Dish",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": 32.701658,
         "longitude": -109.871391,
@@ -317,13 +303,13 @@
         "decommissioned": null,
         "notes": null
     },
-    "23": {
+    "22": {
         "name": "Swedish-ESO 15-m Submillimetre Telescope",
         "nick": "SEST",
         "kind": "Single Dish",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": -29.26,
         "longitude": -70.73,
@@ -332,7 +318,7 @@
         "decommissioned": 2003,
         "notes": null
     },
-    "24": {
+    "23": {
         "name": "Goldstone 72-m (DSS-14; \"Mars\")",
         "nick": "Goldstone",
         "kind": "Single Dish",
@@ -346,7 +332,7 @@
         "decommissioned": null,
         "notes": "Originally a 64-m dish; become 70-m in 1988. Conceivably still PI Science Capable?"
     },
-    "25": {
+    "24": {
         "name": "Tokyo Astronomical Observatory Mitaka 6-m",
         "nick": "Mitaka 6-m",
         "kind": "Single Dish",
@@ -360,7 +346,7 @@
         "decommissioned": 2018,
         "notes": "Moved around quite a bit within Japan until returning (and retiring) in 2018."
     },
-    "26": {
+    "25": {
         "name": "McMath-Pierce Solar Telescope",
         "nick": "McMath Solar Telescope",
         "kind": "Optical",
@@ -376,7 +362,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "27": {
+    "26": {
         "name": "AT&T Bell Laboratories 7-m Telescope",
         "nick": "Bell 7-m",
         "kind": "Single Dish",
@@ -390,7 +376,7 @@
         "decommissioned": 1992,
         "notes": null
     },
-    "28": {
+    "27": {
         "name": "NASA Infrared Telescope Facility",
         "nick": "IRTF",
         "kind": "Optical",
@@ -404,7 +390,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "29": {
+    "28": {
         "name": "Mayall 4-m Telescope",
         "nick": "KPNO 4-m",
         "kind": "Optical",
@@ -418,7 +404,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "30": {
+    "29": {
         "name": "Onsala 20-m Telescope",
         "nick": "Onsala 20-m",
         "kind": "Single Dish",
@@ -433,7 +419,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "31": {
+    "30": {
         "name": "Five College Radio Observatory 14-m Telescope",
         "nick": "FCRAO 14-m",
         "kind": "Single Dish",
@@ -448,13 +434,13 @@
         "decommissioned": 2005,
         "notes": null
     },
-    "32": {
+    "31": {
         "name": "Atacama Pathfinder Experiment",
         "nick": "APEX",
         "kind": "Single Dish",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": -23.0058,
         "longitude": -67.7592,
@@ -463,13 +449,13 @@
         "decommissioned": null,
         "notes": null
     },
-    "33": {
+    "32": {
         "name": "Caltech Submillimeter Observatory",
         "nick": "CSO",
         "kind": "Single Dish",
         "wavelengths": [
             "mm",
-            "submm"
+            "sub-mm"
         ],
         "latitude": 19.8225,
         "longitude": -155.70694,
@@ -478,7 +464,7 @@
         "decommissioned": 2015,
         "notes": null
     },
-    "34": {
+    "33": {
         "name": "University of Texas Millimeter Wave Observatory 4.9-m Telescope",
         "nick": "MWO 4.9-m",
         "kind": "Single Dish",
@@ -492,7 +478,7 @@
         "decommissioned": 1988,
         "notes": null
     },
-    "35": {
+    "34": {
         "name": "Hat Creek Station 20-ft Telescope",
         "nick": "Hat Creek 20-ft",
         "kind": "Single Dish",
@@ -507,7 +493,7 @@
         "decommissioned": 1983,
         "notes": "Best build date found was \"mid 1960s\", so 1965 is an estimate.  It appears to have either been subsummed into BIMA or decommissioned when BIMA came online.  The decommissioning date is an estimate."
     },
-    "36": {
+    "35": {
         "name": "Submillimeter Array",
         "nick": "SMA",
         "kind": "Interferometer",
@@ -521,12 +507,12 @@
         "decommissioned": null,
         "notes": null
     },
-    "37": {
+    "36": {
         "name": "Herschel Space Telescope",
         "nick": "Herschel",
         "kind": "Space",
         "wavelengths": [
-            "submm",
+            "sub-mm",
             "IR"
         ],
         "latitude": null,
@@ -536,7 +522,7 @@
         "decommissioned": 2013,
         "notes": null
     },
-    "38": {
+    "37": {
         "name": "United Kingdom Infrared Telescope",
         "nick": "UKIRT",
         "kind": "Optical",
@@ -550,12 +536,12 @@
         "decommissioned": null,
         "notes": null
     },
-    "39": {
+    "38": {
         "name": "Stratospheric Observatory for Infrared Astronomy",
         "nick": "SOFIA",
         "kind": "Airborne",
         "wavelengths": [
-            "submm",
+            "sub-mm",
             "IR"
         ],
         "latitude": null,
@@ -565,12 +551,12 @@
         "decommissioned": null,
         "notes": null
     },
-    "40": {
+    "39": {
         "name": "Odin",
         "nick": "Odin",
         "kind": "Space",
         "wavelengths": [
-            "submm"
+            "sub-mm"
         ],
         "latitude": null,
         "longitude": null,
@@ -579,7 +565,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "41": {
+    "40": {
         "name": "Far Ultraviolet Spectroscopic Explorer",
         "nick": "FUSE",
         "kind": "Space",
@@ -593,12 +579,12 @@
         "decommissioned": 2007,
         "notes": null
     },
-    "42": {
+    "41": {
         "name": "Kuiper Airborne Observatory",
         "nick": "KAO",
         "kind": "Airborne",
         "wavelengths": [
-            "submm",
+            "sub-mm",
             "IR"
         ],
         "latitude": null,
@@ -608,7 +594,7 @@
         "decommissioned": 1995,
         "notes": null
     },
-    "43": {
+    "42": {
         "name": "Tillinghast 60 inch",
         "nick": "Mt. Hopkins 60-in",
         "kind": "Optical",
@@ -622,7 +608,7 @@
         "decommissioned": null,
         "notes": null
     },
-    "44": {
+    "43": {
         "name": "Aerobee-150 Rocket",
         "nick": "Aerobee-150 Rocket",
         "kind": "Airborne",
@@ -636,7 +622,7 @@
         "decommissioned": 1970,
         "notes": "They literally put a spectrometer on a rocket and shot it into the sky, then used the same spectrometer to measure H2 in the laboratory."
     },
-    "45": {
+    "44": {
         "name": "Lincoln Laboratory Millstone Hill Observatory 84-ft",
         "nick": "Millstone Hill 84-ft",
         "kind": "Single Dish",
@@ -650,7 +636,7 @@
         "decommissioned": 1978,
         "notes": "Originally the Ballistic Missile Early Warning System radar antenna.  Decommissioning date is a best guess based on the installation of larger telescopes to the site at that time."
     },
-    "46": {
+    "45": {
         "name": "Mount Wilson 100-in",
         "nick": "Mt. Wilson",
         "kind": "Optical",
@@ -665,7 +651,7 @@
         "decommissioned": 1989,
         "notes": "Now known as the Hooker Telescope."
     },
-    "47": {
+    "46": {
         "name": "Infrared Astronomical Satellite",
         "nick": "IRAS",
         "kind": "Space",

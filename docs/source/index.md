@@ -4,9 +4,9 @@
 :maxdepth: 1
 :caption: "Map:"
 
+naming.md
 install.md
-py_usage.md
-cli_usage.md
+py_usage.ipynb
 contributing.md
 reference.md
 ```
