@@ -1,4 +1,4 @@
-name: Test spacetar.
+name: tests
 
 on: [push]
 

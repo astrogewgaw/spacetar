@@ -1,4 +1,4 @@
-name: Lint spacetar.
+name: lint
 
 on: [push]
 

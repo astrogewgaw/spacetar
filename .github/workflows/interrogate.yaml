@@ -1,4 +1,4 @@
-name: Interrogate documentation.
+name: interrogate
 
 on: [push]
 

@@ -1,4 +1,10 @@
+<div align="center">
+
 # spacetar
+
+<br/><br/>
+<img src="./images/header.svg" alt="spacetar" align="center">
+<br/><br/>
 
 ![Tests][tests]
 [![Coverage Status][coveralls-badge]][coveralls]
@@ -6,9 +12,12 @@
 [![Uses Black][black-badge]][black]
 ![MIT License][license-badge]
 [![Docs Status][docs-badge]][docs]
-[![Docs Coverage][interrogate-badge]][interrogate]
 
 ## Space molecules 🧪 ⚗️ in your terminal 💻 !
+
+</div>
+
+<br/>
 
 <div align="justify">
 
@@ -75,15 +84,15 @@ Excited 😁? Check out the [**docs**][docs] for more info on how to install and
 [interrogate]: https://interrogate.readthedocs.io/en/latest
 [discuss]: https://github.com/astrogewgaw/spacetar/discussions
 [census-repo]: https://github.com/bmcguir2/astromolecule_census
-[license-badge]: https://img.shields.io/badge/License-MIT-green.svg
 [coveralls]: https://coveralls.io/github/astrogewgaw/spacetar?branch=main
-[black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
-[docs-badge]: https://readthedocs.org/projects/spacetar/badge/?version=latest
-[tests]: https://github.com/astrogewgaw/spacetar/actions/workflows/tests.yaml/badge.svg
+[docs-badge]: https://img.shields.io/readthedocs/spacetar?style=for-the-badge
 [Sgr-B2]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/Sgr_B2.png
 [ethanol]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/ethanol.png
-[gitmoji-badge]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square
-[coveralls-badge]: https://coveralls.io/repos/github/astrogewgaw/spacetar/badge.svg?branch=main
+[black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
+[gitmoji-badge]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge
+[license-badge]: https://img.shields.io/github/license/astrogewgaw/spacetar?style=for-the-badge
+[tests]: https://img.shields.io/github/workflow/status/astrogewgaw/spacetar/tests?style=for-the-badge
+[coveralls-badge]: https://img.shields.io/coveralls/github/astrogewgaw/spacetar/main?style=for-the-badge
 [molecules-table]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/molecules_table.png
 [telescopes-table]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/telescopes_table.png
 [interrogate-badge]: https://raw.githubusercontent.com/astrogewgaw/spacetar/main/images/interrogate_badge.svg
