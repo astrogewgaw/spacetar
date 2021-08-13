@@ -68,7 +68,7 @@ Want to know when the *first molecule* was discovered in space 🥇 ? Or which t
 Excited 😁? Check out the [**docs**][docs] for more info on how to install and use spacetar, both from within Python and from the command line. If you find this project fun, star ⭐ the [**repo**][repo] on GitHub! You can also rave about spacetar, or bring up your ideas 💡 / feature requests, in the [**discussions**][discuss] or via [**email**][me-email]. You can also make an [**issue**][issues] if run into a bug 🐛.
 
 [**spacetar**][repo], like everything else, stands on the *shoulders of giants*. It uses data compiled by [*Prof. Brett McGuire*][brett-github] for his paper 📝, the [*2018 Census of Interstellar, Circumstellar, Extragalactic, Protoplanetary Disk, and Exoplanetary Molecules*][census-paper]. You can find the database, along with some of the code that inspired [**spacetar**][repo] in the first place, in the associated [*GitHub repository*][census-repo]. Thank you Brett for the wonderful work 😄 ! If you end up using the database in [**spacetar**][repo] for something that might lead to a scientific publication, don't forget to cite the associated paper above 👍.
-    
+
 </div>
 
 [gitmoji]: https://gitmoji.dev
